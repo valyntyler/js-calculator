@@ -1,15 +1,37 @@
 body {
     background-color: rgb(32, 32, 32);
+    display: flex;
+    justify-content: center;
 }
 
 .calculator {
-    background-color: aquamarine;
+    padding: 2%;
+    background-color: rgb(153, 153, 153);
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+    width: 50%;
+    aspect-ratio: 2/3;
+}
+
+.panel {
+    height: 25%;
+    background-color: darkslategray;
+}
+
+.calculation {
+    background-color: blanchedalmond;
+    display: flex;
+    justify-content: end;
 }
 
 .buttons {
-    background-color: brown;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.button {
+    aspect-ratio: 4/3;
 }
 
 .numbers {
@@ -18,7 +40,7 @@ body {
     grid-column: span 3;
 }
 
-.operations {
+.operators{
     display: grid;
 }
 
@@ -28,6 +50,7 @@ body {
     grid-column: span 4;
 }
 
-.equals {
+#equals {
     grid-column: span 2;
+    aspect-ratio: 8/3;
 }
