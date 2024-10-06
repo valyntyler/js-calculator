@@ -4,6 +4,7 @@ import Operation from "./Operation.js"
 const form = document.querySelector('#calculator-form')
 const fnum = document.querySelector('#fnum')
 const snum = document.querySelector('#snum')
+const operator = document.querySelector('#operator')
 const result = document.querySelector('#result')
 
 var calculation = new Calculation(0, 0, Operation.Add)
@@ -18,5 +19,6 @@ form.addEventListener('submit', function(event) {
 form.addEventListener('change', function(event) {
     calculation.first_number = parseFloat(fnum.value)
     calculation.second_number = parseFloat(snum.value)
+    calculation.operation = new Operation(operator.value)
     result.innerHTML = calculation.calculate()
 })
