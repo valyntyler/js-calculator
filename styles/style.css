@@ -2,4 +2,32 @@ body {
     background-color: rgb(32, 32, 32);
 }
 
+.calculator {
+    background-color: aquamarine;
+}
 
+.buttons {
+    background-color: brown;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.numbers {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column: span 3;
+}
+
+.operations {
+    display: grid;
+}
+
+.controls {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-column: span 4;
+}
+
+.equals {
+    grid-column: span 2;
+}
