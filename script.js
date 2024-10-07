@@ -27,9 +27,11 @@ const calc = new Calculator(
 number_buttons.forEach((element) => {
   element.addEventListener("click", function () {
     if (calc.getOperation?.operation == null) {
-      calc.setFirstNumber = (calc.getFirstNumber ? calc.getFirstNumber : "") + element.innerHTML
+      calc.setFirstNumber =
+        (calc.getFirstNumber ? calc.getFirstNumber : "") + element.innerHTML;
     } else {
-      calc.setSecondNumber = (calc.getSecondNumber ? calc.getSecondNumber : "") + element.innerHTML
+      calc.setSecondNumber =
+        (calc.getSecondNumber ? calc.getSecondNumber : "") + element.innerHTML;
     }
   });
 });
@@ -41,11 +43,20 @@ operator_buttons.forEach((element) => {
   });
 });
 
+c_button.addEventListener("click", function () {
+  if (calc.getSecondNumber != null) {
+    calc.setSecondNumber = null;
+  } else if (calc.getOperation.operation != null) {
+    calc.setOperation = new Operation(null);
+  } else if (calc.getFirstNumber != null) {
+    calc.setFirstNumber = null;
+  }
+});
+
 ac_button.addEventListener("click", function () {
-  console.log('cleared all')
   calc.setFirstNumber = null;
   calc.setSecondNumber = null;
-  calc.setOperation = null;
+  calc.setOperation = new Operation(null);
 });
 
 window.addEventListener("load", function () {
