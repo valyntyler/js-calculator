@@ -4,13 +4,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="styles/style.css" />
+  <link rel="stylesheet" href="styles.css" />
   <title>Calculator</title>
 </head>
 
 <body>
-  <form method="get" class="calculator" id="calculator-form">
-    <div class="panel">
+  <form method="get" id="calculator-form">
+    <!-- <div class="panel">
       <div id="previous-calculation">
         <div id="previous-first-number"></div>
         <div id="previous-operation"></div>
@@ -30,20 +30,22 @@
         </div>
         <input type="number" step="any" class="number" name="snum" id="second-number" required></input>
       </div>
-    </div>
-    <div class="buttons">
-      <div class="clears">
-        <button type="reset" class="button clear-button" id="all-clear">AC</button>
+    </div> -->
+    <div id="keypad">
+      <!-- clear subgrid -->
+      <div id="clear-buttons-subgrid">
+        <button type="button" class="button clear-button" id="all-clear">AC</button>
         <button type="button" class="button clear-button" id="clear">C</button>
       </div>
-      <div class="operator-buttons">
-        <button type="button" class="button operator-button" id="div-button" name="div">÷</button>
-        <button type="button" class="button operator-button" id="mul-button" name="mul">×</button>
-        <button type="button" class="button operator-button" id="sub-button" name="sub">-</button>
-        <button type="button" class="button operator-button" id="add-button" name="add">+</button>
-        <button type="submit" class="button" id="equals">=</button>
+      <!-- operator subgrid -->
+      <div id="operator-buttons-subgrid">
+        <button type="button" class="button operator-button" id="div">÷</button>
+        <button type="button" class="button operator-button" id="mul">×</button>
+        <button type="button" class="button operator-button" id="sub">-</button>
+        <button type="button" class="button operator-button" id="add">+</button>
       </div>
-      <div class="number-buttons">
+      <!-- number subgrid -->
+      <div id="number-buttons-subgrid">
         <button type="button" class="button number-button">7</button>
         <button type="button" class="button number-button">8</button>
         <button type="button" class="button number-button">9</button>
@@ -57,6 +59,8 @@
         <button type="button" class="button number-button">0</button>
         <button type="button" class="button number-button">.</button>
       </div>
+      <!-- equals button -->
+      <button type="submit" class="button" id="equals">=</button>
     </div>
   </form>
   <script src="script.js" type="module"></script>
