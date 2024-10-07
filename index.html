@@ -7,41 +7,49 @@
     <title>Calculator</title>
   </head>
   <body>
-    <div class="calculator">
+    <form method="get" class="calculator" id="calculator-form">
       <div class="panel">
-        <form class="calculation">
-          <input type="number" class="number" id="first-number"></input>
-          <div class="operation" id="operation">+</div>
-          <input type="number" class="number" id="second-number"></input>
-        </form>
+        <div class="calculation">
+          <div class="numbers">
+            <input type="number" step="any" class="number" name="fnum" id="first-number" required></input>
+            <input type="number" step="any" class="number" name="snum" id="second-number" required></input>
+          </div>
+          <select name="oper" id="operation" required>
+            <option value="add">+</option>
+            <option value="sub">-</option>
+            <option value="mul">×</option>
+            <option value="div">÷</option>
+          </select>
+        </div>
       </div>
       <div class="buttons">
         <div class="clears">
-          <button class="button clear-button" id="all-clear">AC</button>
-          <button class="button clear-button" id="clear">C</button>
+          <button type="button" class="button clear-button" id="all-clear">AC</button>
+          <button type="button" class="button clear-button" id="clear">C</button>
         </div>
-        <div class="operators">
-          <button class="button operator-button">÷</button>
-          <button class="button operator-button">×</button>
-          <button class="button operator-button">-</button>
-          <button class="button operator-button">+</button>
-          <button class="button" id="equals">=</button>
+        <div class="operator-buttons">
+          <button type="button" class="button operator-button" id="div-button" name="div">÷</button>
+          <button type="button" class="button operator-button" id="mul-button" name="mul">×</button>
+          <button type="button" class="button operator-button" id="sub-button" name="sub">-</button>
+          <button type="button" class="button operator-button" id="add-button" name="add">+</button>
+          <button type="submit" class="button" id="equals">=</button>
         </div>
-        <div class="numbers">
-          <button class="button number-button">7</button>
-          <button class="button number-button">8</button>
-          <button class="button number-button">9</button>
-          <button class="button number-button">4</button>
-          <button class="button number-button">5</button>
-          <button class="button number-button">6</button>
-          <button class="button number-button">1</button>
-          <button class="button number-button">2</button>
-          <button class="button number-button">3</button>
-          <button class="button number-button">00</button>
-          <button class="button number-button">0</button>
-          <button class="button number-button">.</button>
+        <div class="number-buttons">
+          <button type="button" class="button number-button">7</button>
+          <button type="button" class="button number-button">8</button>
+          <button type="button" class="button number-button">9</button>
+          <button type="button" class="button number-button">4</button>
+          <button type="button" class="button number-button">5</button>
+          <button type="button" class="button number-button">6</button>
+          <button type="button" class="button number-button">1</button>
+          <button type="button" class="button number-button">2</button>
+          <button type="button" class="button number-button">3</button>
+          <button type="button" class="button number-button">00</button>
+          <button type="button" class="button number-button">0</button>
+          <button type="button" class="button number-button">.</button>
         </div>
-    </div>
+      </div>
+    </form>
     <script src="script.js" type="module"></script>
   </body>
 </html>
