@@ -1,19 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="styles/style.css" />
-    <title>Calculator</title>
-  </head>
-  <body>
-    <form method="get" class="calculator" id="calculator-form">
-      <div class="panel">
-        <div class="calculation">
-          <div class="numbers">
-            <input type="number" step="any" class="number" name="fnum" id="first-number" required></input>
-            <input type="number" step="any" class="number" name="snum" id="second-number" required></input>
-          </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="styles/style.css" />
+  <title>Calculator</title>
+</head>
+
+<body>
+  <form method="get" class="calculator" id="calculator-form">
+    <div class="panel">
+      <div id="previous-calculation">
+        <div id="previous-first-number"></div>
+        <div id="previous-operation"></div>
+        <div id="previous-second-number"></div>
+        =
+      </div>
+      <div class="calculation">
+        <div class="calculation-first-row">
+          <input type="number" step="any" class="number" name="fnum" id="first-number" required></input>
           <select name="oper" id="operation" required>
             <option disabled selected value></option>
             <option value="add">+</option>
@@ -22,35 +28,38 @@
             <option value="div">÷</option>
           </select>
         </div>
+        <input type="number" step="any" class="number" name="snum" id="second-number" required></input>
       </div>
-      <div class="buttons">
-        <div class="clears">
-          <button type="reset" class="button clear-button" id="all-clear">AC</button>
-          <button type="button" class="button clear-button" id="clear">C</button>
-        </div>
-        <div class="operator-buttons">
-          <button type="button" class="button operator-button" id="div-button" name="div">÷</button>
-          <button type="button" class="button operator-button" id="mul-button" name="mul">×</button>
-          <button type="button" class="button operator-button" id="sub-button" name="sub">-</button>
-          <button type="button" class="button operator-button" id="add-button" name="add">+</button>
-          <button type="submit" class="button" id="equals">=</button>
-        </div>
-        <div class="number-buttons">
-          <button type="button" class="button number-button">7</button>
-          <button type="button" class="button number-button">8</button>
-          <button type="button" class="button number-button">9</button>
-          <button type="button" class="button number-button">4</button>
-          <button type="button" class="button number-button">5</button>
-          <button type="button" class="button number-button">6</button>
-          <button type="button" class="button number-button">1</button>
-          <button type="button" class="button number-button">2</button>
-          <button type="button" class="button number-button">3</button>
-          <button type="button" class="button number-button">00</button>
-          <button type="button" class="button number-button">0</button>
-          <button type="button" class="button number-button">.</button>
-        </div>
+    </div>
+    <div class="buttons">
+      <div class="clears">
+        <button type="reset" class="button clear-button" id="all-clear">AC</button>
+        <button type="button" class="button clear-button" id="clear">C</button>
       </div>
-    </form>
-    <script src="script.js" type="module"></script>
-  </body>
+      <div class="operator-buttons">
+        <button type="button" class="button operator-button" id="div-button" name="div">÷</button>
+        <button type="button" class="button operator-button" id="mul-button" name="mul">×</button>
+        <button type="button" class="button operator-button" id="sub-button" name="sub">-</button>
+        <button type="button" class="button operator-button" id="add-button" name="add">+</button>
+        <button type="submit" class="button" id="equals">=</button>
+      </div>
+      <div class="number-buttons">
+        <button type="button" class="button number-button">7</button>
+        <button type="button" class="button number-button">8</button>
+        <button type="button" class="button number-button">9</button>
+        <button type="button" class="button number-button">4</button>
+        <button type="button" class="button number-button">5</button>
+        <button type="button" class="button number-button">6</button>
+        <button type="button" class="button number-button">1</button>
+        <button type="button" class="button number-button">2</button>
+        <button type="button" class="button number-button">3</button>
+        <button type="button" class="button number-button">00</button>
+        <button type="button" class="button number-button">0</button>
+        <button type="button" class="button number-button">.</button>
+      </div>
+    </div>
+  </form>
+  <script src="script.js" type="module"></script>
+</body>
+
 </html>

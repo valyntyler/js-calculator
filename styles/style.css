@@ -20,8 +20,21 @@ body {
     background-color: darkslategray;
     border: 2dvw solid black;
     display: flex;
+    flex-direction: column;
     justify-content: end;
     align-items: center;
+}
+
+.calculation-first-row {
+    background-color: orange;
+    display: flex;
+}
+
+#previous-calculation {
+    background-color: rgb(25, 78, 23);
+    display: flex;
+    justify-content: end;
+    width: 100%;
 }
 
 .number {
@@ -31,6 +44,7 @@ body {
 .calculation {
     background-color: slategray;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: start;
 }

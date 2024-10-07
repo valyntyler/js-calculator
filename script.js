@@ -4,6 +4,10 @@ import Operation from "./src/Operation.js";
 // elements
 const calc_form = document.querySelector("#calculator-form");
 
+const prev_first_number = document.querySelector("#previous-first-number");
+const prev_second_number = document.querySelector("#previous-second-number");
+const prev_operation = document.querySelector("#previous-operation");
+
 const first_number = document.querySelector("#first-number");
 const second_number = document.querySelector("#second-number");
 const operation_select = document.querySelector("#operation");
@@ -14,12 +18,20 @@ const c_button = document.querySelector("#clear");
 const ac_button = document.querySelector("#all-clear");
 const equals_button = document.querySelector("#equals");
 
-// calculator object
+// calculator objects
 const calc = new Calculator(
   (onchange = function () {
     first_number.value = calc.getFirstNumber;
     second_number.value = calc.getSecondNumber;
     operation_select.value = calc.getOperation?.operation;
+  })
+);
+
+const prev = new Calculator(
+  (onchange = function () {
+    prev_first_number.innerHTML = prev.getFirstNumber;
+    prev_second_number.innerHTML = prev.getSecondNumber;
+    prev_operation.innerHTML = prev.getOperation?.symbol();
   })
 );
 
@@ -60,5 +72,8 @@ ac_button.addEventListener("click", function () {
 });
 
 window.addEventListener("load", function () {
-  calc.parseUrl(window.location.search);
+  prev.parseUrl(window.location.search);
+  calc.setFirstNumber = prev.calculate()
+  calc.setSecondNumber = null
+  calc.setOperation = new Operation(null)
 });

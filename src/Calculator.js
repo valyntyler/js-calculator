@@ -48,6 +48,6 @@ export default class Calculator {
   }
 
   calculate() {
-    return this.setOperation.calculate(this.getFirstNumber, this.getSecondNumber);
+    return this.getOperation.calculate(this.getFirstNumber, this.getSecondNumber);
   }
 }
