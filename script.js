@@ -18,15 +18,7 @@ const c_button = document.querySelector("#clear");
 const ac_button = document.querySelector("#all-clear");
 const equals_button = document.querySelector("#equals");
 
-// calculator objects
-const calc = new Calculator(
-  (onchange = function () {
-    first_number.value = calc.getFirstNumber;
-    second_number.value = calc.getSecondNumber;
-    operation_select.value = calc.getOperation?.operation;
-  })
-);
-
+// calculator objects;
 const prev = new Calculator(
   (onchange = function () {
     prev_first_number.innerHTML = prev.getFirstNumber;
@@ -35,7 +27,29 @@ const prev = new Calculator(
   })
 );
 
+const calc = new Calculator(
+  (onchange = function () {
+    first_number.value = calc.getFirstNumber;
+    second_number.value = calc.getSecondNumber;
+    operation_select.value = calc.getOperation?.operation;
+  })
+)
+
 // callbacks
+first_number.addEventListener('input', function(event) {
+  event.preventDefault()
+  calc.setFirstNumber = first_number.value
+})
+
+second_number.addEventListener('input', function(event) {
+  event.preventDefault()
+  calc.setSecondNumber = second_number.value
+})
+
+operation_select.addEventListener('input', function(event) {
+  calc.setOperation = new Operation(operation_select.value)
+})
+
 number_buttons.forEach((element) => {
   element.addEventListener("click", function () {
     if (calc.getOperation?.operation == null) {
@@ -51,12 +65,12 @@ number_buttons.forEach((element) => {
 operator_buttons.forEach((element) => {
   element.addEventListener("click", function () {
     calc.setOperation = new Operation(element.name);
-    console.log(calc.getOperation);
   });
 });
 
 c_button.addEventListener("click", function () {
   if (calc.getSecondNumber != null) {
+    console.log('cleared second');
     calc.setSecondNumber = null;
   } else if (calc.getOperation.operation != null) {
     calc.setOperation = new Operation(null);
