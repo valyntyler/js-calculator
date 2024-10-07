@@ -4,60 +4,50 @@ export default class Calculator {
   #first_number = null;
   #second_number = null;
   #operation = null;
-  #onchange_callback = null;
+  #onchange_callback = () => {};
 
-  constructor(
-    first_number = null,
-    second_number = null,
-    operation = null,
-    onchange = () => {}
-  ) {
-    this.first_number = first_number
-    this.second_number = second_number
-    this.operation = operation
-    this.onchange = onchange
+  constructor(onchange = () => {}) {
+    this.#onchange_callback = onchange;
   }
 
   // getters
   get getFirstNumber() {
-    return this.#first_number
+    return this.#first_number;
   }
 
   get getSecondNumber() {
-    return this.#second_number
+    return this.#second_number;
   }
 
   get getOperation() {
-    return this.#operation
+    return this.#operation;
   }
 
   // setters
-  set firstNumber(value) {
-    this.#first_number = value
-    this.#onchange_callback()
+  set setFirstNumber(value) {
+    this.#first_number = value;
+    this.#onchange_callback();
   }
 
-  set secondNumber(value) {
-    this.#second_number = value
-    this.#onchange_callback()
+  set setSecondNumber(value) {
+    this.#second_number = value;
+    this.#onchange_callback();
   }
 
-  set operation(value) {
-    this.#operation = value
-    this.#onchange_callback()
-  }
-
-  // static methods
-  static parseUrl(url) {
-    const params = new URLSearchParams(url);
-    const first_number = parseFloat(params.get("fnum"));
-    const second_number = parseFloat(params.get("snum"));
-    const operation = new Operation(params.get("oper"));
-    return new Calculation(first_number, second_number, operation);
+  set setOperation(value) {
+    this.#operation = value;
+    this.#onchange_callback();
   }
 
   // methods
+  parseUrl(url) {
+    const params = new URLSearchParams(url);
+    this.setFirstNumber = parseFloat(params.get("fnum"));
+    this.setSecondNumber= parseFloat(params.get("snum"));
+    this.setOperation = new Operation(params.get("oper"));
+  }
+
   calculate() {
-    return this.operation.calculate(this.first_number, this.second_number);
+    return this.setOperation.calculate(this.first_number, this.second_number);
   }
 }

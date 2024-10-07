@@ -1,4 +1,4 @@
-import Calculation from "./src/Calculator.js";
+import Calculator from "./src/Calculator.js";
 import Operation from "./src/Operation.js";
 
 // elements
@@ -14,49 +14,34 @@ const c_button = document.querySelector("#clear");
 const ac_button = document.querySelector("#all-clear");
 const equals_button = document.querySelector("#equals");
 
+// calculator object
+const calc = new Calculator(
+  (onchange = function () {
+    first_number.value = calc.getFirstNumber;
+    second_number.value = calc.getSecondNumber;
+    operation_select.value = calc.getOperation?.operation;
+  })
+);
+
 // callbacks
 number_buttons.forEach((element) => {
   element.addEventListener("click", function () {
     console.log(element.innerHTML)
-  });
+});
 });
 
 operator_buttons.forEach((element) => {
   element.addEventListener("click", function () {
-    console.log(element.name)
-    calc.calculation.operation = new Operation(element.name)
-    operation_select.value = element.name
+    calc.setOperation = new Operation(element.name)
   });
 });
 
 ac_button.addEventListener("click", function () {
-  calc.setCalculation = new Calculation(0, 0, null);
+    calc.setFirstNumber = null
+    calc.setSecondNumber = null
+    calc.setOperation = null
 });
 
 window.addEventListener("load", function () {
-  calc.setCalculation = Calculation.parseUrl(window.location.search);
+    calc.parseUrl(window.location.search)
 });
-
-class Calculator {
-  constructor() {
-    this.calculation = new Calculation(null, null, null);
-  }
-
-  get getCalculation() {
-    return this.calculation;
-  }
-
-  set setCalculation(value) {
-    this.calculation = value;
-    this.updateValues();
-  }
-
-  updateValues() {
-    first_number.value = this.calculation.first_number;
-    second_number.value = this.calculation.second_number;
-    operation_select.value = this.calculation.operation?.operation;
-  }
-}
-
-const calc = new Calculator();
-calc.updateValues();
