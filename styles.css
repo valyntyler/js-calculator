@@ -15,17 +15,39 @@ body {
 #keypad {
     background-color: #DFDACC;
     display: grid;
+   grid-template-areas: 
+        'c c c o'
+        'n n n o'
+        'n n n o'
+        'n n n o'
+        'n n n e'
+    ;
+    grid-template-rows: repeat(5, 1fr);
     grid-template-columns: repeat(4, 1fr);
+ 
 }
 
 #clear-buttons-subgrid {
+    grid-area: c;
     display: grid;
+    grid-template-columns: repeat(3, 1fr);
 }
 
 #operator-buttons-subgrid {
+    grid-area: o;
     display: grid;
 }
 
 #number-buttons-subgrid {
+    grid-area: n;
     display: grid;    
+    grid-template-columns: repeat(3, 1fr);
+}
+
+#equals {
+    grid-area: e;
+}
+
+#all-clear {
+    grid-column: span 2;
 }
