@@ -1,12 +1,13 @@
 body {
     background-color: rgb(32, 32, 32);
+    font-size: 5vw;
     display: flex;
     justify-content: center;
 }
 
 .calculator {
     padding: 2%;
-    background-color: rgb(153, 153, 153);
+    background-color: rgb(131, 131, 131);
     display: flex;
     justify-content: space-around;
     flex-direction: column;
@@ -16,13 +17,23 @@ body {
 
 .panel {
     height: 25%;
-        background-color: darkslategray;
+    background-color: darkslategray;
+    border: 2dvw solid black;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.number {
+    width: 80%;
 }
 
 .calculation {
-    background-color: blanchedalmond;
+    background-color: slategray;
     display: flex;
-    justify-content: end;
+    justify-content: center;
+    align-items: end;
+    flex-direction: column;
 }
 
 .buttons {
@@ -32,6 +43,19 @@ body {
 
 .button {
     aspect-ratio: 4/3;
+}
+
+.number-button {
+    color: white;
+    background-color: black;
+}
+
+.operator-button {
+    background-color: grey;
+}
+
+.clear-button {
+    background-color: brown;
 }
 
 .clears {
@@ -49,6 +73,10 @@ body {
 .operators{
     display: grid;
     grid-area: 1 / 4 / 6 / 5;
+}
+
+#equals {
+    background-color: green;
 }
 
 #all-clear {
