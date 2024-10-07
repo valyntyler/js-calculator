@@ -1,3 +1,10 @@
+:root {
+    --accent-80: #5F7962;
+    --background-80: #C2BDAE;
+    --background-60: #DFDACC;
+    --background-40: #978F7C;
+}
+
 body {
     background-color: rgb(32, 32, 32);
     display: flex;
@@ -6,7 +13,8 @@ body {
 
 /* calculator */
 #calculator-form {
-    background-color: #B4AD9B;
+    border-radius: .8em;
+    background-color: var(--background-60);
     width: clamp(200px, 50%, 400px);
     aspect-ratio: 2/3;
 }
@@ -58,20 +66,21 @@ body {
 .button {
     font-size: 1.1em;
     font-weight: bolder;
+    border-radius: .4em;
+    border: 0px;
+    margin: 4%;
     color: #1E1E1E;
-    background-color: #DFDACC;
-    border-color: #B4AD9B;
+    background-color: var(--background-80);
 }
 
 .operator-button {
-    background-color: #79725F;
+    background-color: var(--background-40);
 }
 
 .clear-button#all-clear {
-    background-color: #79725F;
+    background-color: var(--background-40);
 }
 
 .button#equals {
-    background-color: #3F5F43;
-    border-color: #2D4830;
+    background-color: var(--accent-80);
 }
