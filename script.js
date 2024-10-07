@@ -26,13 +26,18 @@ const calc = new Calculator(
 // callbacks
 number_buttons.forEach((element) => {
   element.addEventListener("click", function () {
-    calc.setFirstNumber = (calc.getFirstNumber ? calc.getFirstNumber : "") + element.innerHTML
+    if (calc.getOperation?.operation == null) {
+      calc.setFirstNumber = (calc.getFirstNumber ? calc.getFirstNumber : "") + element.innerHTML
+    } else {
+      calc.setSecondNumber = (calc.getSecondNumber ? calc.getSecondNumber : "") + element.innerHTML
+    }
   });
 });
 
 operator_buttons.forEach((element) => {
   element.addEventListener("click", function () {
     calc.setOperation = new Operation(element.name);
+    console.log(calc.getOperation);
   });
 });
 
