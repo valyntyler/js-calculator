@@ -25,12 +25,12 @@ export default class Calculator {
 
   // setters
   set setFirstNumber(value) {
-    this.#first_number = value;
+    this.#first_number = isNaN(value) ? null : value;
     this.#onchange_callback();
   }
 
   set setSecondNumber(value) {
-    this.#second_number = value;
+    this.#second_number = isNaN(value) ? null : value;
     this.#onchange_callback();
   }
 
@@ -48,6 +48,6 @@ export default class Calculator {
   }
 
   calculate() {
-    return this.setOperation.calculate(this.first_number, this.second_number);
+    return this.setOperation.calculate(this.getFirstNumber, this.getSecondNumber);
   }
 }

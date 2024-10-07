@@ -26,22 +26,23 @@ const calc = new Calculator(
 // callbacks
 number_buttons.forEach((element) => {
   element.addEventListener("click", function () {
-    console.log(element.innerHTML)
-});
+    calc.setFirstNumber = (calc.getFirstNumber ? calc.getFirstNumber : "") + element.innerHTML
+  });
 });
 
 operator_buttons.forEach((element) => {
   element.addEventListener("click", function () {
-    calc.setOperation = new Operation(element.name)
+    calc.setOperation = new Operation(element.name);
   });
 });
 
 ac_button.addEventListener("click", function () {
-    calc.setFirstNumber = null
-    calc.setSecondNumber = null
-    calc.setOperation = null
+  console.log('cleared all')
+  calc.setFirstNumber = null;
+  calc.setSecondNumber = null;
+  calc.setOperation = null;
 });
 
 window.addEventListener("load", function () {
-    calc.parseUrl(window.location.search)
+  calc.parseUrl(window.location.search);
 });
