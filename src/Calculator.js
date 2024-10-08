@@ -40,6 +40,19 @@ export default class Calculator {
     this.#onchange();
   }
 
+  appendDecimal() {
+    if (this.#operator == Operator.Empty) {
+      if (this.#fst_number_string.match(/\./) == null) {
+        this.#fst_number_string += '.';
+      }
+    } else {
+      if (this.#snd_number_string.match(/\./) == null) {
+        this.#snd_number_string += '.';
+      }
+    }
+    this.#onchange();
+  }
+
   clear() {
     if (this.#snd_number_string !== "" ) {
       this.#snd_number_string = "";
