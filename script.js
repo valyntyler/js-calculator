@@ -5,10 +5,25 @@ const fst_number_element = document.querySelector("#current-first-number");
 const snd_number_element = document.querySelector("#current-second-number");
 const operator_element = document.querySelector("#current-operator");
 
+const prev_fst_number_element = document.querySelector("#previous-first-number")
+const prev_snd_number_element = document.querySelector("#previous-second-number")
+const prev_operator_element = document.querySelector("#previous-operation")
+const prev_equals_element = document.querySelector("#previous-equals-sign")
+
 let calc = new Calculator(() => {
   fst_number_element.innerHTML = calc.getFirstNumber;
   snd_number_element.innerHTML = calc.getSecndNumber;
   operator_element.innerHTML = calc.getOperator.symbol;
+  // clear previous
+  prev_fst_number_element.innerHTML = ''
+  prev_snd_number_element.innerHTML = ''
+  prev_operator_element.innerHTML = ''
+  prev_equals_element.innerHTML = ''
+}, (f, s, o) => {
+  prev_fst_number_element.innerHTML = f
+  prev_snd_number_element.innerHTML = s
+  prev_operator_element.innerHTML = o.symbol
+  prev_equals_element.innerHTML = '='
 });
 
 document.addEventListener("keypress", (event) => {

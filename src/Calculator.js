@@ -5,9 +5,11 @@ export default class Calculator {
   #snd_number_string = "";
   #operator = Operator.Empty;
   #onchange = () => {};
+  #oncalculate = () => {};
 
-  constructor(onchange = () => {}) {
+  constructor(onchange = () => {}, oncalculate = (pf, ps, po) => {}) {
     this.#onchange = onchange;
+    this.#oncalculate = oncalculate;
   }
 
   get getFirstNumber() {
@@ -23,7 +25,7 @@ export default class Calculator {
   }
 
   set setOperator(value) {
-    if (this.#operator == Operator.Empty && this.#fst_number_string != "") {
+    if (this.#operator == Operator.Empty && this.#fst_number_string !== "") {
       this.#operator = value;
     }
     this.#onchange();
@@ -58,17 +60,23 @@ export default class Calculator {
 
   calculate() {
     if (
-      this.#fst_number_string != "" &&
-      this.#snd_number_string != "" &&
+      this.#fst_number_string !== "" &&
+      this.#snd_number_string !== "" &&
       this.#operator != Operator.Empty
     ) {
+      // save previous values
+      const prev_fst = this.getFirstNumber
+      const prev_snd = this.getSecndNumber
+      const prev_opr = this.getOperator
+      // perform calculations
       this.#fst_number_string = this.#operator.calculate(
         parseFloat(this.#fst_number_string),
         parseFloat(this.#snd_number_string)
       );
       this.#snd_number_string = ''
       this.#operator = Operator.Empty
+      this.#onchange()
+      this.#oncalculate(prev_fst, prev_snd, prev_opr)
     }
-    this.#onchange();
   }
 }
