@@ -4,13 +4,11 @@ export default class Calculator {
   #fst_number_string = "";
   #snd_number_string = "";
   #operator = Operator.Empty;
-  
+  #previous_calculation = null;
   #onchange = () => {};
-  #oncalculate = () => {};
 
-  constructor(onchange = () => {}, oncalculate = (pf, ps, po) => {}) {
+  constructor(onchange = () => {}) {
     this.#onchange = onchange;
-    this.#oncalculate = oncalculate;
   }
 
   get getFirstNumber() {
@@ -25,14 +23,25 @@ export default class Calculator {
     return this.#operator;
   }
 
+  get getPreviousCalculation() {
+    return this.#previous_calculation;
+  }
+
   set setOperator(value) {
     if (this.#operator == Operator.Empty && this.#fst_number_string !== "") {
       this.#operator = value;
+      this.#previous_calculation = null;
+      this.#fst_number_string = parseFloat(this.#fst_number_string).toString()
+      this.#onchange();
     }
-    this.#onchange();
   }
 
   appendDigit(digit) {
+    if (this.#previous_calculation != null) {
+      this.#fst_number_string = "";
+      this.#previous_calculation = null;
+    }
+
     if (this.#operator == Operator.Empty) {
       this.#fst_number_string += digit;
     } else {
@@ -42,20 +51,25 @@ export default class Calculator {
   }
 
   appendDecimal() {
+    if (this.#previous_calculation != null) {
+      this.#previous_calculation = null
+      this.#fst_number_string = ''
+    }
+
     if (this.#operator == Operator.Empty) {
-      if (this.#fst_number_string.match(/\./) == null) {
-        this.#fst_number_string += '.';
+      if (this.#fst_number_string.toString().match(/\./) == null) {
+        this.#fst_number_string += ".";
       }
     } else {
       if (this.#snd_number_string.match(/\./) == null) {
-        this.#snd_number_string += '.';
+        this.#snd_number_string += ".";
       }
     }
     this.#onchange();
   }
 
   clear() {
-    if (this.#snd_number_string !== "" ) {
+    if (this.#snd_number_string !== "") {
       this.#snd_number_string = "";
     } else if (this.#operator != Operator.Empty) {
       this.#operator = Operator.Empty;
@@ -78,19 +92,34 @@ export default class Calculator {
       this.#snd_number_string !== "" &&
       this.#operator != Operator.Empty
     ) {
-      // save previous values
-      const prev_fst = this.getFirstNumber
-      const prev_snd = this.getSecndNumber
-      const prev_opr = this.getOperator
+      // clean up second number
+      this.#snd_number_string = parseFloat(this.#snd_number_string).toString()
+      // remember previous calculation
+      this.#previous_calculation = new PreviousCalculation(
+        this.getFirstNumber,
+        this.getSecndNumber,
+        this.getOperator
+      );
       // perform calculations
       this.#fst_number_string = this.#operator.calculate(
         parseFloat(this.#fst_number_string),
         parseFloat(this.#snd_number_string)
       );
-      this.#snd_number_string = ''
-      this.#operator = Operator.Empty
-      this.#onchange()
-      this.#oncalculate(prev_fst, prev_snd, prev_opr)
+      this.#snd_number_string = "";
+      this.#operator = Operator.Empty;
+      this.#onchange();
     }
   }
+}
+
+class PreviousCalculation {
+  constructor(fst_number, snd_number, operator) {
+    this.fst_number = fst_number;
+    this.snd_number = snd_number;
+    this.operator = operator;
+  }
+
+  toString = () => {
+    return `${this.fst_number}${this.operator.symbol}${this.snd_number}=`;
+  };
 }
