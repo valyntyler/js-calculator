@@ -7,10 +7,11 @@
     --background-40: #978F7C;
     --background-20: #726C5D;
     --background-10: #43413B;
+    --background-00: #1E1E1E;
 }
 
 body {
-    background-color: rgb(32, 32, 32);
+    background-color: var(--background-00);
     display: flex;
     justify-content: center;
 }
@@ -21,13 +22,16 @@ body {
     background-color: var(--background-60);
     width: clamp(200px, 50%, 400px);
     aspect-ratio: 2/3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 2%;
 }
 
 /* keypad */
 /* grid */
 #keypad {
     height: 45%;
-    padding: 5%;
     display: grid;
     grid-template-areas:
         'c c c o'
@@ -90,4 +94,20 @@ body {
 .button#equals {
     color: var(--accent-40);
     background-color: var(--accent-80);
+}
+
+/* display */
+#display-wrapper {
+    width: 100%;
+    aspect-ratio: 2;
+    background-color: var(--background-00);
+    border-radius: .8em;
+}
+
+#display {
+    width: 80%;
+    aspect-ratio: 2;
+    background-color: var(--accent-60);
+    border-radius: .8em;
+    margin: 10%;
 }
