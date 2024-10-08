@@ -48,18 +48,19 @@ body {
 #clear-buttons-subgrid {
     grid-area: c;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: subgrid;
 }
 
 #operator-buttons-subgrid {
     grid-area: o;
     display: grid;
+    grid-template-rows: subgrid;
 }
 
 #number-buttons-subgrid {
     grid-area: n;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: subgrid;
 }
 
 #equals {
@@ -102,6 +103,9 @@ body {
     aspect-ratio: 2;
     background-color: var(--background-00);
     border-radius: .8em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #display {
