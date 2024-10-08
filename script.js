@@ -35,6 +35,12 @@ document.addEventListener("keypress", (event) => {
 
 document.querySelectorAll(".number-button").forEach((element) => {
   element.addEventListener("click", () => {
-    console.log(element.innerHTML);
+    calc.appendDigit(element.innerHTML)
   });
+});
+
+document.querySelectorAll(".operator-button").forEach((element) => {
+  element.addEventListener('click', () => {
+    calc.setOperator = new Operator(element.id)
+  })
 });
