@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "CF Caltre";
+    src: url('fonts/cf-caltre.otf');
+}
+
 :root {
     --accent-80: #5F7962;
     --accent-60: #3F5F43;
