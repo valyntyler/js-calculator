@@ -1,8 +1,12 @@
 :root {
     --accent-80: #5F7962;
+    --accent-60: #3F5F43;
+    --accent-40: #2D4830;
     --background-80: #C2BDAE;
     --background-60: #DFDACC;
     --background-40: #978F7C;
+    --background-20: #726C5D;
+    --background-10: #43413B;
 }
 
 body {
@@ -69,18 +73,21 @@ body {
     border-radius: .4em;
     border: 0px;
     margin: 4%;
-    color: #1E1E1E;
+    color: var(--background-20);
     background-color: var(--background-80);
 }
 
 .operator-button {
+    color: var(--background-10);
     background-color: var(--background-40);
 }
 
 .clear-button#all-clear {
+    color: var(--background-10);
     background-color: var(--background-40);
 }
 
 .button#equals {
+    color: var(--accent-40);
     background-color: var(--accent-80);
 }
