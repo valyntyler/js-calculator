@@ -1,68 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Calculator</title>
-    <link rel="stylesheet" href="styles.css" />
-  </head>
-  <body>
-    <div method="get" id="calculator">
-      <div id="display-wrapper">
-        <div id="display">
-          <div id="previous-calculation"></div>
-          <div id="current-calculation">
-            <div id="current-first-number"></div>
-            <div id="current-operator"></div>
-            <div id="current-second-number"></div>
-          </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculator</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <div method="get" id="calculator">
+    <div id="display-wrapper">
+      <div id="display">
+        <div id="previous-calculation"></div>
+        <div id="current-calculation">
+          <div id="current-first-number"></div>
+          <div id="current-operator"></div>
+          <div id="current-second-number"></div>
         </div>
-      </div>
-      <div id="keypad">
-        <!-- clear subgrid -->
-        <div id="clear-buttons-subgrid">
-          <button type="button" class="button clear-button" id="all-clear">
-            AC
-          </button>
-          <button type="button" class="button clear-button" id="clear">
-            C
-          </button>
-        </div>
-        <!-- operator subgrid -->
-        <div id="operator-buttons-subgrid">
-          <button type="button" class="button operator-button" id="add">
-            +
-          </button>
-          <button type="button" class="button operator-button" id="sub">
-            -
-          </button>
-          <button type="button" class="button operator-button" id="mul">
-            ×
-          </button>
-          <button type="button" class="button operator-button" id="div">
-            ÷
-          </button>
-        </div>
-        <!-- number subgrid -->
-        <div id="number-buttons-subgrid">
-          <button type="button" class="button number-button">7</button>
-          <button type="button" class="button number-button">8</button>
-          <button type="button" class="button number-button">9</button>
-          <button type="button" class="button number-button">4</button>
-          <button type="button" class="button number-button">5</button>
-          <button type="button" class="button number-button">6</button>
-          <button type="button" class="button number-button">1</button>
-          <button type="button" class="button number-button">2</button>
-          <button type="button" class="button number-button">3</button>
-          <button type="button" class="button number-button">00</button>
-          <button type="button" class="button number-button">0</button>
-          <!-- decimal button -->
-          <button type="button" class="button" id="decimal">.</button>
-        </div>
-        <!-- equals button -->
-        <button type="submit" class="button" id="equals">=</button>
       </div>
     </div>
-    <script src="script.js" type="module"></script>
-  </body>
+    <div id="keypad">
+      <!-- clear subgrid -->
+      <div id="clear-buttons-subgrid">
+        <button type="button" class="button clear-button" id="all-clear">
+          AC
+        </button>
+        <button type="button" class="button clear-button" id="clear">
+          C
+        </button>
+      </div>
+      <!-- operator subgrid -->
+      <div id="operator-buttons-subgrid">
+        <button type="button" class="button operator-button" id="div">÷</button>
+        <button type="button" class="button operator-button" id="mul">×</button>
+        <button type="button" class="button operator-button" id="sub">-</button>
+        <button type="button" class="button operator-button" id="add">+</button>
+      </div>
+      <!-- number subgrid -->
+      <div id="number-buttons-subgrid">
+        <button type="button" class="button number-button">7</button>
+        <button type="button" class="button number-button">8</button>
+        <button type="button" class="button number-button">9</button>
+        <button type="button" class="button number-button">4</button>
+        <button type="button" class="button number-button">5</button>
+        <button type="button" class="button number-button">6</button>
+        <button type="button" class="button number-button">1</button>
+        <button type="button" class="button number-button">2</button>
+        <button type="button" class="button number-button">3</button>
+        <button type="button" class="button number-button">00</button>
+        <button type="button" class="button number-button">0</button>
+        <!-- decimal button -->
+        <button type="button" class="button" id="decimal">.</button>
+      </div>
+      <!-- equals button -->
+      <button type="submit" class="button" id="equals">=</button>
+    </div>
+  </div>
+  <script src="script.js" type="module"></script>
+</body>
+
 </html>
