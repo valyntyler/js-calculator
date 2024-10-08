@@ -69,6 +69,7 @@ export default class Calculator {
   }
 
   clear() {
+    this.#previous_calculation = null
     if (this.#snd_number_string !== "") {
       this.#snd_number_string = "";
     } else if (this.#operator != Operator.Empty) {
@@ -80,6 +81,7 @@ export default class Calculator {
   }
 
   allClear() {
+    this.#previous_calculation = null
     this.#fst_number_string = "";
     this.#snd_number_string = "";
     this.#operator = Operator.Empty;
