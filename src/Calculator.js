@@ -23,7 +23,9 @@ export default class Calculator {
   }
 
   set setOperator(value) {
-    this.#operator = value
+    if (this.#operator == Operator.Empty && this.#fst_number_string != '') {
+      this.#operator = value
+    }
     this.#onchange()
   }
 
@@ -32,6 +34,17 @@ export default class Calculator {
       this.#fst_number_string += digit
     } else {
       this.#snd_number_string += digit
+    }
+    this.#onchange()
+  }
+
+  clear() {
+    if (this.#snd_number_string != '') {
+      this.#snd_number_string = ''
+    } else if (this.#operator != Operator.Empty) {
+      this.#operator = Operator.Empty
+    } else if (this.#fst_number_string !='') {
+      this.#fst_number_string = ''
     }
     this.#onchange()
   }

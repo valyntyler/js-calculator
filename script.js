@@ -27,7 +27,7 @@ document.addEventListener("keypress", (event) => {
   } else if (event.key.match(/=/) != null) {
     console.log('pressed =');
   } else if (event.key.match(/c/) != null) {
-    console.log('pressed C');
+    calc.clear()
   } else if (event.key.match(/C|A/) != null) {
     calc.allClear()
   } 
