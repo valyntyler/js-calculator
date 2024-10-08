@@ -34,11 +34,11 @@ body {
     height: 45%;
     display: grid;
     grid-template-areas:
-        'c c c o'
+        'c c c e'
         'n n n o'
         'n n n o'
         'n n n o'
-        'n n n e'
+        'n n n o'
     ;
     grid-template-rows: repeat(5, 1fr);
     grid-template-columns: repeat(4, 1fr);
