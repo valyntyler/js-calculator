@@ -39,11 +39,11 @@ export default class Calculator {
   }
 
   clear() {
-    if (this.#snd_number_string != "") {
+    if (this.#snd_number_string !== "" ) {
       this.#snd_number_string = "";
     } else if (this.#operator != Operator.Empty) {
       this.#operator = Operator.Empty;
-    } else if (this.#fst_number_string != "") {
+    } else if (this.#fst_number_string !== "") {
       this.#fst_number_string = "";
     }
     this.#onchange();

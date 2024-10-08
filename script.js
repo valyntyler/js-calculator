@@ -24,7 +24,7 @@ document.addEventListener("keypress", (event) => {
     calc.setOperator = new Operator("mul");
   } else if (event.key.match(/\/|:/) != null) {
     calc.setOperator = new Operator("div");
-  } else if (event.key.match(/=/) != null) {
+  } else if (event.key.match(/=|Enter/) != null) {
     calc.calculate();
   } else if (event.key.match(/c/) != null) {
     calc.clear();
