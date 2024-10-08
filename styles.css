@@ -1,18 +1,24 @@
 @font-face {
+    font-family: "Concert One";
+    src: url('fonts/concert-one.ttf');
+}
+
+@font-face {
     font-family: "CF Caltre";
-    src: url('fonts/cf-caltre.otf');
+    src: url("fonts/cf-caltre.otf");
 }
 
 :root {
-    --accent-80: #5F7962;
-    --accent-60: #3F5F43;
-    --accent-40: #2D4830;
-    --background-80: #C2BDAE;
-    --background-60: #DFDACC;
-    --background-40: #978F7C;
-    --background-20: #726C5D;
-    --background-10: #43413B;
-    --background-00: #1E1E1E;
+    --accent-80: #5f7962;
+    --accent-60: #3f5f43;
+    --accent-40: #2d4830;
+    --accent-20: #213323;
+    --background-80: #c2bdae;
+    --background-60: #dfdacc;
+    --background-40: #978f7c;
+    --background-20: #726c5d;
+    --background-10: #43413b;
+    --background-00: #1e1e1e;
 }
 
 body {
@@ -23,14 +29,14 @@ body {
 
 /* calculator */
 #calculator-form {
-    border-radius: .8em;
+    border-radius: 0.8em;
     background-color: var(--background-60);
     width: clamp(200px, 50%, 400px);
     aspect-ratio: 2/3;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    padding: 2%;
+    padding: 0.6em;
 }
 
 /* keypad */
@@ -39,15 +45,13 @@ body {
     height: 45%;
     display: grid;
     grid-template-areas:
-        'c c c e'
-        'n n n o'
-        'n n n o'
-        'n n n o'
-        'n n n o'
-    ;
+        "c c c e"
+        "n n n o"
+        "n n n o"
+        "n n n o"
+        "n n n o";
     grid-template-rows: repeat(5, 1fr);
     grid-template-columns: repeat(4, 1fr);
-
 }
 
 #clear-buttons-subgrid {
@@ -80,11 +84,14 @@ body {
 .button {
     font-size: 1.1em;
     font-weight: bolder;
-    border-radius: .4em;
+    border-radius: 0.4em;
     border: 0px;
     margin: 4%;
     color: var(--background-20);
     background-color: var(--background-80);
+    font-family: "Concert One";
+    font-weight: bolder;
+    font-size: 1.6rem;
 }
 
 .operator-button {
@@ -107,7 +114,7 @@ body {
     width: 100%;
     aspect-ratio: 2;
     background-color: var(--background-00);
-    border-radius: .8em;
+    border-radius: 0.8em;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -117,6 +124,43 @@ body {
     width: 80%;
     aspect-ratio: 2;
     background-color: var(--accent-60);
-    border-radius: .8em;
+    border-radius: 0.8em;
     margin: 10%;
+    padding: 2%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: "CF Caltre", "Concert One";
+    font-weight: bolder;
+}
+
+/* previous calculation */
+#previous-calculation {
+    display: flex;
+    justify-content: end;
+    font-size: 1.4em;
+    color: var(--accent-40);
+}
+
+#current-calculation {
+    display: grid;
+    grid-template-areas:
+        'f f'
+        'o s';
+    grid-template-columns: 1fr 10fr;
+    font-size: 2rem;
+    text-align: end;
+    color: var(--accent-20);
+}
+
+#current-first-number {
+    grid-area: f;
+}
+
+#current-second-number {
+    grid-area: s;
+}
+
+#current-operation {
+    grid-area: o;
 }
