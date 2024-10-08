@@ -1,82 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Calculator</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="styles.css" />
-  <title>Calculator</title>
-</head>
-
-<body>
-  <form method="get" id="calculator-form">
-    <div id="display-wrapper">
-      <div id="display">
-        <div id="previous-calculation">
-          <div id="previous-first-number">42.0</div>
-          <div id="previous-operation">÷</div>
-          <div id="previous-second-number">-69</div>
-          <div id="previous-equals-sign">=</div>
-        </div>
-        <div id="current-calculation">
-          <div id="current-first-number">8090</div>
-          <div id="current-operator">×</div>
-          <div id="current-second-number">0.001</div>
+  <body>
+    <div method="get" id="calculator">
+      <div id="display-wrapper">
+        <div id="display">
+          <div id="previous-calculation">
+            <div id="previous-first-number">42.0</div>
+            <div id="previous-operation">÷</div>
+            <div id="previous-second-number">-69</div>
+            <div id="previous-equals-sign">=</div>
+          </div>
+          <div id="current-calculation">
+            <div id="current-first-number">8090</div>
+            <div id="current-operator">×</div>
+            <div id="current-second-number">0.001</div>
+          </div>
         </div>
       </div>
-      <!-- <div id="previous-calculation">
-        <div id="previous-first-number"></div>
-        <div id="previous-operation"></div>
-        <div id="previous-second-number"></div>
-        =
-      </div>
-      <div class="calculation">
-        <div class="calculation-first-row">
-          <input type="number" step="any" class="number" name="fnum" id="first-number" required></input>
-          <select name="oper" id="operation" required>
-            <option disabled selected value></option>
-            <option value="add">+</option>
-            <option value="sub">-</option>
-            <option value="mul">×</option>
-            <option value="div">÷</option>
-          </select>
+      <div id="keypad">
+        <!-- clear subgrid -->
+        <div id="clear-buttons-subgrid">
+          <button type="button" class="button clear-button" id="all-clear">
+            AC
+          </button>
+          <button type="button" class="button clear-button" id="clear">
+            C
+          </button>
         </div>
-        <input type="number" step="any" class="number" name="snum" id="second-number" required></input>
-      </div> -->
+        <!-- operator subgrid -->
+        <div id="operator-buttons-subgrid">
+          <button type="button" class="button operator-button" id="add">
+            +
+          </button>
+          <button type="button" class="button operator-button" id="sub">
+            -
+          </button>
+          <button type="button" class="button operator-button" id="mul">
+            ×
+          </button>
+          <button type="button" class="button operator-button" id="div">
+            ÷
+          </button>
+        </div>
+        <!-- number subgrid -->
+        <div id="number-buttons-subgrid">
+          <button type="button" class="button number-button">7</button>
+          <button type="button" class="button number-button">8</button>
+          <button type="button" class="button number-button">9</button>
+          <button type="button" class="button number-button">4</button>
+          <button type="button" class="button number-button">5</button>
+          <button type="button" class="button number-button">6</button>
+          <button type="button" class="button number-button">1</button>
+          <button type="button" class="button number-button">2</button>
+          <button type="button" class="button number-button">3</button>
+          <button type="button" class="button number-button">00</button>
+          <button type="button" class="button number-button">0</button>
+          <button type="button" class="button number-button">.</button>
+        </div>
+        <!-- equals button -->
+        <button type="submit" class="button" id="equals">=</button>
+      </div>
     </div>
-    <div id="keypad">
-      <!-- clear subgrid -->
-      <div id="clear-buttons-subgrid">
-        <button type="button" class="button clear-button" id="all-clear">AC</button>
-        <button type="button" class="button clear-button" id="clear">C</button>
-      </div>
-      <!-- operator subgrid -->
-      <div id="operator-buttons-subgrid">
-        <button type="button" class="button operator-button" id="add">+</button>
-        <button type="button" class="button operator-button" id="sub">-</button>
-        <button type="button" class="button operator-button" id="mul">×</button>
-        <button type="button" class="button operator-button" id="div">÷</button>
-      </div>
-      <!-- number subgrid -->
-      <div id="number-buttons-subgrid">
-        <button type="button" class="button number-button">7</button>
-        <button type="button" class="button number-button">8</button>
-        <button type="button" class="button number-button">9</button>
-        <button type="button" class="button number-button">4</button>
-        <button type="button" class="button number-button">5</button>
-        <button type="button" class="button number-button">6</button>
-        <button type="button" class="button number-button">1</button>
-        <button type="button" class="button number-button">2</button>
-        <button type="button" class="button number-button">3</button>
-        <button type="button" class="button number-button">00</button>
-        <button type="button" class="button number-button">0</button>
-        <button type="button" class="button number-button">.</button>
-      </div>
-      <!-- equals button -->
-      <button type="submit" class="button" id="equals">=</button>
-    </div>
-  </form>
-  <script src="script.js" type="module"></script>
-</body>
-
+    <script src="script.js" type="module"></script>
+  </body>
 </html>

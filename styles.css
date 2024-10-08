@@ -28,7 +28,7 @@ body {
 }
 
 /* calculator */
-#calculator-form {
+#calculator {
     border-radius: 0.8em;
     background-color: var(--background-60);
     width: clamp(200px, 50%, 400px);
