@@ -5,17 +5,37 @@ export default class Operator {
   static Divide = new Operator("div");
   static Empty = new Operator("");
 
-  constructor(value = '') {
+  constructor(value = "") {
     this.id = value;
   }
 
   get symbol() {
-    switch(this.id) {
-        case 'add': return '+'
-        case 'sub': return '-'
-        case 'mul': return '×'
-        case 'div': return '÷'
-        case '' : return ''
+    switch (this.id) {
+      case "add":
+        return "+";
+      case "sub":
+        return "-";
+      case "mul":
+        return "×";
+      case "div":
+        return "÷";
+      case "":
+        return "";
+    }
+  }
+
+  calculate(a, b) {
+    switch (this.id) {
+      case "add":
+        return a + b;
+      case "sub":
+        return a - b;
+      case "mul":
+        return a * b;
+      case "div":
+        return a / b;
+      case "":
+        return 0;
     }
   }
 }
