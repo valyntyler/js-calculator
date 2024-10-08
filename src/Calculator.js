@@ -4,6 +4,7 @@ export default class Calculator {
   #fst_number_string = "";
   #snd_number_string = "";
   #operator = Operator.Empty;
+  
   #onchange = () => {};
   #oncalculate = () => {};
 
