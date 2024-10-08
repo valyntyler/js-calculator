@@ -1,29 +1,35 @@
 import Calculator from "./src/Calculator.js";
-import Operation from "./src/Operation.js";
+import Operator from "./src/Operator.js";
 
-const fst_number = document.querySelector('#current-first-number')
-const snd_number = document.querySelector('#current-second-number')
+const fst_number_element = document.querySelector('#current-first-number')
+const snd_number_element = document.querySelector('#current-second-number')
+const operator_element = document.querySelector('#current-operator')
+
+let calc = new Calculator(() => {
+  fst_number_element.innerHTML = calc.getFirstNumber
+  snd_number_element.innerHTML = calc.getSecndNumber
+  operator_element.innerHTML = calc.getOperator.symbol
+})
 
 document.addEventListener("keypress", (event) => {
   if (event.key.match(/\d/) != null) {
-    console.log('pressed digit');
-    fst_number.innerHTML += event.key
+    calc.appendDigit(event.key)
   } else if (event.key.match(/\.|,/) != null) {
     console.log('pressed .');
   } else if (event.key.match(/\+/) != null) {
-    console.log('pressed +');
+    calc.setOperator = new Operator('add')
   } else if (event.key.match(/-/) != null) {
-    console.log('pressed -');
+    calc.setOperator = new Operator('sub')
   } else if (event.key.match(/\*|x|X/) != null) {
-    console.log('pressed ×');
+    calc.setOperator = new Operator('mul')
   } else if (event.key.match(/\/|:/) != null) {
-    console.log('pressed ÷');
+    calc.setOperator = new Operator('div')
   } else if (event.key.match(/=/) != null) {
     console.log('pressed =');
   } else if (event.key.match(/c/) != null) {
     console.log('pressed C');
   } else if (event.key.match(/C|A/) != null) {
-    console.log('pressed AC');
+    calc.allClear()
   } 
 });
 

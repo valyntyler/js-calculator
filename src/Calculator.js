@@ -1,53 +1,45 @@
-import Operation from "./Operation.js";
+import Operator from "./Operator.js"
 
 export default class Calculator {
-  #first_number = null;
-  #second_number = null;
-  #operation = null;
-  #onchange_callback = () => {};
+  #fst_number_string = ''
+  #snd_number_string = ''
+  #operator = Operator.Empty
+  #onchange = () => {}
 
   constructor(onchange = () => {}) {
-    this.#onchange_callback = onchange;
+    this.#onchange = onchange
   }
 
-  // getters
   get getFirstNumber() {
-    return this.#first_number;
+    return this.#fst_number_string
   }
 
-  get getSecondNumber() {
-    return this.#second_number;
+  get getSecndNumber() {
+    return this.#snd_number_string
   }
 
-  get getOperation() {
-    return this.#operation;
+  get getOperator() {
+    return this.#operator
   }
 
-  // setters
-  set setFirstNumber(value) {
-    this.#first_number = isNaN(value) ? null : value;
-    this.#onchange_callback();
+  set setOperator(value) {
+    this.#operator = value
+    this.#onchange()
   }
 
-  set setSecondNumber(value) {
-    this.#second_number = isNaN(value) ? null : value;
-    this.#onchange_callback();
+  appendDigit(digit) {
+    if (this.#operator == Operator.Empty) {
+      this.#fst_number_string += digit
+    } else {
+      this.#snd_number_string += digit
+    }
+    this.#onchange()
   }
 
-  set setOperation(value) {
-    this.#operation = value;
-    this.#onchange_callback();
-  }
-
-  // methods
-  parseUrl(url) {
-    const params = new URLSearchParams(url);
-    this.setFirstNumber = parseFloat(params.get("fnum"));
-    this.setSecondNumber= parseFloat(params.get("snum"));
-    this.setOperation = new Operation(params.get("oper"));
-  }
-
-  calculate() {
-    return this.getOperation.calculate(this.getFirstNumber, this.getSecondNumber);
+  allClear() {
+    this.#fst_number_string = ''
+    this.#snd_number_string = ''
+    this.#operator = Operator.Empty
+    this.#onchange()
   }
 }
