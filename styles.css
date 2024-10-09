@@ -25,6 +25,7 @@ body {
     background-color: var(--background-00);
     display: flex;
     justify-content: center;
+    padding-top: 6vh;
 }
 
 /* calculator */
@@ -129,7 +130,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 2.8em;
+    aspect-ratio: 2.4;
     border-radius: .4em;
     padding: .2em;
 }
@@ -148,7 +149,7 @@ body {
     grid-template-areas:
         "f f"
         "o s";
-    grid-template-columns: 1em 1fr;
+    grid-template-columns: 0.5em 1fr;
     gap: .2em;
     text-align: end;
     color: var(--accent-20);

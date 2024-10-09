@@ -31,7 +31,7 @@ export default class Calculator {
     if (this.#operator == Operator.Empty && this.#fst_number_string !== "") {
       this.#operator = value;
       this.#previous_calculation = null;
-      this.#fst_number_string = parseFloat(this.#fst_number_string).toString()
+      this.#fst_number_string = parseFloat(this.#fst_number_string).toString();
       this.#onchange();
     }
   }
@@ -43,25 +43,37 @@ export default class Calculator {
     }
 
     if (this.#operator == Operator.Empty) {
-      this.#fst_number_string += digit;
+      if ((this.#fst_number_string.length + digit.length) <= 10) {
+        this.#fst_number_string += digit;
+      }
     } else {
-      this.#snd_number_string += digit;
+      if ((this.#snd_number_string.length + digit.length) <= 10) {
+        this.#snd_number_string += digit;
+      }
     }
     this.#onchange();
   }
 
   appendDecimal() {
     if (this.#previous_calculation != null) {
-      this.#previous_calculation = null
-      this.#fst_number_string = ''
+      this.#previous_calculation = null;
+      this.#fst_number_string = "";
     }
 
+    const f = (target) => {};
+
     if (this.#operator == Operator.Empty) {
-      if (this.#fst_number_string.toString().match(/\./) == null) {
+      if (
+        this.#fst_number_string.toString().match(/\./) == null &&
+        this.#fst_number_string.length < 10
+      ) {
         this.#fst_number_string += ".";
       }
     } else {
-      if (this.#snd_number_string.match(/\./) == null) {
+      if (
+        this.#snd_number_string.toString().match(/\./) == null &&
+        this.#snd_number_string.length < 10
+      ) {
         this.#snd_number_string += ".";
       }
     }
@@ -69,7 +81,7 @@ export default class Calculator {
   }
 
   clear() {
-    this.#previous_calculation = null
+    this.#previous_calculation = null;
     if (this.#snd_number_string !== "") {
       this.#snd_number_string = "";
     } else if (this.#operator != Operator.Empty) {
@@ -81,7 +93,7 @@ export default class Calculator {
   }
 
   allClear() {
-    this.#previous_calculation = null
+    this.#previous_calculation = null;
     this.#fst_number_string = "";
     this.#snd_number_string = "";
     this.#operator = Operator.Empty;
@@ -95,7 +107,7 @@ export default class Calculator {
       this.#operator != Operator.Empty
     ) {
       // clean up second number
-      this.#snd_number_string = parseFloat(this.#snd_number_string).toString()
+      this.#snd_number_string = parseFloat(this.#snd_number_string).toString();
       // remember previous calculation
       this.#previous_calculation = new PreviousCalculation(
         this.getFirstNumber,
