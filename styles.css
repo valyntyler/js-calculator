@@ -268,7 +268,7 @@ body {
     min-width: 100%;
     padding-left: 0%;
     margin: 0%;
-    animation: scrolling-animation 12s linear infinite;
+    animation: scrolling-animation 24s linear infinite;
 }
 
 @keyframes scrolling-animation {
