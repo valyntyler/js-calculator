@@ -232,11 +232,6 @@ body {
     z-index: -1;
 }
 
-@keyframes scrolling-animation {
-    to {
-        transform: translate(-100%);
-    }
-}
 
 
 
@@ -254,6 +249,7 @@ body {
 #scroll-row {
     display: flex;
     gap: var(--scroll-repeat-gap);
+    overflow: hidden;
 }
 
 #scroll-row ul {
@@ -263,6 +259,13 @@ body {
     list-style: none;
     white-space: nowrap;
     padding-left: 0%;
+    animation: scrolling-animation 5s linear infinite;
 
     background-color: #978f7c;
+}
+
+@keyframes scrolling-animation {
+    to {
+        transform: translate(calc(var(--scroll-repeat-gap) * -1 - 100%));
+    }
 }
