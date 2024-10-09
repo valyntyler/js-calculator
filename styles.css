@@ -41,6 +41,7 @@ body {
     margin-top: 1em;
     border-radius: .6em;
     padding: .4em;
+    z-index: 1;
 }
 
 /* keypad */
@@ -189,6 +190,7 @@ body {
 }
 
 .menu-button {
+    z-index: 10;
     filter: invert(5%) sepia(1%) saturate(3465%) hue-rotate(314deg) brightness(104%) contrast(86%);
 }
 
@@ -197,10 +199,14 @@ body {
     font-family: "Concert One";
     color: var(--accent-60);
 
-    width: 40%;
+    width: 200%;
     display: flex;
     justify-content: space-between;
     overflow: hidden;
+    gap: .4em;
+
+    position: absolute;
+    top: 50%;
 }
 
 #scrolling-text-wrapper {
@@ -209,12 +215,14 @@ body {
     justify-content: space-between;
     gap: .4em;
     overflow: hidden;
-    border: 2px solid salmon;
-    animation: scrolling-animation 2s linear infinite;
+    animation: scrolling-animation 24s linear infinite;
 }
 
 #scrolling-item {
     white-space: nowrap;
+    user-select: none;
+    position: relative;
+    z-index: -1;
 }
 
 @keyframes scrolling-animation {
