@@ -245,7 +245,7 @@ body {
     --scroll-repeat-gap: .4em;
     font-family: "Concert One";
     color: var(--accent-60);
-    width: 120%;
+    width: 200%;
     overflow: hidden;
     position: absolute;
     transform: translateY(-40%) rotate(60deg);
