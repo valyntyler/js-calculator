@@ -222,7 +222,7 @@ body {
     justify-content: space-between;
     gap: .4em;
     overflow: hidden;
-    animation: scrolling-animation 24s linear infinite;
+    animation: scrolling-animation 12s linear infinite;
 }
 
 #scrolling-item {
@@ -251,12 +251,12 @@ body {
     transform: translateY(-40%) rotate(60deg);
 }
 
-#scroll-row {
+.scroll-row {
     display: flex;
     gap: var(--scroll-repeat-gap);
 }
 
-#scroll-row ul {
+.scroll-row ul {
     display: flex;
     justify-content: space-between;
     flex-shrink: 0;
