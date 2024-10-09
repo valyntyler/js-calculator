@@ -187,3 +187,37 @@ body {
     height: 1.2em;
     gap: .4em;
 }
+
+.menu-button {
+    filter: invert(5%) sepia(1%) saturate(3465%) hue-rotate(314deg) brightness(104%) contrast(86%);
+}
+
+/* scrolling text */
+#scrolling-text {
+    font-family: "Concert One";
+    color: var(--accent-60);
+
+    width: 40%;
+    display: flex;
+    justify-content: space-between;
+    overflow: hidden;
+
+    background-color: #43413b;
+}
+
+#scrolling-text-wrapper {
+    display: flex;
+    justify-content: space-between;
+    border: 2px solid salmon;
+    animation: scrolling-animation 2s linear infinite;
+}
+
+#scrolling-item {
+    white-space: nowrap;
+}
+
+@keyframes scrolling-animation {
+    to {
+        transform: translate(-100%);
+    }
+}
