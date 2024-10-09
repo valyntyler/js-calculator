@@ -201,13 +201,14 @@ body {
     display: flex;
     justify-content: space-between;
     overflow: hidden;
-
-    background-color: #43413b;
 }
 
 #scrolling-text-wrapper {
+    min-width: 100%;
     display: flex;
     justify-content: space-between;
+    gap: .4em;
+    overflow: hidden;
     border: 2px solid salmon;
     animation: scrolling-animation 2s linear infinite;
 }
