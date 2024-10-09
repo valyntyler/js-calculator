@@ -244,9 +244,24 @@ body {
 
 
 
-#scroll-container ul {
+#scroll-container {
+    --scroll-repeat-gap: 1.2em;
+    width: 30%;
+
+    background-color: #1e1e1e;
+}
+
+#scroll-row {
     display: flex;
+    gap: var(--scroll-repeat-gap);
+}
+
+#scroll-row ul {
+    display: flex;
+    justify-content: space-between;
+    gap: var(--scroll-repeat-gap);
     list-style: none;
+    white-space: nowrap;
     padding-left: 0%;
 
     background-color: #978f7c;
