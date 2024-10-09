@@ -237,3 +237,17 @@ body {
         transform: translate(-100%);
     }
 }
+
+
+
+
+
+
+
+#scroll-container ul {
+    display: flex;
+    list-style: none;
+    padding-left: 0%;
+
+    background-color: #978f7c;
+}

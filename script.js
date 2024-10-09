@@ -62,3 +62,12 @@ document.querySelector("#all-clear").addEventListener("click", () => {
 document.querySelector("#equals").addEventListener("click", () => {
   calc.calculate();
 });
+
+// handle text scrolling
+const scroll_container = document.querySelector("#scroll-container")
+const template = document.querySelector("#scroll-row-template")
+
+for (let i = 0; i < 10; i++) {
+  const clone = template.content.cloneNode(true)
+  scroll_container.appendChild(clone)
+}
