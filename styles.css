@@ -239,11 +239,13 @@ body {
 
 
 
+
+
 #scroll-container {
     --scroll-repeat-gap: 1.2em;
-    width: 30%;
-
-    background-color: #1e1e1e;
+    font-family: "Concert One";
+    color: var(--accent-60);
+    width: 100%;
 }
 
 #scroll-row {
@@ -258,10 +260,11 @@ body {
     gap: var(--scroll-repeat-gap);
     list-style: none;
     white-space: nowrap;
+    overflow: hidden;
+    min-width: 100%;
     padding-left: 0%;
+    margin: 0%;
     animation: scrolling-animation 5s linear infinite;
-
-    background-color: #978f7c;
 }
 
 @keyframes scrolling-animation {
