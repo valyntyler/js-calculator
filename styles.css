@@ -201,6 +201,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    transform: rotate(60deg);
 }
 
 .scrolling-text-row {
