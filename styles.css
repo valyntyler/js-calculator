@@ -235,6 +235,8 @@ body {
     position: absolute;
     top: 4em;
 
+    opacity: 0;
+
     background-color: var(--background-00);
     color: var(--background-80);
     font-family: Arial, Helvetica, sans-serif;
