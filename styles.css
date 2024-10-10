@@ -192,6 +192,7 @@ body {
 }
 
 .menu-button {
+    height: 1.4em;
     z-index: 10;
     filter: invert(5%) sepia(1%) saturate(3465%) hue-rotate(314deg) brightness(104%) contrast(86%);
 }
