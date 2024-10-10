@@ -135,6 +135,7 @@ body {
     font-weight: bolder;
     border-radius: .4em;
     padding: .8em;
+    max-width: 7em;
 }
 
 #display {
@@ -153,6 +154,8 @@ body {
     justify-content: end;
     color: var(--accent-40);
     font-size: .6em;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 /* current calculation */
@@ -170,6 +173,8 @@ body {
 
 #current-first-number {
     grid-area: f;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 #current-second-number {
@@ -364,7 +369,7 @@ input:checked+.slider:before {
     min-width: 100%;
     padding-left: 0%;
     margin: 0%;
-    animation: scrolling-animation 48s linear infinite;
+    animation: scrolling-animation 132s linear infinite;
 }
 
 @keyframes scrolling-animation {

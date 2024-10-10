@@ -115,10 +115,13 @@ export default class Calculator {
         this.getOperator
       );
       // perform calculations
-      this.#fst_number_string = this.#operator.calculate(
+      
+      let result = this.#operator.calculate(
         parseFloat(this.#fst_number_string),
         parseFloat(this.#snd_number_string)
-      );
+      ); //.toString().substring(0, 10);
+      this.#fst_number_string = result
+
       this.#snd_number_string = "";
       this.#operator = Operator.Empty;
       this.#onchange();
