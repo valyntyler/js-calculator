@@ -29,6 +29,7 @@ body {
     align-items: center;
     padding: 4vh 8vw;
     font-size: clamp(16px, 4vh, 40px);
+    overflow: hidden;
 }
 
 /* calculator */
