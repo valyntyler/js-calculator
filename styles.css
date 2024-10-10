@@ -221,6 +221,7 @@ body {
 }
 
 .menu-button:hover {
+    cursor: pointer;
     background-color: var(--background-00);
 }
 
