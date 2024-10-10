@@ -245,7 +245,7 @@ body {
     --scroll-repeat-gap: .4em;
     font-family: "Concert One";
     color: var(--accent-60);
-    width: 200%;
+    width: 400%;
     overflow: hidden;
     position: absolute;
     transform: translateY(-40%) rotate(60deg);
@@ -268,7 +268,7 @@ body {
     min-width: 100%;
     padding-left: 0%;
     margin: 0%;
-    animation: scrolling-animation 24s linear infinite;
+    animation: scrolling-animation 48s linear infinite;
 }
 
 @keyframes scrolling-animation {
