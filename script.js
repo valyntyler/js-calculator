@@ -66,6 +66,13 @@ document.querySelector("#equals").addEventListener("click", () => {
   calc.calculate();
 });
 
+// handle menu buttons
+document.querySelectorAll(".menu-button").forEach((element) => {
+  element.onclick = () => {
+    console.log("hi");
+  };
+});
+
 // handle text scrolling
 const scroll_container = document.querySelector("#scroll-container");
 const row_template = document.querySelector("#scroll-row-template");
