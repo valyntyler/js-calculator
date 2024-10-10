@@ -196,52 +196,6 @@ body {
 }
 
 /* scrolling text */
-#scrolling-text {
-    position: absolute;
-    top: 50%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    transform: rotate(60deg);
-}
-
-.scrolling-text-row {
-    font-family: "Concert One";
-    color: var(--accent-60);
-
-    width: 40%;
-    display: flex;
-    justify-content: space-between;
-    overflow: hidden;
-    gap: .4em;
-
-}
-
-#scrolling-text-wrapper {
-    min-width: 100%;
-    display: flex;
-    justify-content: space-between;
-    gap: .4em;
-    overflow: hidden;
-    animation: scrolling-animation 12s linear infinite;
-}
-
-#scrolling-item {
-    white-space: nowrap;
-    user-select: none;
-    position: relative;
-    z-index: -1;
-}
-
-
-
-
-
-
-
-
-
-
 #scroll-container {
     --scroll-repeat-gap: .4em;
     font-family: "Concert One";
