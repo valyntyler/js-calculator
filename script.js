@@ -70,7 +70,7 @@ document.querySelector("#equals").addEventListener("click", () => {
 const scroll_container = document.querySelector("#scroll-container");
 const row_template = document.querySelector("#scroll-row-template");
 
-for (let i = 0; i < 60; i++) {
+for (let i = 0; i < 64; i++) {
   const row_instance = row_template.content.cloneNode(true);
   scroll_container.appendChild(row_instance);
 }
