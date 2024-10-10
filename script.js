@@ -10,7 +10,10 @@ let calc = new Calculator(() => {
   fst_number_element.innerHTML = calc.getFirstNumber;
   snd_number_element.innerHTML = calc.getSecndNumber;
   operator_element.innerHTML = calc.getOperator.symbol;
-  prev_calculation.innerHTML = calc.getPreviousCalculation != null ? calc.getPreviousCalculation.toString() : ''
+  prev_calculation.innerHTML =
+    calc.getPreviousCalculation != null
+      ? calc.getPreviousCalculation.toString()
+      : "";
 });
 
 document.addEventListener("keypress", (event) => {
@@ -64,10 +67,26 @@ document.querySelector("#equals").addEventListener("click", () => {
 });
 
 // handle text scrolling
-const scroll_container = document.querySelector("#scroll-container")
-const template = document.querySelector("#scroll-row-template")
+const scroll_container = document.querySelector("#scroll-container");
+const row_template = document.querySelector("#scroll-row-template");
 
 for (let i = 0; i < 60; i++) {
-  const clone = template.content.cloneNode(true)
-  scroll_container.appendChild(clone)
+  const row_instance = row_template.content.cloneNode(true);
+  scroll_container.appendChild(row_instance);
 }
+
+document.querySelectorAll(".scroll-row").forEach((element) => {
+  const ul_template = document.querySelector("#scroll-ul-template");
+  for (let i = 0; i < 2; i++) {
+    const ul_instance = ul_template.content.cloneNode(true);
+    element.appendChild(ul_instance);
+  }
+});
+
+document.querySelectorAll(".scroll-row ul").forEach((element) => {
+  const li_template = document.querySelector("#scroll-li-template");
+  for (let i = 0; i < 64; i++) {
+    const li_instance = li_template.content.cloneNode(true);
+    element.appendChild(li_instance);
+  }
+});
