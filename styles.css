@@ -218,7 +218,8 @@ body {
 /* dropdown */
 .dropdown {
     height: 1.4em;
-    border-radius: 1em;
+    border-radius: 2em;
+    padding: .05em;
 }
 
 .dropdown .menu-button {
