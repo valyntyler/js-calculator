@@ -259,6 +259,15 @@ body {
     margin: .2em 0em;
 }
 
+.dropdown .menu-page a {
+    text-decoration: none;
+    color: var(--accent-90);
+}
+
+.dropdown .menu-page a:hover {
+    text-decoration: underline;
+}
+
 .dropdown.active {
     background-color: var(--transparent-80);
 }
