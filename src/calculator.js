@@ -1,4 +1,4 @@
-import Operator from "./Operator.js";
+import Operator from "./operator.js";
 
 export default class Calculator {
   #fst_number_string = "";
