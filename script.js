@@ -70,8 +70,7 @@ document.querySelector("#equals").addEventListener("click", () => {
 // kill all active dropdowns
 document.onclick = e => {
   document.querySelectorAll(".dropdown").forEach(dropdown => {
-    const dd_btn = dropdown.querySelector(".menu-button")
-    if (e.target != dd_btn) {
+    if (e.target.closest(".dropdown") != dropdown) {
       dropdown.classList.remove("active")
     }
   });
