@@ -85,7 +85,8 @@ document.querySelectorAll(".menu-button").forEach((element) => {
 
 const div_zero_toggle = document.querySelector("#div-zero");
 div_zero_toggle.onchange = () => {
-  console.log(div_zero_toggle.checked);
+  document.querySelector("#display").classList.remove("shaking")
+  document.querySelector("#display").classList.add("shaking")
 };
 
 const bkg_scroll_toggle = document.querySelector("#bkg-scroll");

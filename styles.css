@@ -156,7 +156,10 @@ body {
     aspect-ratio: 2.4;
     border-radius: .4em;
     padding: .2em;
-    animation: error-shake var(--shake-duration) 0;
+}
+
+.shaking {
+    animation: error-shake var(--shake-duration) 1;
 }
 
 @keyframes error-shake {
