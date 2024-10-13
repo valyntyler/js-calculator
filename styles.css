@@ -154,6 +154,17 @@ body {
     aspect-ratio: 2.4;
     border-radius: .4em;
     padding: .2em;
+    animation: error-shake;
+}
+
+@keyframes error-shake {
+    25% {
+        transform: translate(-2em);
+    }
+
+    50% {
+        transform: translate(2em);
+    }
 }
 
 /* previous calculation */
@@ -394,7 +405,7 @@ input:checked+.toggle-slider:before {
     min-width: 100%;
     padding-left: 0%;
     margin: 0%;
-    animation: scrolling-animation 132s linear infinite;
+    animation: scrolling-animation 128s linear infinite;
 }
 
 .paused .scroll-row ul {
