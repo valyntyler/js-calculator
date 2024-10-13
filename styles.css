@@ -264,6 +264,10 @@ body {
     left: -300%;
 }
 
+.dropdown .menu-page li {
+    margin: .2em 0px;
+}
+
 .dropdown .menu-page h1 {
     color: white;
     margin: .2em 0em;
@@ -288,7 +292,7 @@ body {
 }
 
 .setting {
-    font-size: .9em;
+    font-size: .8em;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -320,8 +324,8 @@ body {
     right: 0;
     bottom: 0;
     background-color: #ccc;
-    -webkit-transition: .4s;
-    transition: .4s;
+    -webkit-transition: var(--transition-speed);
+    transition: var(--transition-speed);
 }
 
 .slider:before {
@@ -332,8 +336,8 @@ body {
     left: 4em;
     bottom: 4em;
     background-color: white;
-    -webkit-transition: .4s;
-    transition: .4s;
+    -webkit-transition: var(--transition-speed);
+    transition: var(--transition-speed);
 }
 
 input:checked+.slider {
