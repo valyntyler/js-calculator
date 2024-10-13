@@ -397,6 +397,10 @@ input:checked+.toggle-slider:before {
     animation: scrolling-animation 132s linear infinite;
 }
 
+.paused .scroll-row ul {
+    animation-play-state: paused;
+}
+
 @keyframes scrolling-animation {
     to {
         transform: translate(calc(var(--scroll-repeat-gap) * -1 - 100%));
