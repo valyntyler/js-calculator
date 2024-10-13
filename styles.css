@@ -26,6 +26,8 @@
     --transparent-40: #1e1e1e6e;
     --transparent-20: #1e1e1e2f;
     --transition-speed: 150ms;
+    --shake-duration: 400ms;
+    --shake-distance: 0.4em;
 }
 
 body {
@@ -154,16 +156,24 @@ body {
     aspect-ratio: 2.4;
     border-radius: .4em;
     padding: .2em;
-    animation: error-shake;
+    animation: error-shake var(--shake-duration) 0;
 }
 
 @keyframes error-shake {
-    25% {
-        transform: translate(-2em);
+    20% {
+        transform: translate(var(--shake-distance) * -1);
     }
 
-    50% {
-        transform: translate(2em);
+    40% {
+        transform: translate(var(--shake-distance));
+    }
+
+    60% {
+        transform: translate(var(--shake-distance) * -1);
+    }
+
+    80% {
+        transform: translate(var(--shake-distance));
     }
 }
 
