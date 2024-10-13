@@ -67,11 +67,13 @@ document.querySelector("#equals").addEventListener("click", () => {
 });
 
 // handle menu buttons
-document.onmousedown = () => {
-  document.querySelectorAll(".dropdown").forEach(dd => {
-    dd.classList.remove("active")
-  });
-}
+document.querySelectorAll("#scroll-container-wrapper, #calculator").forEach(element => {
+  element.onmousedown = () => {
+    document.querySelectorAll(".dropdown").forEach(dd => {
+      dd.classList.remove("active")
+    });
+  }
+});
 
 document.querySelectorAll(".menu-button").forEach((element) => {
   element.onclick = () => {
