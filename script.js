@@ -1,5 +1,5 @@
-import Calculator from "./src/Calculator.js";
-import Operator from "./src/Operator.js";
+import Calculator from "./src/calculator.js";
+import Operator from "./src/operator.js";
 
 const fst_number_element = document.querySelector("#current-first-number");
 const snd_number_element = document.querySelector("#current-second-number");
@@ -72,6 +72,16 @@ document.querySelectorAll(".menu-button").forEach((element) => {
     console.log("hi");
   };
 });
+
+const info_button = document.querySelector(".info-button");
+const info_dropdown = info_button.querySelector(".dropdown");
+info_button.onclick = () => {
+  if (info_dropdown.classList.contains("enabled")) {
+    info_dropdown.classList.remove("enabled");
+  } else {
+    info_dropdown.classList.add("enabled");
+  }
+};
 
 // handle text scrolling
 const scroll_container = document.querySelector("#scroll-container");

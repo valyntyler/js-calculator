@@ -211,17 +211,6 @@ body {
     margin-left: 12vw;
 }
 
-.menu-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 1em;
-    height: 1.6em;
-    aspect-ratio: 1;
-    transition: all var(--transition-speed);
-    filter: drop-shadow(0 0 0.4em var(--background-00));
-}
-
 .menu-button img {
     height: 1.4em;
     filter: invert(5%) sepia(1%) saturate(3465%) hue-rotate(314deg) brightness(104%) contrast(86%);
@@ -238,35 +227,30 @@ body {
     /* filter: invert(44%) sepia(17%) saturate(474%) hue-rotate(76deg) brightness(96%) contrast(90%); */
 }
 
-.menu-button .dropdown {
-    position: absolute;
-    top: 4em;
+/* dropdown */
+.dropdown {
+}
 
-    opacity: 0;
-
-    background-color: var(--background-00);
-    color: var(--background-80);
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: bolder;
-
-    padding: .8em;
+.dropdown .menu-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border-radius: 1em;
+    height: 1.6em;
+    aspect-ratio: 1;
+    transition: all var(--transition-speed);
+    /* filter: drop-shadow(0 0 .1em var(--background-00)); */
 }
 
-.menu-button .dropdown ul {
+.dropdown .menu-page {
+    font-size: .6em;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     list-style: none;
-    padding: 0%;
+    padding: .2em .5em;
     margin: 0%;
-}
+    background-color: var(--background-00);
+    border-radius: 1em;
 
-.menu-button .dropdown li {
-    font-size: 0.5em;
-    margin: .2em;
-    margin-left: 0px;
-}
-
-.menu-button .dropdown span {
-    font-size: 0.8em;
 }
 
 /* toggle switch graphic */
