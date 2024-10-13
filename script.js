@@ -67,21 +67,12 @@ document.querySelector("#equals").addEventListener("click", () => {
 });
 
 // handle menu buttons
-document.querySelectorAll(".menu-button").forEach((element) => {
-  element.onclick = () => {
-    console.log("hi");
-  };
-});
+const info_button = document.querySelector(".info-button")
 
-const info_button = document.querySelector(".info-button");
-const info_dropdown = info_button.querySelector(".dropdown");
+
 info_button.onclick = () => {
-  if (info_dropdown.classList.contains("enabled")) {
-    info_dropdown.classList.remove("enabled");
-  } else {
-    info_dropdown.classList.add("enabled");
-  }
-};
+  info_button.nextElementSibling.classList.toggle("active")
+}
 
 // handle text scrolling
 const scroll_container = document.querySelector("#scroll-container");
