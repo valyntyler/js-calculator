@@ -68,13 +68,13 @@ document.querySelector("#equals").addEventListener("click", () => {
 
 // handle menu buttons
 // kill all active dropdowns
-document.onclick = e => {
-  document.querySelectorAll(".dropdown").forEach(dropdown => {
+document.onclick = (e) => {
+  document.querySelectorAll(".dropdown").forEach((dropdown) => {
     if (e.target.closest(".dropdown") != dropdown) {
-      dropdown.classList.remove("active")
+      dropdown.classList.remove("active");
     }
   });
-}
+};
 
 document.querySelectorAll(".menu-button").forEach((element) => {
   element.onclick = () => {
@@ -82,6 +82,16 @@ document.querySelectorAll(".menu-button").forEach((element) => {
     dropdown.classList.toggle("active");
   };
 });
+
+const div_zero_toggle = document.querySelector("#div-zero");
+div_zero_toggle.onchange = () => {
+  console.log(div_zero_toggle.checked);
+};
+
+const bkg_scroll_toggle = document.querySelector("#bkg-scroll");
+bkg_scroll_toggle.onchange = () => {
+  console.log(bkg_scroll_toggle.checked);
+};
 
 // handle text scrolling
 const scroll_container = document.querySelector("#scroll-container");
