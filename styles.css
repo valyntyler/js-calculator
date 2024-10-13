@@ -203,7 +203,7 @@ body {
 
     height: 1.6em;
     user-select: none;
-    --transition-speed: 250ms;
+    --transition-speed: 150ms;
 
     padding: 6vh 12vw;
     width: 76vw;
