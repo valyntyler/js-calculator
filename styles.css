@@ -189,26 +189,23 @@ body {
 /* menu */
 #menu {
     z-index: 1;
+
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    min-width: 100%;
-    height: 1.2em;
-    margin-top: 6vh;
-    margin-bottom: 6vh;
+    
+    height: 1.6em;
     user-select: none;
     --transition-speed: 250ms;
+
+    padding: 6vh 12vw;
+    width: 76vw;
 }
 
 #menu .rhs {
     gap: .4em;
-    margin-right: 12vw;
     display: flex;
     flex-direction: row-reverse;
-}
-
-#menu .lhs {
-    margin-left: 12vw;
 }
 
 .menu-button img {
@@ -235,11 +232,11 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    
     border-radius: 1em;
     height: 1.6em;
     aspect-ratio: 1;
     transition: all var(--transition-speed);
-    /* filter: drop-shadow(0 0 .1em var(--background-00)); */
 }
 
 .dropdown .menu-page {
