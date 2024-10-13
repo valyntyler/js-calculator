@@ -67,12 +67,20 @@ document.querySelector("#equals").addEventListener("click", () => {
 });
 
 // handle menu buttons
-const info_button = document.querySelector(".info-button")
-
-
-info_button.onclick = () => {
-  info_button.nextElementSibling.classList.toggle("active")
+document.onmousedown = () => {
+  console.log('hi from global')
+  document.querySelectorAll(".dropdown").forEach(dd => {
+    dd.classList.remove("active")
+  });
 }
+
+document.querySelectorAll(".menu-button").forEach((element) => {
+  element.onclick = () => {
+    console.log('hi from button');
+    const dropdown = element.parentElement;
+    dropdown.classList.toggle("active");
+  };
+});
 
 // handle text scrolling
 const scroll_container = document.querySelector("#scroll-container");

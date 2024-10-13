@@ -9,6 +9,7 @@
 }
 
 :root {
+    --accent-90: #738D76;
     --accent-80: #5f7962;
     --accent-60: #3f5f43;
     --accent-40: #2d4830;
@@ -19,6 +20,9 @@
     --background-20: #726c5d;
     --background-10: #43413b;
     --background-00: #1e1e1e;
+    --transparent-60: #1e1e1e8f;
+    --transparent-40: #1e1e1e6e;
+    --transparent-20: #1e1e1e2f;
 }
 
 body {
@@ -210,40 +214,55 @@ body {
 }
 
 /* dropdown */
+.dropdown {
+    height: 1.4em;
+    border-radius: 1em;
+}
+
 .dropdown .menu-button {
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 100%;
 
-    height: 1.4em;
-    border-radius: 1em;
-
+    /* filter: invert(94%) sepia(6%) saturate(418%) hue-rotate(7deg) brightness(96%) contrast(85%); */
+    /* filter: invert(99%) sepia(3%) saturate(2086%) hue-rotate(332deg) brightness(86%) contrast(72%); */
+    /* filter: invert(43%) sepia(6%) saturate(1093%) hue-rotate(5deg) brightness(94%) contrast(82%); */
+    filter: invert(0%) sepia(3%) saturate(86%) hue-rotate(337deg) brightness(97%) contrast(77%);
     transition: all var(--transition-speed);
 }
 
-.dropdown .menu-button:hover {
-    background-color: #1e1e1e7e;
+.dropdown:hover {
+    background-color: var(--transparent-20);
 }
 
 .dropdown .menu-page {
     list-style: none;
+    display: none;
+    position: absolute;
+    background-color: var(--transparent-40);
 
+    color: var(--background-00);
     font-size: .6em;
+    font-weight: bolder;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
     padding: .2em .5em;
     margin: 0%;
     margin-top: .5em;
-    border-radius: 1em;
-
-    background-color: var(--background-00);
-    display: none;
-    transition: all 1000ms;
-
-    position: absolute;
+    border-radius: 1em;    
 }
 
-.dropdown .active {
+.dropdown.active {
+    background-color: var(--transparent-40);
+    /* filter: drop-shadow(0 0 0.1em var(--background-00)); */
+}
+
+.dropdown.active .menu-button {
+    /* filter: invert(43%) sepia(6%) saturate(1093%) hue-rotate(5deg) brightness(94%) contrast(82%); */
+}
+
+.dropdown.active .menu-page {
     display: block;
 }
 
