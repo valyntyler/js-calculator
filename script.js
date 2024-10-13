@@ -68,7 +68,6 @@ document.querySelector("#equals").addEventListener("click", () => {
 
 // handle menu buttons
 document.onmousedown = () => {
-  console.log('hi from global')
   document.querySelectorAll(".dropdown").forEach(dd => {
     dd.classList.remove("active")
   });
@@ -76,7 +75,6 @@ document.onmousedown = () => {
 
 document.querySelectorAll(".menu-button").forEach((element) => {
   element.onclick = () => {
-    console.log('hi from button');
     const dropdown = element.parentElement;
     dropdown.classList.toggle("active");
   };
