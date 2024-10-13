@@ -14,12 +14,14 @@
     --accent-60: #3f5f43;
     --accent-40: #2d4830;
     --accent-20: #213323;
+    --background-90: #D3CFC5;
     --background-80: #dfdacc;
     --background-60: #c2bdae;
     --background-40: #978f7c;
     --background-20: #726c5d;
     --background-10: #43413b;
     --background-00: #1e1e1e;
+    --transparent-80: #1e1e1ebe;
     --transparent-60: #1e1e1e8f;
     --transparent-40: #1e1e1e6e;
     --transparent-20: #1e1e1e2f;
@@ -240,26 +242,30 @@ body {
     list-style: none;
     display: none;
     position: absolute;
-    background-color: var(--transparent-40);
+    background-color: var(--transparent-80);
 
-    color: var(--background-00);
-    font-size: .6em;
-    font-weight: bolder;
+    color: var(--background-80);
+    font-size: .5em;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
-    padding: .2em .5em;
+    padding: 1em;
     margin: 0%;
     margin-top: .5em;
     border-radius: 1em;    
 }
 
+.dropdown .menu-page h1 {
+    color: white;
+    margin: .2em 0em;
+}
+
 .dropdown.active {
-    background-color: var(--transparent-40);
-    /* filter: drop-shadow(0 0 0.1em var(--background-00)); */
+    background-color: var(--transparent-80);
 }
 
 .dropdown.active .menu-button {
-    /* filter: invert(43%) sepia(6%) saturate(1093%) hue-rotate(5deg) brightness(94%) contrast(82%); */
+    filter: invert(98%) sepia(0%) saturate(160%) hue-rotate(182deg) brightness(116%) contrast(100%);
+    /* filter: invert(94%) sepia(6%) saturate(418%) hue-rotate(7deg) brightness(96%) contrast(85%); */
 }
 
 .dropdown.active .menu-page {
