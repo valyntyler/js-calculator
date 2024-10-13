@@ -67,13 +67,15 @@ document.querySelector("#equals").addEventListener("click", () => {
 });
 
 // handle menu buttons
-document.querySelectorAll("#scroll-container-wrapper, #calculator").forEach(element => {
-  element.onmousedown = () => {
-    document.querySelectorAll(".dropdown").forEach(dd => {
-      dd.classList.remove("active")
-    });
-  }
-});
+// kill all active dropdowns
+document.onclick = e => {
+  document.querySelectorAll(".dropdown").forEach(dropdown => {
+    const dd_btn = dropdown.querySelector(".menu-button")
+    if (e.target != dd_btn) {
+      dropdown.classList.remove("active")
+    }
+  });
+}
 
 document.querySelectorAll(".menu-button").forEach((element) => {
   element.onclick = () => {
