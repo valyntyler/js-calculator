@@ -247,7 +247,7 @@ body {
     list-style: none;
     display: none;
     position: absolute;
-    
+
     font-size: .5em;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: var(--background-80);
@@ -256,11 +256,12 @@ body {
     padding: 1em;
     margin: 0%;
     margin-top: .5em;
-    border-radius: 1em;    
+    border-radius: 1em;
+    min-width: 10em;
 }
 
 .rhs .dropdown .menu-page {
-    left: -200%;
+    left: -300%;
 }
 
 .dropdown .menu-page h1 {
