@@ -91,9 +91,9 @@ div_zero_toggle.onchange = () => {
 const bkg_scroll_toggle = document.querySelector("#bkg-scroll");
 bkg_scroll_toggle.onchange = () => {
   if (bkg_scroll_toggle.checked) {
-    document.querySelector("#scroll-container").classList.add("paused");
-  } else {
     document.querySelector("#scroll-container").classList.remove("paused");
+  } else {
+    document.querySelector("#scroll-container").classList.add("paused");
   }
 };
 
