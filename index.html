@@ -10,48 +10,52 @@
 
 <body>
   <!-- menu -->
-  <nav id="menu">
-    <div class="dropdown info">
-      <img class="menu-button" draggable="false" src="icons/bxs-info-circle.svg" alt="settings button">
-      <ul class="menu-page">
-        <li>
-          <h1>Info</h1>
-        </li>
-        <li><a target="_blank" href="https://github.com/ValynTyler/js-calculator">source code</a></li>
-      </ul>
-    </div>
-    <div class="dropdown themes">
-      <img class="menu-button" draggable="false" src="icons/bxs-magic-wand.svg" alt="settings button">
-      <ul class="menu-page">
-        <li>
-          <h1>Themes</h1>
-        </li>
-        <li>Themes are coming soon</li>
-      </ul>
-    </div>
-    <div class="dropdown settings">
-      <img class="menu-button" draggable="false" src="icons/bxs-cog.svg" alt="settings button">
-      <ul class="menu-page">
-        <li>
-          <h1>Settings</h1>
-        </li>
-        <li class="setting">
-          <div>Division by zero</div>
-          <label class="toggle">
-            <input type="checkbox" name="div-zero" id="div-zero">
-            <span class="toggle-slider"></span>
-          </label>
-        </li>
-        <li class="setting">
-          <div>Scrolling background</div>
-          <label class="toggle">
-            <input type="checkbox" name="bkg-scroll" id="bkg-scroll">
-            <span class="toggle-slider"></span>
-          </label>
-        </li>
-      </ul>
-    </div>
-  </nav>
+  <div id="menu-wrapper">
+    <span>Calculator</span>
+    <img class="hamburger-button" src="icons/bx-menu.svg" alt="menu button">
+    <nav id="menu">
+      <div class="dropdown info">
+        <img class="menu-button" draggable="false" src="icons/bxs-info-circle.svg" alt="settings button">
+        <ul class="menu-page">
+          <li>
+            <h1>Info</h1>
+          </li>
+          <li><a target="_blank" href="https://github.com/ValynTyler/js-calculator">source code</a></li>
+        </ul>
+      </div>
+      <div class="dropdown themes">
+        <img class="menu-button" draggable="false" src="icons/bxs-magic-wand.svg" alt="settings button">
+        <ul class="menu-page">
+          <li>
+            <h1>Themes</h1>
+          </li>
+          <li>Themes are coming soon</li>
+        </ul>
+      </div>
+      <div class="dropdown settings">
+        <img class="menu-button" draggable="false" src="icons/bxs-cog.svg" alt="settings button">
+        <ul class="menu-page">
+          <li>
+            <h1>Settings</h1>
+          </li>
+          <li class="setting">
+            <div>Division by zero</div>
+            <label class="toggle">
+              <input type="checkbox" name="div-zero" id="div-zero">
+              <span class="toggle-slider"></span>
+            </label>
+          </li>
+          <li class="setting">
+            <div>Scrolling background</div>
+            <label class="toggle">
+              <input type="checkbox" name="bkg-scroll" id="bkg-scroll">
+              <span class="toggle-slider"></span>
+            </label>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
 
   <!-- calculator -->
   <div method="get" id="calculator">

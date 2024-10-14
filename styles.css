@@ -39,6 +39,8 @@ body {
     align-items: center;
     font-size: clamp(16px, 4vh, 40px);
     overflow: hidden;
+    padding: 0%;
+    margin: 0%;
 }
 
 /* calculator */
@@ -227,12 +229,19 @@ body {
 }
 
 /* menu */
+#menu-wrapper {
+    z-index: 10;
+}
+
 #menu {
-    z-index: 1;
     display: flex;
 }
 
 @media only screen and (min-width: 600px) {
+    .hamburger-button {
+        display: none;
+    }
+
     #menu {
         flex-direction: row;
         justify-content: space-between;
@@ -255,12 +264,36 @@ body {
 }
 
 @media only screen and (max-width: 600px) {
-    #menu {
+    .hamburger-button {
+        height: 1.6em;
+        margin-right: .4em;
+
+        filter: invert(98%) sepia(0%) saturate(160%) hue-rotate(182deg) brightness(116%) contrast(100%);
+    }
+
+    #menu-wrapper span {
+        margin-left: .4em;
+        color: var(--accent-80);
+        background-color: var(--accent-20);
+        padding: .2em .5em;
+        border-radius: 2em;
+        font-weight: bolder;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    #menu-wrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         background-color: var(--background-00);
-        flex-direction: row-reverse;
-        margin-bottom: 6vh;
+        width: 100%;
         padding: 3vh 0vw;
-        width: 100vw;
+        margin-bottom: 10vh;
+        box-shadow: 0px 0px 40px 0px var(--background-00);
+    }
+
+    #menu {
+        display: none;
     }
 }
 
