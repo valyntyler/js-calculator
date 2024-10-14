@@ -27,7 +27,7 @@
     --transparent-20: #1e1e1e2f;
     --transition-speed: 150ms;
     --shake-duration: 400ms;
-    --shake-distance: 0.2em;
+    --shake-distance: 0.15em;
 }
 
 body {
@@ -114,7 +114,7 @@ body {
 }
 
 .button:active {
-    filter: brightness(0.9);
+    /* filter: brightness(0.9); */
     box-shadow: none !important;
     margin-bottom: 0em;
     margin-top: .15em;
@@ -125,26 +125,26 @@ body {
 .clear-button#clear {
     color: var(--background-20);
     background-color: var(--background-60);
-    box-shadow: .0em .15em 0px 0px var(--background-20);
+    box-shadow: .0em .15em 0px 0px var(--background-40);
 }
 
 .operator-button {
     color: var(--background-10);
     background-color: var(--background-40);
-    box-shadow: .0em .15em 0px 0px var(--background-10);
+    box-shadow: .0em .15em 0px 0px var(--background-20);
 }
 
 .clear-button#all-clear {
     color: var(--background-10);
     background-color: var(--background-40);
     width: var(--button-width) * 2;
-    box-shadow: .0em .15em 0px 0px var(--background-10);
+    box-shadow: .0em .15em 0px 0px var(--background-20);
 }
 
 .button#equals {
     color: var(--accent-40);
     background-color: var(--accent-80);
-    box-shadow: .0em .15em 0px 0px var(--accent-40);
+    box-shadow: .0em .15em 0px 0px var(--accent-60);
 }
 
 /* display */
