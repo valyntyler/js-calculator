@@ -33,7 +33,7 @@ export default class Calculator {
   }
 
   get getIsDivZeroAllowed() {
-    return this.#is_div_zero_allowed
+    return this.#is_div_zero_allowed;
   }
 
   set setOperator(value) {
@@ -46,7 +46,7 @@ export default class Calculator {
   }
 
   set setIsDivZeroAllowed(value) {
-    this.#is_div_zero_allowed = value
+    this.#is_div_zero_allowed = value;
   }
 
   appendDigit(digit) {
@@ -59,13 +59,13 @@ export default class Calculator {
       if (this.#fst_number_string.length + digit.length <= 10) {
         this.#fst_number_string += digit;
       } else {
-        this.#oncalculationfail()
+        this.#oncalculationfail();
       }
     } else {
       if (this.#snd_number_string.length + digit.length <= 10) {
         this.#snd_number_string += digit;
       } else {
-        this.#oncalculationfail()
+        this.#oncalculationfail();
       }
     }
     this.#onchange();
@@ -86,7 +86,7 @@ export default class Calculator {
       ) {
         this.#fst_number_string += ".";
       } else {
-        this.#oncalculationfail()
+        this.#oncalculationfail();
       }
     } else {
       if (
@@ -95,7 +95,7 @@ export default class Calculator {
       ) {
         this.#snd_number_string += ".";
       } else {
-        this.#oncalculationfail()
+        this.#oncalculationfail();
       }
     }
     this.#onchange();
@@ -109,22 +109,32 @@ export default class Calculator {
       this.#operator = Operator.Empty;
     } else if (this.#fst_number_string !== "") {
       this.#fst_number_string = "";
+    } else {
+      this.#oncalculationfail();
     }
     this.#onchange();
   }
 
   allClear() {
-    this.#previous_calculation = null;
-    this.#fst_number_string = "";
-    this.#snd_number_string = "";
-    this.#operator = Operator.Empty;
-    this.#onchange();
+    if (this.#fst_number_string !== "") {
+      this.#previous_calculation = null;
+      this.#fst_number_string = "";
+      this.#snd_number_string = "";
+      this.#operator = Operator.Empty;
+      this.#onchange();
+    } else {
+      this.#oncalculationfail();
+    }
   }
 
   calculate() {
-    if (!this.#is_div_zero_allowed && this.#snd_number_string == 0 && this.#operator.id === Operator.Divide.id) {
-      this.#oncalculationfail()
-      return
+    if (
+      !this.#is_div_zero_allowed &&
+      this.#snd_number_string == 0 &&
+      this.#operator.id === Operator.Divide.id
+    ) {
+      this.#oncalculationfail();
+      return;
     }
 
     if (
@@ -152,7 +162,7 @@ export default class Calculator {
       this.#operator = Operator.Empty;
       this.#onchange();
     } else {
-      this.#oncalculationfail()
+      this.#oncalculationfail();
     }
   }
 }
