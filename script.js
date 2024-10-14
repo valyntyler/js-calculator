@@ -93,8 +93,6 @@ function load_localstorage() {
   div_zero_toggle.checked = div_zero_local === null ? false : (div_zero_local === 'true')
   bkg_scroll_toggle.checked = bkg_scroll_local === null ? true : (bkg_scroll_local === 'true')
 
-  console.log(div_zero_toggle.checked, bkg_scroll_toggle.checked);
-
   update_bkg_scroll()
 }
 
