@@ -423,7 +423,7 @@ body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         color: var(--background-40);
         font-weight: bolder;
-        font-size: 1.2rem;
+        font-size: 1.0rem;
     }
 
     .dropdown .m-heading {
@@ -439,6 +439,7 @@ body {
     }
 
     .dropdown .menu-page {
+        font-size: 1.3em;
         display: none;
         position: relative;
         list-style: none;
