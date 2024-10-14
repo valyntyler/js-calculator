@@ -408,7 +408,7 @@ body {
         flex-direction: column-reverse;
         justify-content: start;
         top: 13%;
-        height: 100vh;
+        height: 120vh;
         border-top: .05em solid var(--background-90);
         background-color: var(--background-00);
         padding: 1em .4em;
@@ -423,6 +423,11 @@ body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         color: var(--background-40);
         font-weight: bolder;
+        font-size: 1.2rem;
+    }
+
+    .dropdown .m-heading {
+        font-size: 2em;
     }
 
     .dropdown.active {
@@ -435,20 +440,19 @@ body {
 
     .dropdown .menu-page {
         display: none;
-        font-size: .5em;
         position: relative;
         list-style: none;
         padding: 0%;
         margin: 0%;
         gap: .4em;
         margin-bottom: 1em;
+        font-weight: normal;
+        color: var(--background-80);
     }
 
     .dropdown.active .menu-page {
         display: flex;
         flex-direction: column;
-        font-weight: normal;
-        color: var(--background-80);
     }
 
     .dropdown .menu-page h1 {
