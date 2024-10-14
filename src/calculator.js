@@ -5,8 +5,11 @@ export default class Calculator {
   #snd_number_string = "";
   #operator = Operator.Empty;
   #previous_calculation = null;
+
   #onchange = () => {};
   #oncalculationfail = () => {};
+
+  #is_div_zero_allowed = false;
 
   constructor(onchange = () => {}, oncalcfail = () => {}) {
     this.#onchange = onchange;
@@ -29,6 +32,10 @@ export default class Calculator {
     return this.#previous_calculation;
   }
 
+  get getIsDivZeroAllowed() {
+    return this.#is_div_zero_allowed
+  }
+
   set setOperator(value) {
     if (this.#operator == Operator.Empty && this.#fst_number_string !== "") {
       this.#operator = value;
@@ -36,6 +43,10 @@ export default class Calculator {
       this.#fst_number_string = parseFloat(this.#fst_number_string).toString();
       this.#onchange();
     }
+  }
+
+  set setIsDivZeroAllowed(value) {
+    this.#is_div_zero_allowed = value
   }
 
   appendDigit(digit) {
@@ -111,6 +122,11 @@ export default class Calculator {
   }
 
   calculate() {
+    if (!this.#is_div_zero_allowed && this.#snd_number_string == 0 && this.#operator.id === Operator.Divide.id) {
+      this.#oncalculationfail()
+      return
+    }
+
     if (
       this.#fst_number_string !== "" &&
       this.#snd_number_string !== "" &&
