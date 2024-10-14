@@ -112,6 +112,10 @@ function load_localstorage() {
   update_bkg_scroll();
 }
 
+function update_div_zero() {
+  calc.setIsDivZeroAllowed = div_zero_toggle.checked
+}
+
 function update_bkg_scroll() {
   if (bkg_scroll_toggle.checked) {
     document.querySelector("#scroll-container").classList.add("running");
@@ -125,6 +129,7 @@ const bkg_scroll_toggle = document.querySelector("#bkg-scroll");
 
 window.addEventListener("load", () => {
   load_localstorage();
+  update_div_zero();
   update_bkg_scroll();
 });
 
@@ -137,6 +142,7 @@ function play_error_shake() {
 
 div_zero_toggle.onchange = () => {
   localStorage.setItem(DIV_ZERO_STRING, div_zero_toggle.checked);
+  update_div_zero()
 };
 
 bkg_scroll_toggle.onchange = () => {
