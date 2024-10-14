@@ -98,9 +98,9 @@ function load_localstorage() {
 
 function update_bkg_scroll() {
   if (bkg_scroll_toggle.checked) {
-    document.querySelector("#scroll-container").classList.remove("paused");
+    document.querySelector("#scroll-container").classList.add("running");
   } else {
-    document.querySelector("#scroll-container").classList.add("paused");
+    document.querySelector("#scroll-container").classList.remove("running");
   }
 }
 

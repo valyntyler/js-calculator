@@ -419,10 +419,11 @@ input:checked+.toggle-slider:before {
     padding-left: 0%;
     margin: 0%;
     animation: scrolling-animation 128s linear infinite;
+    animation-play-state: paused;
 }
 
-.paused .scroll-row ul {
-    animation-play-state: paused;
+.running .scroll-row ul {
+    animation-play-state: running;
 }
 
 @keyframes scrolling-animation {
