@@ -105,6 +105,8 @@ body {
     width: var(--button-width);
     border: none;
     border-radius: .3em;
+    margin-bottom: .15em;
+    transition: all var(--transition-speed);
 }
 
 .button:hover {
@@ -113,6 +115,9 @@ body {
 
 .button:active {
     filter: brightness(0.9);
+    box-shadow: none !important;
+    margin-bottom: 0em;
+    margin-top: .15em;
 }
 
 .number-button,
