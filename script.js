@@ -83,17 +83,28 @@ document.querySelectorAll(".menu-button").forEach((element) => {
   };
 });
 
-const DIV_ZERO_STRING = "div_zero"
-const BKG_SCROLL_STRING = "bkg_scroll"
+const DIV_ZERO_STRING = "div_zero";
+const BKG_SCROLL_STRING = "bkg_scroll";
 
 function load_localstorage() {
-  const div_zero_local = localStorage.getItem(DIV_ZERO_STRING)
-  const bkg_scroll_local = localStorage.getItem(BKG_SCROLL_STRING)
+  const div_zero_local = localStorage.getItem(DIV_ZERO_STRING);
+  const bkg_scroll_local = localStorage.getItem(BKG_SCROLL_STRING);
 
-  div_zero_toggle.checked = div_zero_local === null ? false : (div_zero_local === 'true')
-  bkg_scroll_toggle.checked = bkg_scroll_local === null ? true : (bkg_scroll_local === 'true')
+  const isReduced =
+    window.matchMedia(`(prefers-reduced-motion: reduce)`) === true ||
+    window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true;
 
-  update_bkg_scroll()
+  const default_div_zero = false;
+  const default_bkg_scroll = !isReduced;
+
+  div_zero_toggle.checked =
+    div_zero_local === null ? default_div_zero : div_zero_local === "true";
+  bkg_scroll_toggle.checked =
+    bkg_scroll_local === null
+      ? default_bkg_scroll
+      : bkg_scroll_local === "true";
+
+  update_bkg_scroll();
 }
 
 function update_bkg_scroll() {
@@ -110,18 +121,18 @@ const bkg_scroll_toggle = document.querySelector("#bkg-scroll");
 window.addEventListener("load", () => {
   load_localstorage();
   update_bkg_scroll();
-})
+});
 
 div_zero_toggle.onchange = () => {
-  localStorage.setItem(DIV_ZERO_STRING, div_zero_toggle.checked)
-  const display = document.querySelector("#display")
-  display.classList.remove("shaking")
-  display.offsetWidth
-  display.classList.add("shaking")
+  localStorage.setItem(DIV_ZERO_STRING, div_zero_toggle.checked);
+  const display = document.querySelector("#display");
+  display.classList.remove("shaking");
+  display.offsetWidth;
+  display.classList.add("shaking");
 };
 
 bkg_scroll_toggle.onchange = () => {
-  localStorage.setItem(BKG_SCROLL_STRING, bkg_scroll_toggle.checked)
+  localStorage.setItem(BKG_SCROLL_STRING, bkg_scroll_toggle.checked);
   update_bkg_scroll();
 };
 
