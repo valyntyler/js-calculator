@@ -16,13 +16,13 @@ let calc = new Calculator(
         ? calc.getPreviousCalculation.toString()
         : "";
   }),
-  (() => {
-    play_error_shake()
-  })
+  () => {
+    play_error_shake();
+  }
 );
 
 document.addEventListener("keypress", (event) => {
-  event.preventDefault()
+  event.preventDefault();
   if (event.key.match(/\d/) != null) {
     calc.appendDigit(event.key);
   } else if (event.key.match(/\.|,/) != null) {
@@ -114,7 +114,7 @@ function load_localstorage() {
 }
 
 function update_div_zero() {
-  calc.setIsDivZeroAllowed = div_zero_toggle.checked
+  calc.setIsDivZeroAllowed = div_zero_toggle.checked;
 }
 
 function update_bkg_scroll() {
@@ -137,7 +137,7 @@ window.addEventListener("load", () => {
 function play_error_shake() {
   const display = document.querySelector("#display");
   if (display.getAnimations().length > 0) {
-    return
+    return;
   }
 
   display.classList.remove("shaking");
@@ -147,12 +147,17 @@ function play_error_shake() {
 
 div_zero_toggle.onchange = () => {
   localStorage.setItem(DIV_ZERO_STRING, div_zero_toggle.checked);
-  update_div_zero()
+  update_div_zero();
 };
 
 bkg_scroll_toggle.onchange = () => {
   localStorage.setItem(BKG_SCROLL_STRING, bkg_scroll_toggle.checked);
   update_bkg_scroll();
+};
+
+// mobile
+document.querySelector(".hamburger-button").onclick = () => {
+  document.querySelector("#menu-wrapper").classList.toggle("open")
 };
 
 // handle text scrolling
