@@ -120,22 +120,26 @@ body {
 .clear-button#clear {
     color: var(--background-20);
     background-color: var(--background-60);
+    box-shadow: .1em .15em 0px 0px var(--background-20);
 }
 
 .operator-button {
     color: var(--background-10);
     background-color: var(--background-40);
+    box-shadow: .1em .15em 0px 0px var(--background-10);
 }
 
 .clear-button#all-clear {
     color: var(--background-10);
     background-color: var(--background-40);
     width: var(--button-width) * 2;
+    box-shadow: .1em .15em 0px 0px var(--background-10);
 }
 
 .button#equals {
     color: var(--accent-40);
     background-color: var(--accent-80);
+    box-shadow: .1em .15em 0px 0px var(--accent-40);
 }
 
 /* display */
