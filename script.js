@@ -22,6 +22,7 @@ let calc = new Calculator(
 );
 
 document.addEventListener("keypress", (event) => {
+  event.preventDefault()
   if (event.key.match(/\d/) != null) {
     calc.appendDigit(event.key);
   } else if (event.key.match(/\.|,/) != null) {
