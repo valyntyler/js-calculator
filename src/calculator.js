@@ -47,10 +47,14 @@ export default class Calculator {
     if (this.#operator == Operator.Empty) {
       if (this.#fst_number_string.length + digit.length <= 10) {
         this.#fst_number_string += digit;
+      } else {
+        this.#oncalculationfail()
       }
     } else {
       if (this.#snd_number_string.length + digit.length <= 10) {
         this.#snd_number_string += digit;
+      } else {
+        this.#oncalculationfail()
       }
     }
     this.#onchange();
@@ -70,6 +74,8 @@ export default class Calculator {
         this.#fst_number_string.length < 10
       ) {
         this.#fst_number_string += ".";
+      } else {
+        this.#oncalculationfail()
       }
     } else {
       if (
@@ -77,6 +83,8 @@ export default class Calculator {
         this.#snd_number_string.length < 10
       ) {
         this.#snd_number_string += ".";
+      } else {
+        this.#oncalculationfail()
       }
     }
     this.#onchange();
