@@ -136,6 +136,10 @@ window.addEventListener("load", () => {
 
 function play_error_shake() {
   const display = document.querySelector("#display");
+  if (display.getAnimations().length > 0) {
+    return
+  }
+
   display.classList.remove("shaking");
   display.offsetWidth;
   display.classList.add("shaking");
