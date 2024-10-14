@@ -6,15 +6,20 @@ const snd_number_element = document.querySelector("#current-second-number");
 const operator_element = document.querySelector("#current-operator");
 const prev_calculation = document.querySelector("#previous-calculation");
 
-let calc = new Calculator(() => {
-  fst_number_element.innerHTML = calc.getFirstNumber;
-  snd_number_element.innerHTML = calc.getSecndNumber;
-  operator_element.innerHTML = calc.getOperator.symbol;
-  prev_calculation.innerHTML =
-    calc.getPreviousCalculation != null
-      ? calc.getPreviousCalculation.toString()
-      : "";
-});
+let calc = new Calculator(
+  (onchange = () => {
+    fst_number_element.innerHTML = calc.getFirstNumber;
+    snd_number_element.innerHTML = calc.getSecndNumber;
+    operator_element.innerHTML = calc.getOperator.symbol;
+    prev_calculation.innerHTML =
+      calc.getPreviousCalculation != null
+        ? calc.getPreviousCalculation.toString()
+        : "";
+  }),
+  (() => {
+    play_error_shake()
+  })
+);
 
 document.addEventListener("keypress", (event) => {
   if (event.key.match(/\d/) != null) {
@@ -123,12 +128,15 @@ window.addEventListener("load", () => {
   update_bkg_scroll();
 });
 
-div_zero_toggle.onchange = () => {
-  localStorage.setItem(DIV_ZERO_STRING, div_zero_toggle.checked);
+function play_error_shake() {
   const display = document.querySelector("#display");
   display.classList.remove("shaking");
   display.offsetWidth;
   display.classList.add("shaking");
+}
+
+div_zero_toggle.onchange = () => {
+  localStorage.setItem(DIV_ZERO_STRING, div_zero_toggle.checked);
 };
 
 bkg_scroll_toggle.onchange = () => {

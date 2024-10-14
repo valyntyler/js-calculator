@@ -27,7 +27,7 @@
     --transparent-20: #1e1e1e2f;
     --transition-speed: 150ms;
     --shake-duration: 400ms;
-    --shake-distance: 0.4em;
+    --shake-distance: 0.2em;
 }
 
 body {

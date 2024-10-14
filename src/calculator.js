@@ -6,9 +6,11 @@ export default class Calculator {
   #operator = Operator.Empty;
   #previous_calculation = null;
   #onchange = () => {};
+  #oncalculationfail = () => {};
 
-  constructor(onchange = () => {}) {
+  constructor(onchange = () => {}, oncalcfail = () => {}) {
     this.#onchange = onchange;
+    this.#oncalculationfail = oncalcfail;
   }
 
   get getFirstNumber() {
@@ -43,11 +45,11 @@ export default class Calculator {
     }
 
     if (this.#operator == Operator.Empty) {
-      if ((this.#fst_number_string.length + digit.length) <= 10) {
+      if (this.#fst_number_string.length + digit.length <= 10) {
         this.#fst_number_string += digit;
       }
     } else {
-      if ((this.#snd_number_string.length + digit.length) <= 10) {
+      if (this.#snd_number_string.length + digit.length <= 10) {
         this.#snd_number_string += digit;
       }
     }
@@ -115,16 +117,18 @@ export default class Calculator {
         this.getOperator
       );
       // perform calculations
-      
+
       let result = this.#operator.calculate(
         parseFloat(this.#fst_number_string),
         parseFloat(this.#snd_number_string)
       ); //.toString().substring(0, 10);
-      this.#fst_number_string = result
+      this.#fst_number_string = result;
 
       this.#snd_number_string = "";
       this.#operator = Operator.Empty;
       this.#onchange();
+    } else {
+      this.#oncalculationfail()
     }
   }
 }
