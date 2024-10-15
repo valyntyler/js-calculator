@@ -1,13 +1,25 @@
+// imports
 import Calculator from "./src/calculator.js";
 import Operator from "./src/operator.js";
 
+// html elements
 const fst_number_element = document.querySelector("#current-first-number");
 const snd_number_element = document.querySelector("#current-second-number");
 const operator_element = document.querySelector("#current-operator");
 const prev_calculation = document.querySelector("#previous-calculation");
 
+const digit_buttons = document.querySelectorAll(".number-button")
+const operator_buttons = document.querySelectorAll(".operator-button")
+const decimal_button = document.querySelector("#decimal")
+const clear_button = document.querySelector("#clear")
+const all_clear_button = document.querySelector("#all-clear")
+const equals_button = document.querySelector("#equals")
+
+const dropdowns = document.querySelectorAll(".dropdown")
+
+// calculator class
 let calc = new Calculator(
-  (onchange = () => {
+  onchange = () => {
     fst_number_element.innerHTML = calc.getFirstNumber;
     snd_number_element.innerHTML = calc.getSecndNumber;
     operator_element.innerHTML = calc.getOperator.symbol;
@@ -15,12 +27,16 @@ let calc = new Calculator(
       calc.getPreviousCalculation != null
         ? calc.getPreviousCalculation.toString()
         : "";
-  }),
+  },
   () => {
     play_error_shake();
-  }
+  },
 );
 
+// callbacks
+// =========
+
+// take keyboard input
 document.addEventListener("keypress", (event) => {
   event.preventDefault();
   if (event.key.match(/\d/) != null) {
@@ -44,38 +60,38 @@ document.addEventListener("keypress", (event) => {
   }
 });
 
-document.querySelectorAll(".number-button").forEach((element) => {
-  element.addEventListener("click", () => {
-    calc.appendDigit(element.innerHTML);
-  });
+// take on-screen keypad input
+digit_buttons.forEach((digit_button) => {
+  digit_button.onclick = () => {
+    calc.appendDigit(digit_button.innerHTML);
+  }
 });
 
-document.querySelectorAll(".operator-button").forEach((element) => {
-  element.addEventListener("click", () => {
-    calc.setOperator = new Operator(element.id);
-  });
+operator_buttons.forEach((operator_button) => {
+  operator_button.onclick = () => {
+    calc.setOperator = new Operator(operator_button.id);
+  }
 });
 
-document.querySelector("#decimal").addEventListener("click", () => {
+decimal_button.onclick = () => {
   calc.appendDecimal();
-});
+}
 
-document.querySelector("#clear").addEventListener("click", () => {
+clear_button.onclick = () => {
   calc.clear();
-});
+}
 
-document.querySelector("#all-clear").addEventListener("click", () => {
+all_clear_button.onclick = () => {
   calc.allClear();
-});
+}
 
-document.querySelector("#equals").addEventListener("click", () => {
+equals_button.onclick = () => {
   calc.calculate();
-});
+}
 
 // handle menu buttons
-// kill all active dropdowns
-document.onclick = (e) => {
-  document.querySelectorAll(".dropdown").forEach((dropdown) => {
+document.onclick = e => {
+  dropdowns.forEach((dropdown) => {
     if (e.target.closest(".dropdown") != dropdown) {
       dropdown.classList.remove("active");
     }
