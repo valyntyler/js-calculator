@@ -44,8 +44,6 @@ body {
     user-select: none;
 }
 
-/* calculator */
-
 /* display */
 #display-wrapper {
     background-color: var(--background-00);
@@ -427,6 +425,7 @@ input:checked+.toggle-slider:before {
 
 /* scrolling text */
 #scroll-container-wrapper {
+    z-index: 0;
     position: absolute;
     width: 100%;
     height: 100%;
@@ -436,6 +435,7 @@ input:checked+.toggle-slider:before {
 }
 
 #scroll-container {
+    z-index: 0;
     --scroll-repeat-gap: .4em;
     font-family: "Concert One";
     color: var(--accent-60);
@@ -447,11 +447,13 @@ input:checked+.toggle-slider:before {
 }
 
 .scroll-row {
+    z-index: 0;
     display: flex;
     gap: var(--scroll-repeat-gap);
 }
 
 .scroll-row ul {
+    z-index: 0;
     display: flex;
     justify-content: space-between;
     flex-shrink: 0;

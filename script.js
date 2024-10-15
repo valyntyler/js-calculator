@@ -13,10 +13,7 @@ const clear_button = document.querySelector(".calculator-button#clear");
 const equals_button = document.querySelector(".calculator-button#equals");
 const point_button = document.querySelector(".calculator-button#point");
 const digit_buttons = document.querySelectorAll(".calculator-button.digit");
-const operator_buttons = document.querySelectorAll(
-  ".calculator-button.operator"
-);
-
+const operator_buttons = document.querySelectorAll(".calculator-button.operator");
 const dropdowns = document.querySelectorAll(".dropdown");
 
 // calculator class
