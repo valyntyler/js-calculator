@@ -8,18 +8,20 @@ const snd_number_element = document.querySelector("#current-second-number");
 const operator_element = document.querySelector("#current-operator");
 const prev_calculation = document.querySelector("#previous-calculation");
 
-const digit_buttons = document.querySelectorAll(".number-button")
-const operator_buttons = document.querySelectorAll(".operator-button")
-const decimal_button = document.querySelector("#decimal")
-const clear_button = document.querySelector("#clear")
-const all_clear_button = document.querySelector("#all-clear")
-const equals_button = document.querySelector("#equals")
+const all_clear_button = document.querySelector(".calculator-button#all-clear");
+const clear_button = document.querySelector(".calculator-button#clear");
+const equals_button = document.querySelector(".calculator-button#equals");
+const point_button = document.querySelector(".calculator-button#point");
+const digit_buttons = document.querySelectorAll(".calculator-button.digit");
+const operator_buttons = document.querySelectorAll(
+  ".calculator-button.operator"
+);
 
-const dropdowns = document.querySelectorAll(".dropdown")
+const dropdowns = document.querySelectorAll(".dropdown");
 
 // calculator class
 let calc = new Calculator(
-  onchange = () => {
+  (onchange = () => {
     fst_number_element.innerHTML = calc.getFirstNumber;
     snd_number_element.innerHTML = calc.getSecndNumber;
     operator_element.innerHTML = calc.getOperator.symbol;
@@ -27,10 +29,10 @@ let calc = new Calculator(
       calc.getPreviousCalculation != null
         ? calc.getPreviousCalculation.toString()
         : "";
-  },
+  }),
   () => {
     play_error_shake();
-  },
+  }
 );
 
 // callbacks
@@ -61,36 +63,78 @@ document.addEventListener("keypress", (event) => {
 });
 
 // take on-screen keypad input
+// digit buttons
 digit_buttons.forEach((digit_button) => {
+  digit_button.onmousedown = () => {
+    digit_button.classList.add("pressed");
+  };
+  digit_button.onmouseup = () => {
+    digit_button.classList.remove("pressed");
+  };
   digit_button.onclick = () => {
     calc.appendDigit(digit_button.innerHTML);
-  }
+  };
 });
 
+// operator buttons
 operator_buttons.forEach((operator_button) => {
+  operator_button.onmousedown = () => {
+    operator_button.classList.add("pressed");
+  };
+  operator_button.onmouseup = () => {
+    operator_button.classList.remove("pressed");
+  };
   operator_button.onclick = () => {
     calc.setOperator = new Operator(operator_button.id);
-  }
+  };
 });
 
-decimal_button.onclick = () => {
+// point button
+point_button.onmousedown = () => {
+  point_button.classList.add("pressed");
+};
+point_button.onmouseup = () => {
+  point_button.classList.remove("pressed");
+};
+point_button.onclick = () => {
   calc.appendDecimal();
-}
+};
 
+// clear button
+clear_button.onmousedown = () => {
+  clear_button.classList.add("pressed");
+};
+clear_button.onmouseup = () => {
+  clear_button.classList.remove("pressed");
+};
 clear_button.onclick = () => {
   calc.clear();
-}
+};
 
+// all clear button
+all_clear_button.onmousedown = () => {
+  all_clear_button.classList.add("pressed");
+};
+all_clear_button.onmouseup = () => {
+  all_clear_button.classList.remove("pressed");
+};
 all_clear_button.onclick = () => {
   calc.allClear();
-}
+};
 
+// equals button
+equals_button.onmousedown = () => {
+  equals_button.classList.add("pressed");
+};
+equals_button.onmouseup = () => {
+  equals_button.classList.remove("pressed");
+};
 equals_button.onclick = () => {
   calc.calculate();
-}
+};
 
 // handle menu buttons
-document.onclick = e => {
+document.onclick = (e) => {
   dropdowns.forEach((dropdown) => {
     if (e.target.closest(".dropdown") != dropdown) {
       dropdown.classList.remove("active");
@@ -173,7 +217,7 @@ bkg_scroll_toggle.onchange = () => {
 
 // mobile
 document.querySelector(".hamburger-button").onclick = () => {
-  document.querySelector("#menu-wrapper").classList.toggle("open")
+  document.querySelector("#menu-wrapper").classList.toggle("open");
 };
 
 // handle text scrolling
