@@ -1,0 +1,201 @@
+/* fonts */
+@font-face {
+    font-family: "Concert One";
+    src: url("fonts/concert-one.ttf");
+}
+
+@font-face {
+    font-family: "CF Caltre";
+    src: url("fonts/cf-caltre.ttf");
+}
+
+/* global definitions */
+:root {
+    --accent-90: #738D76;
+    --accent-80: #5f7962;
+    --accent-60: #3f5f43;
+    --accent-40: #2d4830;
+    --accent-20: #213323;
+    --background-90: #D3CFC5;
+    --background-80: #dfdacc;
+    --background-60: #c2bdae;
+    --background-40: #978f7c;
+    --background-20: #726c5d;
+    --background-10: #43413b;
+    --background-00: #1e1e1e;
+    --transparent-80: #1e1e1ebe;
+    --transparent-60: #1e1e1e8f;
+    --transparent-40: #1e1e1e6e;
+    --transparent-20: #1e1e1e2f;
+    --transition-speed: 150ms;
+    --shake-duration: 400ms;
+    --shake-distance: 0.15em;
+
+
+
+    --calculator-background: var(--background-80);
+    --calculator-shadow: var(--background-00);
+
+    --calculator-button-width: 2em;
+    --calculator-button-spacing: .2em;
+    
+
+    --calc-btn-all-clear-primary: var(--background-40);
+    --calc-btn-all-clear-secondary: var(--background-20);
+    --calc-btn-all-clear-accent: var(--background-10);
+
+    --calc-btn-clear-primary: var(--background-60);
+    --calc-btn-clear-secondary: var(--background-40);
+    --calc-btn-clear-accent: var(--background-20);
+
+    --calc-btn-digit-primary: var(--background-60);
+    --calc-btn-digit-secondary: var(--background-40);
+    --calc-btn-digit-accent: var(--background-20);
+
+    --calc-btn-operator-primary: var(--background-40);
+    --calc-btn-operator-secondary: var(--background-20);
+    --calc-btn-operator-accent: var(--background-10);
+
+    --calc-btn-equals-primary: var(--accent-80);
+    --calc-btn-equals-secondary: var(--accent-60);
+    --calc-btn-equals-accent: var(--accent-40);
+}
+
+/* calculator */
+#calculator {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    background-color: var(--calculator-background);
+    box-shadow: 0px 0px 40px 0px var(--background-00);
+
+    height: 14em;
+    z-index: 1;
+    border-radius: .6em;
+    padding: .4em;
+}
+
+/* grid */
+#keypad {
+    display: grid;
+    grid-template-areas:
+        "a a c e"
+        "d d d o"
+        "d d d o"
+        "d d d o"
+        "z z p o";
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--calculator-button-spacing);
+}
+
+#all-clear {
+    grid-area: a;
+    grid-column: span 2;
+}
+
+#clear {
+    grid-area: c;
+}
+
+#equals {
+    grid-area: e;
+}
+
+#digits {
+    grid-area: d;
+    display: grid;
+    grid-template-rows: subgrid;
+    grid-template-columns: subgrid;
+}
+
+#point {
+    grid-area: p;
+}
+
+#zeroes {
+    grid-area: z;
+    display: grid;
+    grid-template-columns: subgrid;
+}
+
+#operators {
+    grid-area: o;
+    display: grid;
+    grid-template-rows: subgrid;
+}
+
+/* buttons */
+.calculator-button {
+    font-family: "Concert One";
+    font-size: 1em;
+    width: var(--calculator-button-width);
+    border: none;
+    border-radius: .3em;
+    margin-bottom: .15em;
+    transition: all var(--transition-speed);
+}
+
+.calculator-button#all-clear {
+    color: var(--calc-btn-all-clear-accent);
+    background-color: var(--calc-btn-all-clear-primary);
+    box-shadow: .0em .15em 0px 0px var(--calc-btn-all-clear-secondary);
+}
+
+.calculator-button#all-clear {
+    width: calc(var(--calculator-button-width) * 2 + --calculator-button-spacing);
+}
+
+.calculator-button#clear {
+    color: var(--calc-btn-clear-accent);
+    background-color: var(--calc-btn-clear-primary);
+    box-shadow: .0em .15em 0px 0px var(--calc-btn-clear-secondary);
+}
+
+.calculator-button.digit,
+.calculator-button#point {
+    color: var(--calc-btn-digit-accent);
+    background-color: var(--calc-btn-digit-primary);
+    box-shadow: .0em .15em 0px 0px var(--calc-btn-digit-secondary);
+}
+
+.calculator-button.operator {
+    color: var(--calc-btn-operator-accent);
+    background-color: var(--calc-btn-operator-primary);
+    box-shadow: .0em .15em 0px 0px var(--calc-btn-operator-secondary);
+}
+
+.calculator-button#equals {
+    color: var(--calc-btn-equals-accent);
+    background-color: var(--calc-btn-equals-primary);
+    box-shadow: .0em .15em 0px 0px var(--calc-btn-equals-secondary);
+}
+
+
+
+
+
+
+
+
+
+
+.button:active {
+    box-shadow: none !important;
+    margin-bottom: 0em;
+    margin-top: .15em;
+}
+
+.operator-button {
+    color: var(--background-10);
+    background-color: var(--background-40);
+    box-shadow: .0em .15em 0px 0px var(--background-20);
+}
+
+
+.button#equals {
+    color: var(--accent-40);
+    background-color: var(--accent-80);
+    box-shadow: .0em .15em 0px 0px var(--accent-60);
+}

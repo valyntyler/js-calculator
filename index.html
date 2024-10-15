@@ -6,28 +6,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Calculator</title>
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles/calculator.css" />
 </head>
 
 <body>
   <!-- menu -->
   <div id="menu-wrapper">
     <span class="title">Calculator</span>
-    <div class="hamburger-button"><img src="icons/bx-menu.svg" alt="menu button"></div>
+    <div class="hamburger-button">
+      <img src="icons/bx-menu.svg" alt="menu button" />
+    </div>
     <nav id="menu">
       <div class="dropdown info">
         <span class="menu-button m-heading">Info</span>
-        <img class="menu-button icon" draggable="false" src="icons/bxs-info-circle.svg" alt="settings button">
+        <img class="menu-button icon" draggable="false" src="icons/bxs-info-circle.svg" alt="settings button" />
         <ul class="menu-page">
           <li>
             <h1>Info</h1>
           </li>
-          <li><a target="_blank" href="https://github.com/ValynTyler/js-calculator">source code</a></li>
+          <li>
+            <a target="_blank" href="https://github.com/ValynTyler/js-calculator">source code</a>
+          </li>
         </ul>
       </div>
 
       <div class="dropdown themes">
         <span class="menu-button m-heading">Themes</span>
-        <img class="menu-button icon" draggable="false" src="icons/bxs-magic-wand.svg" alt="settings button">
+        <img class="menu-button icon" draggable="false" src="icons/bxs-magic-wand.svg" alt="settings button" />
         <ul class="menu-page">
           <li>
             <h1>Themes</h1>
@@ -38,7 +43,7 @@
 
       <div class="dropdown settings">
         <span class="menu-button m-heading">Settings</span>
-        <img class="menu-button icon" draggable="false" src="icons/bxs-cog.svg" alt="settings button">
+        <img class="menu-button icon" draggable="false" src="icons/bxs-cog.svg" alt="settings button" />
         <ul class="menu-page">
           <li>
             <h1>Settings</h1>
@@ -46,14 +51,14 @@
           <li class="setting">
             <div>Division by zero</div>
             <label class="toggle">
-              <input type="checkbox" name="div-zero" id="div-zero">
+              <input type="checkbox" name="div-zero" id="div-zero" />
               <span class="toggle-slider"></span>
             </label>
           </li>
           <li class="setting">
             <div>Scrolling background</div>
             <label class="toggle">
-              <input type="checkbox" name="bkg-scroll" id="bkg-scroll">
+              <input type="checkbox" name="bkg-scroll" id="bkg-scroll" />
               <span class="toggle-slider"></span>
             </label>
           </li>
@@ -64,6 +69,7 @@
 
   <!-- calculator -->
   <div method="get" id="calculator">
+    <!-- display -->
     <div id="display-wrapper">
       <div id="display">
         <div id="previous-calculation"></div>
@@ -74,57 +80,63 @@
         </div>
       </div>
     </div>
-    <div id="keypad">
-      <!-- clear subgrid -->
-      <div id="clear-buttons-subgrid">
-        <button type="button" class="button clear-button" id="all-clear">AC</button>
-        <button type="button" class="button clear-button" id="clear">C</button>
-      </div>
-      <!-- operator subgrid -->
-      <div id="operator-buttons-subgrid">
-        <button type="button" class="button operator-button" id="div">÷</button>
-        <button type="button" class="button operator-button" id="mul">×</button>
-        <button type="button" class="button operator-button" id="sub">-</button>
-        <button type="button" class="button operator-button" id="add">+</button>
-      </div>
-      <!-- number subgrid -->
-      <div id="number-buttons-subgrid">
-        <button type="button" class="button number-button">7</button>
-        <button type="button" class="button number-button">8</button>
-        <button type="button" class="button number-button">9</button>
-        <button type="button" class="button number-button">4</button>
-        <button type="button" class="button number-button">5</button>
-        <button type="button" class="button number-button">6</button>
-        <button type="button" class="button number-button">1</button>
-        <button type="button" class="button number-button">2</button>
-        <button type="button" class="button number-button">3</button>
-        <button type="button" class="button number-button">00</button>
-        <button type="button" class="button number-button">0</button>
-        <!-- decimal button -->
-        <button type="button" class="button" id="decimal">.</button>
-      </div>
-      <!-- equals button -->
-      <button type="submit" class="button" id="equals">=</button>
-    </div>
-  </div>
 
-  <!-- scrolling text -->
-  <div id="scroll-container-wrapper">
-    <div id="scroll-container">
-      <template id="scroll-row-template">
-        <div class="scroll-row">
-          <template id="scroll-ul-template">
-            <ul>
-              <template id="scroll-li-template">
-                <li>+×-÷</li>
-              </template>
-            </ul>
-          </template>
-        </div>
-      </template>
+    <!-- keypad -->
+    <div id="keypad">
+      <!-- clear -->
+      <button type="button" class="calculator-button" id="clear">C</button>
+      <!-- all-clear -->
+      <button type="button" class="calculator-button" id="all-clear">AC</button>
+      <!-- equals button -->
+      <button type="submit" class="calculator-button" id="equals">=</button>
+      
+      <!-- digits -->
+      <div id="digits">
+        <button type="button" class="calculator-button digit">7</button>
+        <button type="button" class="calculator-button digit">8</button>
+        <button type="button" class="calculator-button digit">9</button>
+        <button type="button" class="calculator-button digit">4</button>
+        <button type="button" class="calculator-button digit">5</button>
+        <button type="button" class="calculator-button digit">6</button>
+        <button type="button" class="calculator-button digit">1</button>
+        <button type="button" class="calculator-button digit">2</button>
+        <button type="button" class="calculator-button digit">3</button>
+      </div>
+
+      <!-- decimal button -->
+      <button type="button" class="calculator-button" id="point">.</button>
+      <!-- zero buttons -->
+      <div id="zeroes">
+        <button type="button" class="calculator-button digit">00</button>
+        <button type="button" class="calculator-button digit">0</button>
+      </div>
+      
+      <!-- operators -->
+      <div id="operators">
+        <button type="button" class="calculator-button operator" id="div"> ÷</button>
+        <button type="button" class="calculator-button operator" id="mul">×</button>
+        <button type="button" class="calculator-button operator" id="sub">-</button>
+        <button type="button" class="calculator-button operator" id="add">+</button>
+      </div>
     </div>
-  </div>
-  <script src="script.js" type="module"></script>
+
+    <!-- scrolling text -->
+    <div id="scroll-container-wrapper">
+      <div id="scroll-container">
+        <template id="scroll-row-template">
+          <div class="scroll-row">
+            <template id="scroll-ul-template">
+              <ul>
+                <template id="scroll-li-template">
+                  <li>+×-÷</li>
+                </template>
+              </ul>
+            </template>
+          </div>
+        </template>
+      </div>
+    </div>
+    <script src="script.js" type="module"></script>
 </body>
 
 </html>
