@@ -60,75 +60,55 @@ document.addEventListener("keypress", (event) => {
 });
 
 // take on-screen keypad input
+// utility function
+function setCalcBtnCallbacks(btnElement, onclick) {
+  btnElement.onmousedown = () => {
+    btnElement.classList.add("pressed");
+  }
+  btnElement.onmouseup = () => {
+    btnElement.classList.remove("pressed");
+  }
+  btnElement.onmouseout = () => {
+    btnElement.classList.remove("pressed");
+  }
+  btnElement.onclick = () => { 
+    onclick()
+  }
+}
+
 // digit buttons
-digit_buttons.forEach((digit_button) => {
-  digit_button.onmousedown = () => {
-    digit_button.classList.add("pressed");
-  };
-  digit_button.onmouseup = () => {
-    digit_button.classList.remove("pressed");
-  };
-  digit_button.onclick = () => {
+digit_buttons.forEach((element) => {
+  setCalcBtnCallbacks(element, () => {
     calc.appendDigit(digit_button.innerHTML);
-  };
+  })
 });
 
 // operator buttons
-operator_buttons.forEach((operator_button) => {
-  operator_button.onmousedown = () => {
-    operator_button.classList.add("pressed");
-  };
-  operator_button.onmouseup = () => {
-    operator_button.classList.remove("pressed");
-  };
-  operator_button.onclick = () => {
-    calc.setOperator = new Operator(operator_button.id);
-  };
+operator_buttons.forEach((element) => {
+  setCalcBtnCallbacks(element, () => {
+    calc.setOperator = new Operator(element.id); 
+  })
 });
 
 // point button
-point_button.onmousedown = () => {
-  point_button.classList.add("pressed");
-};
-point_button.onmouseup = () => {
-  point_button.classList.remove("pressed");
-};
-point_button.onclick = () => {
+setCalcBtnCallbacks(point_button, () => {
   calc.appendDecimal();
-};
+})
 
 // clear button
-clear_button.onmousedown = () => {
-  clear_button.classList.add("pressed");
-};
-clear_button.onmouseup = () => {
-  clear_button.classList.remove("pressed");
-};
-clear_button.onclick = () => {
+setCalcBtnCallbacks(clear_button, () => {
   calc.clear();
-};
+})
 
 // all clear button
-all_clear_button.onmousedown = () => {
-  all_clear_button.classList.add("pressed");
-};
-all_clear_button.onmouseup = () => {
-  all_clear_button.classList.remove("pressed");
-};
-all_clear_button.onclick = () => {
+setCalcBtnCallbacks(all_clear_button, () => {
   calc.allClear();
-};
+})
 
 // equals button
-equals_button.onmousedown = () => {
-  equals_button.classList.add("pressed");
-};
-equals_button.onmouseup = () => {
-  equals_button.classList.remove("pressed");
-};
-equals_button.onclick = () => {
+setCalcBtnCallbacks(equals_button, () => {
   calc.calculate();
-};
+})
 
 // handle menu buttons
 document.onclick = (e) => {
