@@ -104,7 +104,7 @@ document.addEventListener("keydown", (event) => {
           digit_btn = element;
         }
       });
-      digit_btn.classList.add("pressed")
+      digit_btn.classList.add("pressed");
       break;
     case CalculatorKey.Point.id:
       point_button.classList.add("pressed");
@@ -117,7 +117,7 @@ document.addEventListener("keydown", (event) => {
           op_btn = element;
         }
       });
-      op_btn.classList.add("pressed")
+      op_btn.classList.add("pressed");
       break;
     // operations
     case CalculatorKey.Cl.id:
@@ -143,7 +143,7 @@ document.addEventListener("keyup", (event) => {
           digit_btn = element;
         }
       });
-      digit_btn.classList.remove("pressed")
+      digit_btn.classList.remove("pressed");
       calc.appendDigit(key.digit);
       break;
     case CalculatorKey.Point.id:
@@ -158,7 +158,7 @@ document.addEventListener("keyup", (event) => {
           op_btn = element;
         }
       });
-      op_btn.classList.remove("pressed")
+      op_btn.classList.remove("pressed");
       calc.setOperator = new Operator(key.operator);
       break;
     // operations
@@ -177,7 +177,9 @@ document.addEventListener("keyup", (event) => {
   }
 });
 
-document.addEventListener("keypress", e => {e.preventDefault()})
+document.addEventListener("keypress", (e) => {
+  e.preventDefault();
+});
 
 // take on-screen keypad input
 // utility function
