@@ -7,10 +7,10 @@ import { CalculatorKey, DigitKey, OperatorKey } from "./src/calculator_key.js";
 // =============
 
 // operations
-const fst_number_element = document.querySelector("#current-first-number");
-const snd_number_element = document.querySelector("#current-second-number");
-const operator_element = document.querySelector("#current-operator");
-const prev_calculation = document.querySelector("#previous-calculation");
+const fst_number_element = document.querySelector("#crt-calc #fst-num");
+const snd_number_element = document.querySelector("#crt-calc #snd-num");
+const operator_element = document.querySelector("#crt-calc #operator");
+const prev_calculation = document.querySelector("#prv-calc");
 
 // calculator
 const all_clear_button = document.querySelector(".calculator-button#all-clear");
@@ -294,7 +294,7 @@ window.addEventListener("load", () => {
 });
 
 function play_error_shake() {
-  const display = document.querySelector("#display");
+  const display = document.querySelector("#panel-screen");
   if (display.getAnimations().length > 0) {
     return;
   }

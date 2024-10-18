@@ -7,6 +7,7 @@
   <title>Calculator</title>
   <link rel="icon" type="image/x-icon" href="/icons/bx-calculator.svg">
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles/panel.css">
   <link rel="stylesheet" href="styles/calculator.css" />
 </head>
 
@@ -69,15 +70,15 @@
   </div>
 
   <!-- calculator -->
-  <div method="get" id="calculator">
-    <!-- display -->
-    <div id="display-wrapper">
-      <div id="display">
-        <div id="previous-calculation"></div>
-        <div id="current-calculation">
-          <div id="current-first-number"></div>
-          <div id="current-operator"></div>
-          <div id="current-second-number"></div>
+  <div id="calculator">
+    <!-- panel -->
+    <div id="panel-edge">
+      <div id="panel-screen">
+        <div id="prv-calc"></div>
+        <div id="crt-calc">
+          <div id="fst-num"></div>
+          <div id="operator"></div>
+          <div id="snd-num"></div>
         </div>
       </div>
     </div>

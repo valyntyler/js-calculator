@@ -1,0 +1,98 @@
+:root {
+    /* container */
+    --panel-edge-color: var(--background-00);
+    --panel-screen-color: var(--accent-60);
+
+    /* text */
+    --panel-text-primary: var(--accent-20);
+    --panel-text-secondary: var(--accent-40);
+}
+
+#panel-edge {
+    background-color: var(--panel-edge-color);
+    border-radius: .4em;
+    padding: .8em;
+    width: 7em;
+}
+
+#panel-screen {
+    font-family: "CF Caltre", "Concert One";
+    color: var(--panel-text-primary);
+    background-color: var(--panel-screen-color);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    aspect-ratio: 2.4;
+    padding: .2em;
+    border-radius: .4em;
+}
+
+#prv-calc {
+    color: var(--panel-text-secondary);
+    font-size: .6em;
+
+    display: flex;
+    justify-content: end;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#crt-calc {
+    display: grid;
+    grid-template-areas:
+        "f f"
+        "o s";
+    grid-template-columns: 0.5em 1fr;
+    gap: .2em;
+
+    color: var(--panel-text-primary);
+    font-size: 1em;
+    text-align: end;
+}
+
+#crt-calc #fst-num {
+    grid-area: f;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#crt-calc #snd-num {
+    grid-area: s;
+}
+
+#crt-calc #operator {
+    grid-area: o;
+}
+
+
+
+
+
+
+
+
+
+.shaking {
+    animation: error-shake var(--shake-duration) 1;
+}
+
+@keyframes error-shake {
+    20% {
+        transform: translate(var(--shake-distance) * -1);
+    }
+
+    40% {
+        transform: translate(var(--shake-distance));
+    }
+
+    60% {
+        transform: translate(var(--shake-distance) * -1);
+    }
+
+    80% {
+        transform: translate(var(--shake-distance));
+    }
+}
