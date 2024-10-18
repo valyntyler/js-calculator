@@ -3,20 +3,31 @@ import Calculator from "./src/calculator.js";
 import Operator from "./src/operator.js";
 
 // html elements
+// =============
+
+// operations
 const fst_number_element = document.querySelector("#current-first-number");
 const snd_number_element = document.querySelector("#current-second-number");
 const operator_element = document.querySelector("#current-operator");
 const prev_calculation = document.querySelector("#previous-calculation");
 
+// calculator
 const all_clear_button = document.querySelector(".calculator-button#all-clear");
 const clear_button = document.querySelector(".calculator-button#clear");
 const equals_button = document.querySelector(".calculator-button#equals");
 const point_button = document.querySelector(".calculator-button#point");
 const digit_buttons = document.querySelectorAll(".calculator-button.digit");
 const operator_buttons = document.querySelectorAll(".calculator-button.operator");
+
+// menu
 const dropdowns = document.querySelectorAll(".dropdown");
 
+// scrolling background
+const scroll_container = document.querySelector("#scroll-container");
+const row_template = document.querySelector("#scroll-row-template");
+
 // calculator class
+// ================
 let calc = new Calculator(
   (onchange = () => {
     fst_number_element.innerHTML = calc.getFirstNumber;
@@ -198,8 +209,6 @@ document.querySelector(".hamburger-button").onclick = () => {
 };
 
 // handle text scrolling
-const scroll_container = document.querySelector("#scroll-container");
-const row_template = document.querySelector("#scroll-row-template");
 
 for (let i = 0; i < 64; i++) {
   const row_instance = row_template.content.cloneNode(true);
