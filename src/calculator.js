@@ -42,6 +42,8 @@ export default class Calculator {
       this.#previous_calculation = null;
       this.#fst_number_string = parseFloat(this.#fst_number_string).toString();
       this.#onchange();
+    } else {
+      this.#oncalculationfail()
     }
   }
 
