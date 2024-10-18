@@ -1,6 +1,7 @@
 // imports
 import Calculator from "./src/calculator.js";
 import Operator from "./src/operator.js";
+import { CalculatorKey, DigitKey, OperatorKey } from "./src/calculator_key.js";
 
 // html elements
 // =============
@@ -28,6 +29,20 @@ const dropdowns = document.querySelectorAll(".dropdown");
 const scroll_container = document.querySelector("#scroll-container");
 const row_template = document.querySelector("#scroll-row-template");
 
+// regex
+// =====
+const regex_digit = /\d/;
+const regex_point = /\.|,/;
+
+const regex_add = /\+/;
+const regex_sub = /-/;
+const regex_mul = /\*|x|X/;
+const regex_div = /\/|:/;
+
+const regex_eq = /=|Enter/;
+const regex_cl = /c/;
+const regex_ac = /C|A/;
+
 // calculator class
 // ================
 let calc = new Calculator(
@@ -49,56 +64,116 @@ let calc = new Calculator(
 // =========
 
 // take keyboard input
-function matchKey(key) {
-  const regex_digit = /\d/;
-  const regex_point = /\.|,/;
-
-  const regex_add = /\+/;
-  const regex_sub = /-/;
-  const regex_mul = /\*|x|X/;
-  const regex_div = /\/|:/;
-
-  const regex_eq = /=|Enter/;
-  const regex_cl = /c/;
-  const regex_ac = /C|A/;
-
+function parseKey(key) {
   switch (true) {
     // input
     case regex_digit.test(key):
-      calc.appendDigit(key);
-      break;
+      return new DigitKey(key);
     case regex_point.test(key):
-      calc.appendDecimal();
-      break;
+      return CalculatorKey.Point;
     // operators
     case regex_add.test(key):
-      calc.setOperator = new Operator("add");
-      break;
+      return OperatorKey.Add;
     case regex_sub.test(key):
-      calc.setOperator = new Operator("sub");
-      break;
+      return OperatorKey.Sub;
     case regex_mul.test(key):
-      calc.setOperator = new Operator("mul");
-      break;
+      return OperatorKey.Mul;
     case regex_div.test(key):
-      calc.setOperator = new Operator("div");
-      break;
+      return OperatorKey.Div;
     // operations
     case regex_cl.test(key):
-      calc.clear();
-      break;
+      return CalculatorKey.Cl;
     case regex_ac.test(key):
-      calc.allClear();
-      break;
+      return CalculatorKey.Ac;
     case regex_eq.test(key):
-      calc.calculate();
-      break;
+      return CalculatorKey.Eq;
   }
 }
 
-document.addEventListener("keypress", (event) => {
+document.addEventListener("keydown", (event) => {
   event.preventDefault();
-  matchKey(event.key);
+  const key = parseKey(event.key);
+  switch (key.id) {
+    // input
+    case DigitKey.ID:
+      let digit_btn = null;
+      digit_buttons.forEach((element) => {
+        if (element.innerHTML == key.digit) {
+          digit_btn = element;
+        }
+      });
+      digit_btn.classList.add("pressed")
+      break;
+    case CalculatorKey.Point.id:
+      point_button.classList.add("pressed");
+      break;
+    // operators
+    case OperatorKey.ID:
+      let op_btn = null;
+      operator_buttons.forEach((element) => {
+        if (element.id == key.operator) {
+          op_btn = element;
+        }
+      });
+      op_btn.classList.add("pressed")
+      break;
+    // operations
+    case CalculatorKey.Cl.id:
+      clear_button.classList.add("pressed");
+      break;
+    case CalculatorKey.Ac.id:
+      all_clear_button.classList.add("pressed");
+      break;
+    case CalculatorKey.Eq.id:
+      equals_button.classList.add("pressed");
+      break;
+  }
+});
+
+document.addEventListener("keyup", (event) => {
+  event.preventDefault();
+  const key = parseKey(event.key);
+  switch (key.id) {
+    // input
+    case DigitKey.ID:
+      let digit_btn = null;
+      digit_buttons.forEach((element) => {
+        if (element.innerHTML == key.digit) {
+          digit_btn = element;
+        }
+      });
+      digit_btn.classList.remove("pressed")
+      calc.appendDigit(key.digit);
+      break;
+    case CalculatorKey.Point.id:
+      point_button.classList.remove("pressed");
+      calc.appendDecimal();
+      break;
+    // operators
+    case OperatorKey.ID:
+      let op_btn = null;
+      operator_buttons.forEach((element) => {
+        if (element.id == key.operator) {
+          op_btn = element;
+        }
+      });
+      op_btn.classList.remove("pressed")
+      calc.setOperator = new Operator(key.operator);
+      break;
+    // operations
+    case CalculatorKey.Cl.id:
+      clear_button.classList.remove("pressed");
+      calc.clear();
+      break;
+    case CalculatorKey.Ac.id:
+      all_clear_button.classList.remove("pressed");
+      calc.allClear();
+      break;
+    case CalculatorKey.Eq.id:
+      equals_button.classList.remove("pressed");
+      calc.calculate();
+      break;
+  }
 });
 
 // take on-screen keypad input
