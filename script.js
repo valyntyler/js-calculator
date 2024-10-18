@@ -40,8 +40,8 @@ const regex_mul = /\*|x|X/;
 const regex_div = /\/|:/;
 
 const regex_eq = /=|Enter/;
-const regex_cl = /c/;
-const regex_ac = /C|A/;
+const regex_cl = /^c$|Backspace/;
+const regex_ac = /^a$|Delete/;
 
 // calculator class
 // ================
@@ -84,14 +84,16 @@ function parseKey(key) {
     case regex_cl.test(key):
       return CalculatorKey.Cl;
     case regex_ac.test(key):
+      console.log(key);
       return CalculatorKey.Ac;
     case regex_eq.test(key):
       return CalculatorKey.Eq;
+    default:
+      return new CalculatorKey("");
   }
 }
 
 document.addEventListener("keydown", (event) => {
-  event.preventDefault();
   const key = parseKey(event.key);
   switch (key.id) {
     // input
@@ -131,7 +133,6 @@ document.addEventListener("keydown", (event) => {
 });
 
 document.addEventListener("keyup", (event) => {
-  event.preventDefault();
   const key = parseKey(event.key);
   switch (key.id) {
     // input
@@ -175,6 +176,8 @@ document.addEventListener("keyup", (event) => {
       break;
   }
 });
+
+document.addEventListener("keypress", e => {e.preventDefault()})
 
 // take on-screen keypad input
 // utility function
