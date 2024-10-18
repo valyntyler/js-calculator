@@ -17,7 +17,9 @@ const clear_button = document.querySelector(".calculator-button#clear");
 const equals_button = document.querySelector(".calculator-button#equals");
 const point_button = document.querySelector(".calculator-button#point");
 const digit_buttons = document.querySelectorAll(".calculator-button.digit");
-const operator_buttons = document.querySelectorAll(".calculator-button.operator");
+const operator_buttons = document.querySelectorAll(
+  ".calculator-button.operator"
+);
 
 // menu
 const dropdowns = document.querySelectorAll(".dropdown");
@@ -47,27 +49,56 @@ let calc = new Calculator(
 // =========
 
 // take keyboard input
+function matchKey(key) {
+  const regex_digit = /\d/;
+  const regex_point = /\.|,/;
+
+  const regex_add = /\+/;
+  const regex_sub = /-/;
+  const regex_mul = /\*|x|X/;
+  const regex_div = /\/|:/;
+
+  const regex_eq = /=|Enter/;
+  const regex_cl = /c/;
+  const regex_ac = /C|A/;
+
+  switch (true) {
+    // input
+    case regex_digit.test(key):
+      calc.appendDigit(key);
+      break;
+    case regex_point.test(key):
+      calc.appendDecimal();
+      break;
+    // operators
+    case regex_add.test(key):
+      calc.setOperator = new Operator("add");
+      break;
+    case regex_sub.test(key):
+      calc.setOperator = new Operator("sub");
+      break;
+    case regex_mul.test(key):
+      calc.setOperator = new Operator("mul");
+      break;
+    case regex_div.test(key):
+      calc.setOperator = new Operator("div");
+      break;
+    // operations
+    case regex_cl.test(key):
+      calc.clear();
+      break;
+    case regex_ac.test(key):
+      calc.allClear();
+      break;
+    case regex_eq.test(key):
+      calc.calculate();
+      break;
+  }
+}
+
 document.addEventListener("keypress", (event) => {
   event.preventDefault();
-  if (event.key.match(/\d/) != null) {
-    calc.appendDigit(event.key);
-  } else if (event.key.match(/\.|,/) != null) {
-    calc.appendDecimal();
-  } else if (event.key.match(/\+/) != null) {
-    calc.setOperator = new Operator("add");
-  } else if (event.key.match(/-/) != null) {
-    calc.setOperator = new Operator("sub");
-  } else if (event.key.match(/\*|x|X/) != null) {
-    calc.setOperator = new Operator("mul");
-  } else if (event.key.match(/\/|:/) != null) {
-    calc.setOperator = new Operator("div");
-  } else if (event.key.match(/=|Enter/) != null) {
-    calc.calculate();
-  } else if (event.key.match(/c/) != null) {
-    calc.clear();
-  } else if (event.key.match(/C|A/) != null) {
-    calc.allClear();
-  }
+  matchKey(event.key);
 });
 
 // take on-screen keypad input
@@ -75,51 +106,51 @@ document.addEventListener("keypress", (event) => {
 function setCalcBtnCallbacks(btnElement, onclick) {
   btnElement.onmousedown = () => {
     btnElement.classList.add("pressed");
-  }
+  };
   btnElement.onmouseup = () => {
     btnElement.classList.remove("pressed");
-  }
+  };
   btnElement.onmouseout = () => {
     btnElement.classList.remove("pressed");
-  }
-  btnElement.onclick = () => { 
-    onclick()
-  }
+  };
+  btnElement.onclick = () => {
+    onclick();
+  };
 }
 
 // digit buttons
 digit_buttons.forEach((element) => {
   setCalcBtnCallbacks(element, () => {
     calc.appendDigit(element.innerHTML);
-  })
+  });
 });
 
 // operator buttons
 operator_buttons.forEach((element) => {
   setCalcBtnCallbacks(element, () => {
-    calc.setOperator = new Operator(element.id); 
-  })
+    calc.setOperator = new Operator(element.id);
+  });
 });
 
 // point button
 setCalcBtnCallbacks(point_button, () => {
   calc.appendDecimal();
-})
+});
 
 // clear button
 setCalcBtnCallbacks(clear_button, () => {
   calc.clear();
-})
+});
 
 // all clear button
 setCalcBtnCallbacks(all_clear_button, () => {
   calc.allClear();
-})
+});
 
 // equals button
 setCalcBtnCallbacks(equals_button, () => {
   calc.calculate();
-})
+});
 
 // handle menu buttons
 document.onclick = (e) => {
