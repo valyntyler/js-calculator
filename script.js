@@ -79,7 +79,7 @@ function setCalcBtnCallbacks(btnElement, onclick) {
 // digit buttons
 digit_buttons.forEach((element) => {
   setCalcBtnCallbacks(element, () => {
-    calc.appendDigit(digit_button.innerHTML);
+    calc.appendDigit(element.innerHTML);
   })
 });
 
