@@ -93,7 +93,7 @@
 }
 
 /* buttons */
-.calculator-button {
+.calc-btn {
     font-family: "Concert One";
     font-size: 1em;
     width: var(--calculator-button-width);
@@ -103,47 +103,47 @@
     transition: all var(--transition-speed);
 }
 
-.calculator-button#all-clear {
+.calc-btn#all-clear {
     color: var(--calc-btn-all-clear-accent);
     background-color: var(--calc-btn-all-clear-primary);
     box-shadow: .0em .15em 0px 0px var(--calc-btn-all-clear-secondary);
 }
 
-.calculator-button#all-clear {
+.calc-btn#all-clear {
     width: calc(var(--calculator-button-width) * 2 + --calculator-button-spacing);
 }
 
-.calculator-button#clear {
+.calc-btn#clear {
     color: var(--calc-btn-clear-accent);
     background-color: var(--calc-btn-clear-primary);
     box-shadow: .0em .15em 0px 0px var(--calc-btn-clear-secondary);
 }
 
-.calculator-button.digit,
-.calculator-button#point {
+.calc-btn.digit,
+.calc-btn#point {
     color: var(--calc-btn-digit-accent);
     background-color: var(--calc-btn-digit-primary);
     box-shadow: .0em .15em 0px 0px var(--calc-btn-digit-secondary);
 }
 
-.calculator-button.operator {
+.calc-btn.operator {
     color: var(--calc-btn-operator-accent);
     background-color: var(--calc-btn-operator-primary);
     box-shadow: .0em .15em 0px 0px var(--calc-btn-operator-secondary);
 }
 
-.calculator-button#equals {
+.calc-btn#equals {
     color: var(--calc-btn-equals-accent);
     background-color: var(--calc-btn-equals-primary);
     box-shadow: .0em .15em 0px 0px var(--calc-btn-equals-secondary);
 }
 
-.calculator-button.pressed#all-clear,
-.calculator-button.pressed#clear,
-.calculator-button.pressed#equals,
-.calculator-button.pressed#point,
-.calculator-button.pressed.digit,
-.calculator-button.pressed.operator {
+.calc-btn.pressed#all-clear,
+.calc-btn.pressed#clear,
+.calc-btn.pressed#equals,
+.calc-btn.pressed#point,
+.calc-btn.pressed.digit,
+.calc-btn.pressed.operator {
     box-shadow: none;
     margin-bottom: 0em;
     margin-top: .15em;

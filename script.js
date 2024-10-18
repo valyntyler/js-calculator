@@ -13,14 +13,12 @@ const operator_element = document.querySelector("#crt-calc #operator");
 const prev_calculation = document.querySelector("#prv-calc");
 
 // calculator
-const all_clear_button = document.querySelector(".calculator-button#all-clear");
-const clear_button = document.querySelector(".calculator-button#clear");
-const equals_button = document.querySelector(".calculator-button#equals");
-const point_button = document.querySelector(".calculator-button#point");
-const digit_buttons = document.querySelectorAll(".calculator-button.digit");
-const operator_buttons = document.querySelectorAll(
-  ".calculator-button.operator"
-);
+const all_clear_button = document.querySelector(".calc-btn#all-clear");
+const clear_button = document.querySelector(".calc-btn#clear");
+const equals_button = document.querySelector(".calc-btn#equals");
+const point_button = document.querySelector(".calc-btn#point");
+const digit_buttons = document.querySelectorAll(".calc-btn.digit");
+const operator_buttons = document.querySelectorAll(".calc-btn.operator");
 
 // menu
 const dropdowns = document.querySelectorAll(".dropdown");
@@ -299,9 +297,9 @@ function play_error_shake() {
     return;
   }
 
-  display.classList.remove("shaking");
+  display.classList.remove("error");
   display.offsetWidth;
-  display.classList.add("shaking");
+  display.classList.add("error");
 }
 
 div_zero_toggle.onchange = () => {

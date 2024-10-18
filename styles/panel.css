@@ -29,6 +29,10 @@
     border-radius: .4em;
 }
 
+#panel-screen.error {
+    animation: error-shake var(--shake-duration) 1;
+}
+
 #prv-calc {
     color: var(--panel-text-secondary);
     font-size: .6em;
@@ -65,18 +69,6 @@
 
 #crt-calc #operator {
     grid-area: o;
-}
-
-
-
-
-
-
-
-
-
-.shaking {
-    animation: error-shake var(--shake-duration) 1;
 }
 
 @keyframes error-shake {
