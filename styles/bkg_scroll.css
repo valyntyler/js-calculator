@@ -1,7 +1,4 @@
 :root {
-    --bkg-primary: var(--accent-60);
-    --bkg-secondary: var(--accent-80);
-
     --bkg-scroll-timer: 128s;
     --bkg-scroll-angle: 60deg;
 

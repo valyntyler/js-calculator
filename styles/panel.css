@@ -1,13 +1,3 @@
-:root {
-    /* container */
-    --panel-edge-color: var(--background-00);
-    --panel-screen-color: var(--accent-60);
-
-    /* text */
-    --panel-text-primary: var(--accent-20);
-    --panel-text-secondary: var(--accent-40);
-}
-
 #panel-edge {
     background-color: var(--panel-edge-color);
     border-radius: .4em;

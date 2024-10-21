@@ -1,30 +1,6 @@
 :root {
-    --calculator-background: var(--background-80);
-    --calculator-shadow: var(--background-00);
-
     --calculator-button-width: 2em;
     --calculator-button-spacing: .2em;
-
-    /* colors */
-    --calc-btn-all-clear-primary: var(--background-40);
-    --calc-btn-all-clear-secondary: var(--background-20);
-    --calc-btn-all-clear-accent: var(--background-10);
-
-    --calc-btn-clear-primary: var(--background-60);
-    --calc-btn-clear-secondary: var(--background-40);
-    --calc-btn-clear-accent: var(--background-20);
-
-    --calc-btn-digit-primary: var(--background-60);
-    --calc-btn-digit-secondary: var(--background-40);
-    --calc-btn-digit-accent: var(--background-20);
-
-    --calc-btn-operator-primary: var(--background-40);
-    --calc-btn-operator-secondary: var(--background-20);
-    --calc-btn-operator-accent: var(--background-10);
-
-    --calc-btn-equals-primary: var(--accent-80);
-    --calc-btn-equals-secondary: var(--accent-60);
-    --calc-btn-equals-accent: var(--accent-40);
 }
 
 /* calculator */
