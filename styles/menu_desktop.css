@@ -26,6 +26,10 @@
     }
 
     /* style menu items */
+    .menu .menu-item {
+        position: relative;
+    }
+
     .menu .menu-item:first-child {
         margin-right: auto;
     }
@@ -44,9 +48,22 @@
         background-color: var(--transparent-20);
     }
 
+    .menu .menu-item.active .button {
+        background-color: var(--transparent-80);
+    }
+
     .menu .menu-item .button img {
         height: 95%;
         filter: invert(0%) sepia(3%) saturate(86%) hue-rotate(337deg) brightness(97%) contrast(77%);
+    }
+
+    .menu .menu-item.active .button img {
+        filter: invert(98%) sepia(0%) saturate(160%) hue-rotate(182deg) brightness(116%) contrast(100%);
+    }
+
+    .menu .menu-item.themes .dropdown,
+    .menu .menu-item.settings .dropdown {
+        right: 0%;
     }
 
     .menu .menu-item .dropdown {
@@ -56,40 +73,43 @@
 
     .menu .menu-item.active .dropdown {
         display: block;
-        background-color: red;
-    }
 
-    
-    
-    
-
-
-
-    
-
-
-    /* #menu .dropdown:first-child {
-    }
-
-    .settings .menu-page,
-    .themes .menu-page {
-        left: -300%;
-    } */
-
-    /* dropdown */
-    /* .dropdown {
-        height: 1.4em;
-        border-radius: 2em;
+        margin: 0%;
+        margin-top: .2em;
         padding: .05em;
-        position: relative;
+        border-radius: .5em;
+
+        list-style: none;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        color: var(--background-80);
+        background-color: var(--transparent-80);
     }
+
+
+    .menu .menu-item.active .dropdown h1 {
+        color: white;
+    }
+    
+    
+    
+
+
+
+    
+
+
+    /* 
+
+
+
+
+    
 
     .dropdown .menu-page li {
         margin: .2em 0px;
     }
 
     .dropdown .menu-page h1 {
-        color: white;
         margin: .2em 0em;
     }
 
@@ -110,13 +130,7 @@
         display: none;
     }
 
-    .dropdown:hover {
-        background-color: var(--transparent-20);
-    }
 
-    .dropdown.active {
-        background-color: var(--transparent-80);
-    }
 
     .dropdown .menu-button {
         display: flex;
@@ -127,13 +141,7 @@
         transition: all var(--transition-speed);
     }
 
-    .dropdown.active .menu-button {
-        filter: invert(98%) sepia(0%) saturate(160%) hue-rotate(182deg) brightness(116%) contrast(100%);
-    }
 
-    .dropdown .menu-button.m-heading {
-        display: none;
-    }
 
     .dropdown .menu-page {
         list-style: none;
@@ -141,9 +149,6 @@
         position: absolute;
 
         font-size: .5em;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        color: var(--background-80);
-        background-color: var(--transparent-80);
 
         padding: 1em;
         margin: 0%;
