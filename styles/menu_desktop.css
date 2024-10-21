@@ -53,7 +53,7 @@
     }
 
     .menu .menu-item .button img {
-        height: 95%;
+        height: 90%;
         filter: invert(0%) sepia(3%) saturate(86%) hue-rotate(337deg) brightness(97%) contrast(77%);
     }
 
@@ -69,17 +69,22 @@
     .menu .menu-item .dropdown {
         position: absolute;
         display: none;
+
+        width: max-content;
     }
 
     .menu .menu-item.active .dropdown {
-        display: block;
+        display: flex;
+        flex-direction: column;
+        gap: .1em;
 
         margin: 0%;
-        margin-top: .2em;
-        padding: .05em;
-        border-radius: .5em;
+        margin-top: .4em;
+        padding: 1.2em .8em;
+        border-radius: 1em;
 
         list-style: none;
+        font-size: 1.2rem;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         color: var(--background-80);
         background-color: var(--transparent-80);
@@ -87,80 +92,34 @@
 
 
     .menu .menu-item.active .dropdown h1 {
+        font-size: 1.8em;
         color: white;
-    }
-    
-    
-    
 
-
-
-    
-
-
-    /* 
-
-
-
-
-    
-
-    .dropdown .menu-page li {
-        margin: .2em 0px;
-    }
-
-    .dropdown .menu-page h1 {
-        margin: .2em 0em;
-    }
-
-    .dropdown .menu-page a {
-        text-decoration: none;
-        color: var(--accent-90);
-    }
-
-    .dropdown .menu-page a:hover {
-        text-decoration: underline;
-    }
-
-    .dropdown.active .menu-page {
-        display: block;
-    }
-
-    .dropdown .m-heading {
-        display: none;
-    }
-
-
-
-    .dropdown .menu-button {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100%;
-
-        transition: all var(--transition-speed);
-    }
-
-
-
-    .dropdown .menu-page {
-        list-style: none;
-        display: none;
-        position: absolute;
-
-        font-size: .5em;
-
-        padding: 1em;
         margin: 0%;
-        margin-top: .5em;
-        border-radius: 1em;
-        min-width: 10em;
+        margin-bottom: .2em;
     }
 
-    .setting {
-        font-size: .8em;
+    .menu .menu-item.active .dropdown h2 {
+        font-size: 1.2em;
+        color: var(--background-90);
+        
+        margin: 0%;
+        margin-top: .4em;
+    }
+
+    .menu .menu-item.active .dropdown li {
         display: flex;
         justify-content: space-between;
         align-items: center;
-    } */
+        gap: 1.2em;
+    }
+
+    .menu .menu-item.active .dropdown a {
+        text-decoration: none;
+        color: var(--accent-90);
+    }
+    
+    .menu .menu-item.active .dropdown a:hover {
+        text-decoration: underline;
+    }
 }
