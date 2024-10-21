@@ -3,6 +3,8 @@ import Calculator from "./src/calculator.js";
 import Operator from "./src/operator.js";
 import { CalculatorKey, DigitKey, OperatorKey } from "./src/calculator_key.js";
 
+import { generate_background } from "./src/bkg_scroll.js";
+
 // html elements
 // =============
 
@@ -22,10 +24,6 @@ const operator_buttons = document.querySelectorAll(".calc-btn.operator");
 
 // menu
 const dropdowns = document.querySelectorAll(".dropdown");
-
-// scrolling background
-const scroll_container = document.querySelector("#scroll-container");
-const row_template = document.querySelector("#scroll-row-template");
 
 // regex
 // =====
@@ -317,25 +315,5 @@ document.querySelector(".hamburger-button").onclick = () => {
   document.querySelector("#menu-wrapper").classList.toggle("open");
 };
 
-// handle text scrolling
-
-for (let i = 0; i < 64; i++) {
-  const row_instance = row_template.content.cloneNode(true);
-  scroll_container.appendChild(row_instance);
-}
-
-document.querySelectorAll(".scroll-row").forEach((element) => {
-  const ul_template = document.querySelector("#scroll-ul-template");
-  for (let i = 0; i < 2; i++) {
-    const ul_instance = ul_template.content.cloneNode(true);
-    element.appendChild(ul_instance);
-  }
-});
-
-document.querySelectorAll(".scroll-row ul").forEach((element) => {
-  const li_template = document.querySelector("#scroll-li-template");
-  for (let i = 0; i < 64; i++) {
-    const li_instance = li_template.content.cloneNode(true);
-    element.appendChild(li_instance);
-  }
-});
+// scrolling background
+generate_background()
