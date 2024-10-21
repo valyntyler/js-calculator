@@ -1,15 +1,11 @@
 // imports
-import generate_background from "./src/bkg_scroll.js";
-import handle_calculator from "./src/calculator_logic.js";
+import handle_calculator from "./src/logic/calculator/calculator_logic.js";
+import generate_background from "./src/logic/background/bkg_scroll.js";
 
-// menu
-const dropdowns = document.querySelectorAll(".dropdown");
+handle_calculator();
+generate_background();
 
-
-
-handle_calculator()
-
-
+// const dropdowns = document.querySelectorAll(".dropdown");
 // handle menu buttons
 // document.onclick = (e) => {
 //   dropdowns.forEach((dropdown) => {
@@ -87,4 +83,3 @@ handle_calculator()
 // };
 
 // scrolling background
-generate_background()

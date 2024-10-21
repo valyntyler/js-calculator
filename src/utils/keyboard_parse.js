@@ -1,5 +1,7 @@
-import { CalculatorKey, DigitKey, OperatorKey } from "../model/calculator_key.js";
+// imports
+import { CalculatorKey, DigitKey, OperatorKey } from "../model/calculator/calculator_key.js"
 
+// regex
 const regex_digit = /\d/;
 const regex_point = /\.|,/;
 

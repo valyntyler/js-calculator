@@ -1,11 +1,11 @@
 // imports
+import parseKey from "../../utils/keyboard_parse.js";
 import {
   CalculatorKey,
   DigitKey,
   OperatorKey,
-} from "./model/calculator_key.js";
-import Operator from "./model/operator.js";
-import parseKey from "./utils/keyboard_parse.js";
+} from "../../model/calculator/calculator_key.js";
+import Operator from "../../model/calculator/operator.js";
 
 // html
 const all_clear_button = document.querySelector(".calc-btn#all-clear");
@@ -64,7 +64,7 @@ function updateVisual(event_key, state) {
       const digitBtn = Array.from(digit_buttons).find(
         (e) => e.innerHTML == key.digit
       );
-      toggleVisual(digitBtn, state)
+      toggleVisual(digitBtn, state);
       break;
     case CalculatorKey.Point.id:
       toggleVisual(point_button, state);
@@ -74,8 +74,8 @@ function updateVisual(event_key, state) {
     case OperatorKey.ID:
       const operatorBtn = Array.from(operator_buttons).find(
         (e) => e.id == key.operator
-      )
-      toggleVisual(operatorBtn, state)
+      );
+      toggleVisual(operatorBtn, state);
       break;
 
     // operations

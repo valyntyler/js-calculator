@@ -1,5 +1,5 @@
 // imports
-import Operator from "./model/operator.js";
+import Operator from "../../model/calculator/operator.js";
 
 // html
 const all_clear_button = document.querySelector(".calc-btn#all-clear");

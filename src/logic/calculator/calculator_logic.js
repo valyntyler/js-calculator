@@ -1,5 +1,5 @@
 // imports
-import Calculator from "./model/calculator.js";
+import Calculator from "../../model/calculator/calculator.js";
 import attachCallbacks from "./calculator_button_logic.js";
 import handleKeyboard from "./calculator_keyboard_logic.js";
 

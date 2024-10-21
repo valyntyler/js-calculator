@@ -43,7 +43,7 @@ export default class Calculator {
       this.#fst_number_string = parseFloat(this.#fst_number_string).toString();
       this.#onchange();
     } else {
-      this.#oncalculationfail()
+      this.#oncalculationfail();
     }
   }
 
