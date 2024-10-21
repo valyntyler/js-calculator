@@ -6,15 +6,10 @@ export default class Calculator {
   #operator = Operator.Empty;
   #previous_calculation = null;
 
-  #onchange = () => {};
-  #oncalculationfail = () => {};
-
   #is_div_zero_allowed = false;
 
-  constructor(onchange = () => {}, oncalcfail = () => {}) {
-    this.#onchange = onchange;
-    this.#oncalculationfail = oncalcfail;
-  }
+  onchange = () => {};
+  onfail = () => {};
 
   get getFirstNumber() {
     return this.#fst_number_string;
@@ -32,22 +27,22 @@ export default class Calculator {
     return this.#previous_calculation;
   }
 
-  get getIsDivZeroAllowed() {
-    return this.#is_div_zero_allowed;
-  }
-
   set setOperator(value) {
     if (this.#operator == Operator.Empty && this.#fst_number_string !== "") {
       this.#operator = value;
       this.#previous_calculation = null;
       this.#fst_number_string = parseFloat(this.#fst_number_string).toString();
-      this.#onchange();
+      this.onchange();
     } else {
-      this.#oncalculationfail();
+      this.onfail();
     }
   }
 
-  set setIsDivZeroAllowed(value) {
+  get isDivZeroAllowed() {
+    return this.#is_div_zero_allowed;
+  }
+
+  set isDivZeroAllowed(value) {
     this.#is_div_zero_allowed = value;
   }
 
@@ -61,16 +56,16 @@ export default class Calculator {
       if (this.#fst_number_string.length + digit.length <= 10) {
         this.#fst_number_string += digit;
       } else {
-        this.#oncalculationfail();
+        this.onfail();
       }
     } else {
       if (this.#snd_number_string.length + digit.length <= 10) {
         this.#snd_number_string += digit;
       } else {
-        this.#oncalculationfail();
+        this.onfail();
       }
     }
-    this.#onchange();
+    this.onchange();
   }
 
   appendDecimal() {
@@ -88,7 +83,7 @@ export default class Calculator {
       ) {
         this.#fst_number_string += ".";
       } else {
-        this.#oncalculationfail();
+        this.onfail();
       }
     } else {
       if (
@@ -97,10 +92,10 @@ export default class Calculator {
       ) {
         this.#snd_number_string += ".";
       } else {
-        this.#oncalculationfail();
+        this.onfail();
       }
     }
-    this.#onchange();
+    this.onchange();
   }
 
   clear() {
@@ -112,9 +107,9 @@ export default class Calculator {
     } else if (this.#fst_number_string !== "") {
       this.#fst_number_string = "";
     } else {
-      this.#oncalculationfail();
+      this.onfail();
     }
-    this.#onchange();
+    this.onchange();
   }
 
   allClear() {
@@ -123,9 +118,9 @@ export default class Calculator {
       this.#fst_number_string = "";
       this.#snd_number_string = "";
       this.#operator = Operator.Empty;
-      this.#onchange();
+      this.onchange();
     } else {
-      this.#oncalculationfail();
+      this.onfail();
     }
   }
 
@@ -135,7 +130,7 @@ export default class Calculator {
       this.#snd_number_string == 0 &&
       this.#operator.id === Operator.Divide.id
     ) {
-      this.#oncalculationfail();
+      this.onfail();
       return;
     }
 
@@ -162,9 +157,9 @@ export default class Calculator {
 
       this.#snd_number_string = "";
       this.#operator = Operator.Empty;
-      this.#onchange();
+      this.onchange();
     } else {
-      this.#oncalculationfail();
+      this.onfail();
     }
   }
 }

@@ -1,6 +1,6 @@
 export default class Settings {
-  static DIV_ZERO_KEY = "div-zero";
-  static BKG_SCRL_KEY = "bkg-scroll";
+  DIV_ZERO_KEY = "div-zero";
+  BKG_SCRL_KEY = "bkg-scroll";
 
   #is_div_zero = false;
   #is_bkg_scrl = true;
@@ -32,6 +32,7 @@ export default class Settings {
 
     this.#is_div_zero = this.#is_div_zero == "true";
     this.#is_bkg_scrl = this.#is_bkg_scrl == "true";
+    
     this.#onchange()
   }
 

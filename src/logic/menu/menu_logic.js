@@ -1,5 +1,3 @@
-import Settings from "../../model/menu/settings.js";
-
 const menu_buttons = document.querySelectorAll(".menu .menu-item .button")
 
 export default function handle_menu() {

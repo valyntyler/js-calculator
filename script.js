@@ -4,63 +4,77 @@ import handle_calculator from "./src/logic/calculator/calculator_logic.js";
 import generate_background from "./src/logic/background/bkg_scroll.js";
 
 import Background from "./src/model/background/background.js";
+import Calculator from "./src/model/calculator/calculator.js";
 import Settings from "./src/model/menu/settings.js";
 
-const bkg_scroll_element = document.querySelector("#scroll-container");
-const div_zero_toggle = document.querySelector("#div-zero")
-const bkg_scrl_toggle = document.querySelector("#bkg-scroll")
+// html
+const panel_screen = document.querySelector("#panel-screen");
 
+const fst_number_element = document.querySelector("#crt-calc #fst-num");
+const snd_number_element = document.querySelector("#crt-calc #snd-num");
+const operator_element = document.querySelector("#crt-calc #operator");
+const prev_calculation = document.querySelector("#prv-calc");
+
+const bkg_scroll_element = document.querySelector("#scroll-container");
+
+const div_zero_toggle = document.querySelector("#div-zero");
+const bkg_scrl_toggle = document.querySelector("#bkg-scroll");
+
+// background
 let bkg = new Background();
 bkg.onchange = () => {
   if (bkg.isScrolling) bkg_scroll_element.classList.add("running");
   else bkg_scroll_element.classList.remove("running");
 };
 
-let settings = new Settings()
-settings.onchange = () => {
-    bkg.isScrolling = settings.isScrollAllowed
-}
+// calculator
+let calc = new Calculator();
+calc.onchange = () => {
+  // update calculation
+  fst_number_element.innerHTML = calc.getFirstNumber;
+  snd_number_element.innerHTML = calc.getSecndNumber;
+  operator_element.innerHTML = calc.getOperator.symbol;
+
+  // update previous calculation
+  const prev_calc = calc.getPreviousCalculation;
+  const prev_calc_string = prev_calc != null ? prev_calc.toString() : "";
+  prev_calculation.innerHTML = prev_calc_string;
+};
+calc.onfail = () => {
+  // return if animation already playing
+  if (panel_screen.getAnimations().length > 0) {
+    return;
+  }
+
+  // toggle animation class
+  panel_screen.classList.remove("error");
+  panel_screen.offsetWidth;
+  panel_screen.classList.add("error");
+};
 
 // settings
-div_zero_toggle.onclick = e => {
-    settings.setIsDivZeroAllowed = e.target.checked
-}
+let settings = new Settings();
+settings.onchange = () => {
+  bkg.isScrolling = settings.isScrollAllowed;
+  calc.isDivZeroAllowed = settings.isDivZeroAllowed;
+};
 
-bkg_scrl_toggle.onclick = e => {
-    settings.setIsScrollAllowed = e.target.checked
-}
+div_zero_toggle.onclick = (e) => {
+  settings.setIsDivZeroAllowed = e.target.checked;
+};
 
+bkg_scrl_toggle.onclick = (e) => {
+  settings.setIsScrollAllowed = e.target.checked;
+};
+
+// reload preferences
 window.onload = () => {
-    settings.fetchLocalStorage()
-}
+  settings.fetchLocalStorage();
+};
 
 handle_menu();
-handle_calculator();
+handle_calculator(calc);
 generate_background();
-
-// function update_div_zero() {
-//   calc.setIsDivZeroAllowed = div_zero_toggle.checked;
-// }
-
-
-// const div_zero_toggle = document.querySelector("#div-zero");
-// const bkg_scroll_toggle = document.querySelector("#bkg-scroll");
-
-// window.addEventListener("load", () => {
-//   load_localstorage();
-//   update_div_zero();
-//   update_bkg_scroll();
-// });
-
-// div_zero_toggle.onchange = () => {
-//   localStorage.setItem(DIV_ZERO_STRING, div_zero_toggle.checked);
-//   update_div_zero();
-// };
-
-// bkg_scroll_toggle.onchange = () => {
-//   localStorage.setItem(BKG_SCROLL_STRING, bkg_scroll_toggle.checked);
-//   update_bkg_scroll();
-// };
 
 // // mobile
 // document.querySelector(".hamburger-button").onclick = () => {
