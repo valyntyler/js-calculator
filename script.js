@@ -1,26 +1,17 @@
 // imports
+import handle_menu from "./src/logic/menu/menu_logic.js";
 import handle_calculator from "./src/logic/calculator/calculator_logic.js";
 import generate_background from "./src/logic/background/bkg_scroll.js";
 
+handle_menu();
 handle_calculator();
 generate_background();
 
-// const dropdowns = document.querySelectorAll(".dropdown");
-// handle menu buttons
-// document.onclick = (e) => {
-//   dropdowns.forEach((dropdown) => {
-//     if (e.target.closest(".dropdown") != dropdown) {
-//       dropdown.classList.remove("active");
-//     }
-//   });
-// };
 
-// document.querySelectorAll(".menu-button").forEach((element) => {
-//   element.onclick = () => {
-//     const dropdown = element.parentElement;
-//     dropdown.classList.toggle("active");
-//   };
-// });
+
+
+
+
 
 // const DIV_ZERO_STRING = "div_zero";
 // const BKG_SCROLL_STRING = "bkg_scroll";
@@ -81,5 +72,3 @@ generate_background();
 // document.querySelector(".hamburger-button").onclick = () => {
 //   document.querySelector("#menu-wrapper").classList.toggle("open");
 // };
-
-// scrolling background
