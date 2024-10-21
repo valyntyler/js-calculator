@@ -7,7 +7,7 @@ export default class Background {
   }
 
   set isScrolling(value) {
-    this.onchange()
     this.#isScrolling = value;
+    this.onchange()
   }
 }

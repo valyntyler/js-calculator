@@ -1,68 +1,67 @@
 export default class Settings {
-    static DIV_ZERO_KEY = "div-zero"
-    static BKG_SCRL_KEY = "bkg-scroll"
-    
-    #is_div_zero = false;
-    #is_scroll = true;
+  static DIV_ZERO_KEY = "div-zero";
+  static BKG_SCRL_KEY = "bkg-scroll";
 
-    onchange = () => {}
-    #onchange = () => {
-        this.onchange()
-        this.pushLocalStorage()
-    }
-    
-    constructor(isDivZeroAllowed, isScrollAllowed) {
-        this.#is_div_zero = isDivZeroAllowed;
-        this.#is_scroll = isScrollAllowed
-    }
+  #is_div_zero = false;
+  #is_bkg_scrl = true;
 
-    static fetchLocalStorage() {
-        const div_zero = localStorage.getItem(this.DIV_ZERO_KEY)
-        const bkg_scrl = localStorage.getItem(this.BKG_SCRL_KEY)
+  onchange = () => {};
+  #onchange = () => {
+    this.onchange();
+    this.pushLocalStorage();
+  };
 
-        const div_zero_default = Settings.getDefault().isDivZeroAllowed
-        const bkg_scrl_default = Settings.getDefault().isScrollAllowed
+  constructor(isDivZeroAllowed, isScrollAllowed) {
+    this.#is_div_zero = isDivZeroAllowed;
+    this.#is_bkg_scrl = isScrollAllowed;
+  }
 
-        return new Settings(
-            div_zero === null ? div_zero_default : div_zero,
-            bkg_scrl === null ? bkg_scrl_default : bkg_scrl
-        )
-    }
+  static getDefault() {
+    return new Settings(false, !isMotionSensible());
+  }
 
-    static getDefault() {
-        return new Settings(
-            false,
-            !isMotionSensible()
-        )
-    }
+  fetchLocalStorage() {
+    const div_zero = localStorage.getItem(this.DIV_ZERO_KEY);
+    const bkg_scrl = localStorage.getItem(this.BKG_SCRL_KEY);
 
-    pushLocalStorage() {
-        localStorage.setItem(this.DIV_ZERO_KEY, this.#is_div_zero)
-        localStorage.setItem(this.BKG_SCRL_KEY, this.#is_scroll)
-    }
+    const div_zero_default = Settings.getDefault().isDivZeroAllowed;
+    const bkg_scrl_default = Settings.getDefault().isScrollAllowed;
 
-    get isDivZeroAllowed() {
-        return this.#is_div_zero
-    }
+    this.#is_div_zero = div_zero === null ? div_zero_default : div_zero;
+    this.#is_bkg_scrl = bkg_scrl === null ? bkg_scrl_default : bkg_scrl;
 
-    get isScrollAllowed() {
-        return this.#is_scroll
-    }
+    this.#is_div_zero = this.#is_div_zero == "true";
+    this.#is_bkg_scrl = this.#is_bkg_scrl == "true";
+    this.#onchange()
+  }
 
-    set setIsDivZeroAllowed(value) {
-        this.#is_div_zero = value
-        this.#onchange()
-    }
+  pushLocalStorage() {
+    localStorage.setItem(this.DIV_ZERO_KEY, this.#is_div_zero);
+    localStorage.setItem(this.BKG_SCRL_KEY, this.#is_bkg_scrl);
+  }
 
-    set setIsScrollAllowed(value) {
-        this.#is_scroll = value
-        this.#onchange()
-    }
+  get isDivZeroAllowed() {
+    return this.#is_div_zero;
+  }
+
+  get isScrollAllowed() {
+    return this.#is_bkg_scrl;
+  }
+
+  set setIsDivZeroAllowed(value) {
+    this.#is_div_zero = value;
+    this.#onchange();
+  }
+
+  set setIsScrollAllowed(value) {
+    this.#is_bkg_scrl = value;
+    this.#onchange();
+  }
 }
 
 function isMotionSensible() {
-    return (
-        window.matchMedia(`(prefers-reduced-motion: reduce)`) === true ||
-        window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true
-    )
+  return (
+    window.matchMedia(`(prefers-reduced-motion: reduce)`) === true ||
+    window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true
+  );
 }

@@ -3,51 +3,45 @@ import handle_menu from "./src/logic/menu/menu_logic.js";
 import handle_calculator from "./src/logic/calculator/calculator_logic.js";
 import generate_background from "./src/logic/background/bkg_scroll.js";
 
+import Background from "./src/model/background/background.js";
+import Settings from "./src/model/menu/settings.js";
+
+const bkg_scroll_element = document.querySelector("#scroll-container");
+const div_zero_toggle = document.querySelector("#div-zero")
+const bkg_scrl_toggle = document.querySelector("#bkg-scroll")
+
+let bkg = new Background();
+bkg.onchange = () => {
+  if (bkg.isScrolling) bkg_scroll_element.classList.add("running");
+  else bkg_scroll_element.classList.remove("running");
+};
+
+let settings = new Settings()
+settings.onchange = () => {
+    bkg.isScrolling = settings.isScrollAllowed
+}
+
+// settings
+div_zero_toggle.onclick = e => {
+    settings.setIsDivZeroAllowed = e.target.checked
+}
+
+bkg_scrl_toggle.onclick = e => {
+    settings.setIsScrollAllowed = e.target.checked
+}
+
+window.onload = () => {
+    settings.fetchLocalStorage()
+}
+
 handle_menu();
 handle_calculator();
 generate_background();
-
-
-
-
-
-
-
-// const DIV_ZERO_STRING = "div_zero";
-// const BKG_SCROLL_STRING = "bkg_scroll";
-
-// function load_localstorage() {
-//   const div_zero_local = localStorage.getItem(DIV_ZERO_STRING);
-//   const bkg_scroll_local = localStorage.getItem(BKG_SCROLL_STRING);
-
-//   const isReduced =
-//     window.matchMedia(`(prefers-reduced-motion: reduce)`) === true ||
-//     window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true;
-
-//   const default_div_zero = false;
-//   const default_bkg_scroll = !isReduced;
-
-//   div_zero_toggle.checked =
-//     div_zero_local === null ? default_div_zero : div_zero_local === "true";
-//   bkg_scroll_toggle.checked =
-//     bkg_scroll_local === null
-//       ? default_bkg_scroll
-//       : bkg_scroll_local === "true";
-
-//   update_bkg_scroll();
-// }
 
 // function update_div_zero() {
 //   calc.setIsDivZeroAllowed = div_zero_toggle.checked;
 // }
 
-// function update_bkg_scroll() {
-//   if (bkg_scroll_toggle.checked) {
-//     document.querySelector("#scroll-container").classList.add("running");
-//   } else {
-//     document.querySelector("#scroll-container").classList.remove("running");
-//   }
-// }
 
 // const div_zero_toggle = document.querySelector("#div-zero");
 // const bkg_scroll_toggle = document.querySelector("#bkg-scroll");
