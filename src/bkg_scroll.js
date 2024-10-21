@@ -1,4 +1,4 @@
-export function generate_background() {
+export default function generate_background() {
     const scroll_container = document.querySelector("#scroll-container");
     const row_template = document.querySelector("#scroll-row-template");
 

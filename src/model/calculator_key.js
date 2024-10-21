@@ -6,7 +6,7 @@ export class CalculatorKey {
 
     constructor(value) {
         this.id = value
-    }
+    } 
 }
 
 export class DigitKey extends CalculatorKey {
