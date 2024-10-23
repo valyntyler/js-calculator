@@ -4,11 +4,6 @@
     --transparent-40: #1e1e1e6e;
     --transparent-20: #1e1e1e2f;
     
-    /*
-    --cream-00: #4A4B40;
-
-    */
-
     --grey-00: #1e1e1e;
 
     --cream-80: #BDBCAD;
@@ -19,7 +14,8 @@
 
     --teal-60: #45837C;
     --teal-40: #31605A;
-    --teal-20: #1D2D2B;
+    --teal-20: #234642;
+    --teal-00: #1D2D2B;
     
 
     /*  */
@@ -30,13 +26,13 @@
 
     /*  */
 
-    --bkg-primary: var(--teal-60);
+    --bkg-primary: var(--teal-20);
     --bkg-secondary: var(--teal-40);
 
     /*  */
 
     --panel-edge-color: var(--grey-00);
-    --panel-screen-color: var(--teal-20);
+    --panel-screen-color: var(--teal-00);
 
     --panel-text-primary: var(--teal-60);
     --panel-text-secondary: var(--teal-40);
