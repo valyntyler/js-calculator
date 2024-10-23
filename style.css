@@ -1,0 +1,28 @@
+@font-face {
+    font-family: "Concert One";
+    src: url("fonts/concert-one.ttf");
+}
+
+@font-face {
+    font-family: "CF Caltre";
+    src: url("fonts/cf-caltre.ttf");
+}
+
+:root {
+    --transition-speed: 150ms;
+    --shake-duration: 400ms;
+    --shake-distance: 0.15em;
+}
+
+body {
+    font-size: clamp(16px, 4.8vh, 40px);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+
+    padding: 0%;
+    margin: 0%;
+    width: 100%;
+}
