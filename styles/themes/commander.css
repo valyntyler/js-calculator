@@ -1,0 +1,74 @@
+.commander {
+    --transparent-80: #1e1e1ebe;
+    --transparent-60: #1e1e1e8f;
+    --transparent-40: #1e1e1e6e;
+    --transparent-20: #1e1e1e2f;
+    
+    /*
+    --cream-00: #4A4B40;
+
+    */
+
+    --red-70: #EEA5A5;
+    --red-50: #DD7070;
+    --red-30: #A74242;
+
+    --blue-70: #64708E;
+    --blue-50: #454F69;
+    --blue-30: #313848;
+
+    --grey-20: #2C2C2C;
+    --grey-00: #1e1e1e;
+
+    --cream-60: #FFFCF5;
+    --cream-40: #E9E3D9;
+    --cream-20: #938F89;
+
+    --mint-50: #5B7463;
+    --mint-40: #405547;
+    --mint-30: #304136;
+    
+
+    /*  */
+    /*  */
+
+    --bkg-primary: var(--mint-40);
+    --bkg-secondary: var(--mint-50);
+
+    /*  */
+
+    --panel-edge-color: var(--grey-00);
+    --panel-screen-color: var(--mint-50);
+
+    --panel-text-primary: var(--mint-30);
+    --panel-text-secondary: var(--mint-40);
+
+    /*  */
+
+    --calculator-background: var(--grey-20);
+    --calculator-shadow: var(--grey-00);
+
+    --calc-btn-all-clear-primary: var(--blue-70);
+    --calc-btn-all-clear-secondary: var(--blue-50);
+    --calc-btn-all-clear-accent: var(--blue-30);
+
+    --calc-btn-clear-primary: var(--cream-60);
+    --calc-btn-clear-secondary: var(--cream-40);
+    --calc-btn-clear-accent: var(--cream-20);
+
+    --calc-btn-digit-primary: var(--cream-60);
+    --calc-btn-digit-secondary: var(--cream-40);
+    --calc-btn-digit-accent: var(--cream-20);
+
+    --calc-btn-operator-primary: var(--blue-70);
+    --calc-btn-operator-secondary: var(--blue-50);
+    --calc-btn-operator-accent: var(--blue-30);
+
+    --calc-btn-equals-primary: var(--red-50);
+    --calc-btn-equals-secondary: var(--red-30);
+    --calc-btn-equals-accent: var(--red-70);
+
+    /*  */
+
+    --toggle-primary: var(--accent-90);
+}
