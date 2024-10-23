@@ -1,60 +1,65 @@
 
 .switchbox {
-    --accent-90: #eb9442;
-    --accent-80: #5f7962;
-    --accent-60: #e24dce;
-    --accent-40: #2d4830;
-    --accent-20: #213323;
-    --background-90: #D3CFC5;
-    --background-80: #f5b400;
-    --background-60: #c2bdae;
-    --background-40: #978f7c;
-    --background-20: #726c5d;
-    --background-10: #12494b;
-    --background-00: #1e1e1e;
     --transparent-80: #1e1e1ebe;
     --transparent-60: #1e1e1e8f;
     --transparent-40: #1e1e1e6e;
     --transparent-20: #1e1e1e2f;
+    
+
+    --orange-70: #F3AC79;
+    --orange-50: #E58D4D;
+    --orange-30: #C3753C;
+
+    --mint-50: #5B7463;
+    --mint-40: #405547;
+    --mint-30: #304136;
+    
+    --cream-80: #BDBCAD;
+    --cream-60: #A6A491;
+    --cream-40: #888779;
+    --cream-20: #626255;
+    --cream-00: #4A4B40;
+
+    --gray: #232625;
 
     /*  */
     /*  */
 
-    --bkg-primary: var(--accent-60);
-    --bkg-secondary: var(--accent-80);
+    --bkg-primary: var(--mint-40);
+    --bkg-secondary: var(--mint-50);
 
     /*  */
 
-    --calculator-background: var(--background-80);
-    --calculator-shadow: var(--background-00);
+    --calculator-background: var(--cream-80);
+    --calculator-shadow: var(--gray);
 
-    --calc-btn-all-clear-primary: var(--background-40);
-    --calc-btn-all-clear-secondary: var(--background-20);
-    --calc-btn-all-clear-accent: var(--background-10);
+    --calc-btn-all-clear-primary: var(--cream-40);
+    --calc-btn-all-clear-secondary: var(--cream-20);
+    --calc-btn-all-clear-accent: var(--cream-00);
 
-    --calc-btn-clear-primary: var(--background-60);
-    --calc-btn-clear-secondary: var(--background-40);
-    --calc-btn-clear-accent: var(--background-20);
+    --calc-btn-clear-primary: var(--cream-60);
+    --calc-btn-clear-secondary: var(--cream-40);
+    --calc-btn-clear-accent: var(--cream-20);
 
-    --calc-btn-digit-primary: var(--background-60);
-    --calc-btn-digit-secondary: var(--background-40);
-    --calc-btn-digit-accent: var(--background-20);
+    --calc-btn-digit-primary: var(--cream-60);
+    --calc-btn-digit-secondary: var(--cream-40);
+    --calc-btn-digit-accent: var(--cream-20);
 
-    --calc-btn-operator-primary: var(--background-40);
-    --calc-btn-operator-secondary: var(--background-20);
-    --calc-btn-operator-accent: var(--background-10);
+    --calc-btn-operator-primary: var(--cream-40);
+    --calc-btn-operator-secondary: var(--cream-20);
+    --calc-btn-operator-accent: var(--cream-00);
 
-    --calc-btn-equals-primary: var(--accent-80);
-    --calc-btn-equals-secondary: var(--accent-60);
-    --calc-btn-equals-accent: var(--accent-40);
+    --calc-btn-equals-primary: var(--orange-50);
+    --calc-btn-equals-secondary: var(--orange-30);
+    --calc-btn-equals-accent: var(--orange-70);
 
     /*  */
 
-    --panel-edge-color: var(--background-00);
-    --panel-screen-color: var(--accent-60);
+    --panel-edge-color: var(--gray);
+    --panel-screen-color: var(--mint-50);
 
-    --panel-text-primary: var(--accent-20);
-    --panel-text-secondary: var(--accent-40);
+    --panel-text-primary: var(--mint-30);
+    --panel-text-secondary: var(--mint-40);
 
     /*  */
 
