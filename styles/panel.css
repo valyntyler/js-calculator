@@ -1,7 +1,7 @@
 #panel-edge {
     background-color: var(--panel-edge-color);
     border-radius: .4em;
-    padding: .8em;
+    padding: .6em .8em;
     width: 7em;
 }
 
@@ -14,7 +14,7 @@
     flex-direction: column;
     justify-content: space-between;
 
-    aspect-ratio: 2.4;
+    aspect-ratio: 2.2;
     padding: .2em;
     border-radius: .4em;
 }
