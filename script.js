@@ -24,6 +24,9 @@ const bkg_scrl_toggle = document.querySelector("#bkg-scroll");
 const root_element = document.querySelector("html");
 const theme_selects = document.querySelectorAll("input[name=theme]")
 
+const menu_element = document.querySelector(".menu")
+const menu_button = document.querySelector("#menu-button")
+
 // background
 let bkg = new Background();
 bkg.onchange = () => {
@@ -93,7 +96,7 @@ handle_menu();
 handle_calculator(calc);
 generate_background();
 
-// // mobile
-// document.querySelector(".hamburger-button").onclick = () => {
-//   document.querySelector("#menu-wrapper").classList.toggle("open");
-// };
+// mobile
+menu_button.onclick = () => {
+  menu_element.classList.toggle("open")
+}
