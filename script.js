@@ -62,8 +62,11 @@ calc.onfail = () => {
 // settings
 let settings = new Settings();
 settings.onchange = () => {
-  bkg.isScrolling = settings.isScrollAllowed;
   calc.isDivZeroAllowed = settings.isDivZeroAllowed;
+  bkg.isScrolling = settings.isScrollAllowed;
+  
+  div_zero_toggle.checked = settings.isDivZeroAllowed
+  bkg_scrl_toggle.checked = settings.isScrollAllowed
 };
 
 div_zero_toggle.onclick = (e) => {
