@@ -28,10 +28,10 @@ export default class Theme {
   }
 
   fetchLocalStorage() {
-    const default_theme = Theme.Shell;
-    const local_theme = localStorage.getItem(Theme.THEME_KEY); 
-    
-    this.id = (local_theme === null ? default_theme.id : local_theme.id)
+    const default_theme_id = Theme.Shell.id;
+    const local_theme_id = localStorage.getItem(Theme.THEME_KEY)
+
+    this.id = local_theme_id === null ? default_theme_id : local_theme_id;
   }
 
   pushLocalStorage() {
