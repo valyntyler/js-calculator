@@ -78,6 +78,12 @@ bkg_scrl_toggle.onclick = (e) => {
 let theme = new Theme();
 theme.onchange = () => {
   root_element.className = theme.id
+  theme_selects.forEach(select => {
+    select.checked = false
+    if (select.value === theme.id) {
+      select.checked = true
+    }
+  });
 }
 
 theme_selects.forEach((select) => {
