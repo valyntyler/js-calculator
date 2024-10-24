@@ -6,8 +6,10 @@
     }
 
     /* ajust calculator position */
-    #calculator {
-        margin-top: 55%;
+    .wrapper {
+        display: flex;
+        align-items: center;
+        height: 100vh;
     }
 
     /* style menu */
