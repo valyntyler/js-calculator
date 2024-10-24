@@ -58,6 +58,11 @@
     --panel-text-secondary: var(--greyblue-40);
 
     /*  */
-
-    --toggle-primary: var(--accent-90);
+    --text-secondary: var(--cream-80);
+    --text-tertiary: var(--cream-60);
+    --text-accent: var(--purple-50);
+    
+    --toggle-primary: var(--text-accent);
+    --radio-primary: var(--text-accent);
+    --link-primary: var(--text-accent);
 }

@@ -86,7 +86,7 @@
         list-style: none;
         font-size: 1.2rem;
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        color: var(--background-80);
+        color: var(--text-tertiary);
         background-color: var(--transparent-80);
     }
 
@@ -101,7 +101,7 @@
 
     .menu .menu-item.active .dropdown h2 {
         font-size: 1.2em;
-        color: var(--background-90);
+        color: var(--text-secondary);
         
         margin: 0%;
         margin-top: .4em;
@@ -116,7 +116,7 @@
 
     .menu .menu-item.active .dropdown a {
         text-decoration: none;
-        color: var(--accent-90);
+        color: var(--link-primary);
     }
     
     .menu .menu-item.active .dropdown a:hover {

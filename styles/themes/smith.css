@@ -60,6 +60,11 @@
     --calc-btn-equals-accent: var(--teal-20);
 
     /*  */
-
-    --toggle-primary: var(--accent-90);
+    --text-secondary: var(--cream-80);
+    --text-tertiary: var(--cream-60);
+    --text-accent: var(--teal-60);
+    
+    --toggle-primary: var(--text-accent);
+    --radio-primary: var(--text-accent);
+    --link-primary: var(--text-accent);
 }

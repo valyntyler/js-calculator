@@ -57,5 +57,11 @@
 
     /*  */
 
-    --toggle-primary: var(--accent-90);
+    --text-secondary: var(--background-90);
+    --text-tertiary: var(--background-80);
+    --text-accent: var(--accent-90);
+    
+    --toggle-primary: var(--text-accent);
+    --radio-primary: var(--text-accent);
+    --link-primary: var(--text-accent);
 }

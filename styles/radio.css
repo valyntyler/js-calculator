@@ -4,7 +4,11 @@ input[name=theme] {
     width: 0;
 }
 
+.theme-select-label input[name=theme]+label {
+    color: var(--text-secondary);
+}
+
 .theme-select-label input[name=theme]:checked+label {
-    color: red;
+    color: var(--radio-primary);
     font-weight: bold;
 }
