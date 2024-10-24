@@ -50,8 +50,12 @@ function setButtonCallbacks(btn, onclick) {
     btn.classList.remove("pressed");
   };
 
+  btn.ontouchstart = toggleVisualOn;
+  btn.ontouchend = toggleVisualOff;
+
   btn.onmousedown = toggleVisualOn;
   btn.onmouseup = toggleVisualOff;
   btn.onmouseout = toggleVisualOff;
+
   btn.onclick = onclick;
 }
