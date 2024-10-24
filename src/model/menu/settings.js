@@ -30,8 +30,8 @@ export default class Settings {
     this.#is_div_zero = div_zero === null ? div_zero_default : div_zero;
     this.#is_bkg_scrl = bkg_scrl === null ? bkg_scrl_default : bkg_scrl;
 
-    this.#is_div_zero = this.#is_div_zero == "true";
-    this.#is_bkg_scrl = this.#is_bkg_scrl == "true";
+    this.#is_div_zero = this.#is_div_zero === "true" || this.#is_div_zero === true;
+    this.#is_bkg_scrl = this.#is_bkg_scrl === "true" || this.#is_bkg_scrl === true;
     
     this.#onchange()
   }
