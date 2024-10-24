@@ -10,8 +10,8 @@ export default class Theme {
 
   #id = null;
   #onchange = () => {
-    this.pushLocalStorage();
     this.onchange();
+    this.pushLocalStorage();
   };
 
   constructor(id) {
@@ -29,9 +29,9 @@ export default class Theme {
 
   fetchLocalStorage() {
     const default_theme = Theme.Shell;
-    const local_theme = localStorage.getItem(Theme.THEME_KEY);
-
-    this.id = local_theme !== null ? local_theme : default_theme;
+    const local_theme = localStorage.getItem(Theme.THEME_KEY); 
+    
+    this.id = (local_theme === null ? default_theme.id : local_theme.id)
   }
 
   pushLocalStorage() {
