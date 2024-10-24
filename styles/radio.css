@@ -1,0 +1,10 @@
+input[name=theme] {
+    opacity: 0;
+    position: fixed;
+    width: 0;
+}
+
+.theme-select-label input[name=theme]:checked+label {
+    color: red;
+    font-weight: bold;
+}
