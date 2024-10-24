@@ -6,6 +6,7 @@ import generate_background from "./src/logic/background/bkg_scroll.js";
 import Background from "./src/model/background/background.js";
 import Calculator from "./src/model/calculator/calculator.js";
 import Settings from "./src/model/menu/settings.js";
+import Theme from "./src/model/menu/theme.js";
 
 // html
 const panel_screen = document.querySelector("#panel-screen");
@@ -19,6 +20,9 @@ const bkg_scroll_element = document.querySelector("#scroll-container");
 
 const div_zero_toggle = document.querySelector("#div-zero");
 const bkg_scrl_toggle = document.querySelector("#bkg-scroll");
+
+const root_element = document.querySelector("html");
+const theme_selects = document.querySelectorAll("input[name=theme]")
 
 // background
 let bkg = new Background();
@@ -67,9 +71,22 @@ bkg_scrl_toggle.onclick = (e) => {
   settings.setIsScrollAllowed = e.target.checked;
 };
 
+// themes
+let theme = new Theme();
+theme.onchange = () => {
+  root_element.className = theme.id
+}
+
+theme_selects.forEach((select) => {
+  select.onclick = () => {
+    theme.id = select.value
+  };
+});
+
 // reload preferences
 window.onload = () => {
   settings.fetchLocalStorage();
+  theme.fetchLocalStorage();
 };
 
 handle_menu();
