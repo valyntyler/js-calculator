@@ -8,6 +8,10 @@ input[name=theme] {
     color: var(--text-secondary);
 }
 
+.theme-select-label input[name=theme]:hover+label {
+    text-decoration: underline;
+}
+
 .theme-select-label input[name=theme]:checked+label {
     color: var(--radio-primary);
     font-weight: bold;
