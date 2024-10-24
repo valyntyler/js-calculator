@@ -4,6 +4,7 @@
     --transparent-40: #1e1e1e6e;
     --transparent-20: #1e1e1e2f;
     
+    --grey-20:  rgb(48, 48, 48);
     --grey-00: #1e1e1e;
 
     --cream-80: #BDBCAD;
@@ -67,4 +68,7 @@
     --toggle-primary: var(--text-accent);
     --radio-primary: var(--text-accent);
     --link-primary: var(--text-accent);
+
+    --menu-background-primary: var(--grey-00);
+    --menu-background-secondary: var(--grey-20);
 }

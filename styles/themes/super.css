@@ -19,7 +19,8 @@
     --cream-20: #585F65;
     --cream-00: #454B50;
 
-    --gray: #080808;
+    --grey-20: rgb(32, 32, 32);
+    --grey-00: #080808;
 
     --bkg-primary: var(--greyblue-40);
     --bkg-secondary: var(--greyblue-50);
@@ -27,7 +28,7 @@
     /*  */
 
     --calculator-background: var(--grey-80);
-    --calculator-shadow: var(--gray);
+    --calculator-shadow: var(--grey-00);
 
     --calc-btn-all-clear-primary: var(--cream-40);
     --calc-btn-all-clear-secondary: var(--cream-20);
@@ -51,7 +52,7 @@
 
     /*  */
 
-    --panel-edge-color: var(--gray);
+    --panel-edge-color: var(--grey-00);
     --panel-screen-color: var(--greyblue-50);
 
     --panel-text-primary: var(--greyblue-30);
@@ -65,4 +66,7 @@
     --toggle-primary: var(--text-accent);
     --radio-primary: var(--text-accent);
     --link-primary: var(--text-accent);
+ 
+    --menu-background-primary: var(--grey-00);
+    --menu-background-secondary: var(--grey-20);
 }

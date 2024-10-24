@@ -23,7 +23,7 @@
     }
 
     .menu.open {
-        background-color: rgb(48, 48, 48);
+        background-color: var(--menu-background-secondary);
     }
 
     /*  style top bar */
@@ -38,7 +38,7 @@
         justify-content: space-between;
         align-items: center;
 
-        background-color: black;
+        background-color: var(--menu-background-primary);
     }
 
     .menu .top-bar .title {

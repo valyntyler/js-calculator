@@ -64,4 +64,7 @@
     --toggle-primary: var(--text-accent);
     --radio-primary: var(--text-accent);
     --link-primary: var(--text-accent);
+    
+    --menu-background-primary: var(--background-00);
+    --menu-background-secondary: rgb(48, 48, 48);
 }
